@@ -23,6 +23,7 @@
         padding-top: 60px;
         background-image:url("background.png");
         background-color:#f1f1f1;
+        font-style:"ubuntu";
       }
       
       .btn-group img{
@@ -47,7 +48,7 @@
         font-weight:bold;
         line-height: 24px;
       }
-      .dropdown-toggle{
+      .nav-collapse .dropdown-toggle{
          height:25px;
       }
       .well{
@@ -55,17 +56,21 @@
         margin-left:0px;
       }
 
-      .span4{
+      .sides{
+        
         /*background-color: #eee;*/
         height:400px;
         /*box-shadow:0 0 1.3px 0 #ccc;*/
         width: 205px;
         top: 69px;
-        margin-left: -22px;
+        
+        
       }
-      .span8{
-        margin-right: 10px;
-        width:540px;
+      .middle{
+          
+        
+        padding:20px;
+        width:526px;
         height: 800px;
         /*border-left: 1px solid #ddd;*/
         /*-webkit-box-shadow: 1px 1px 2px 1px #ccc;*/
@@ -77,15 +82,24 @@
         /*-moz-border-radius: 4px;*/
         /*border-top-left-radius: 0px;*/
         border-left: 1px solid #ccc;
+        
       }
-      .left-sidebar{
-        background-color: transparent;
+      .right-sidebar{
+        
         height:800px;
-        margin-left:10px;
+        margin-left:1px;
         border-left: 1px solid #ccc!important;
 
 
       }
+      .separator{
+        width:567px;
+        margin:0px;
+        margin-left:-20px;
+        height:1px;
+        background:#ccc;
+      }
+
 
       .btn-group{
         margin-right:30px;
@@ -97,11 +111,13 @@
       }
 
       .tabs-left .nav-tabs{
-        margin-right: 19px;
+        
+          
+        
         width: 190px;
         /*box-shadow: -1px 1px 2px 1px #ccc;*/
         padding: 10px;
-        padding-right: 0px;
+        padding-right: -0px;
         border-top-left-radius:4px;
         border-bottom-left-radius:4px;
       }
@@ -114,12 +130,19 @@
        /*background-image:-webkit-linear-gradient(left,#fff, #eee);*/
        border-radius: 17px 0 0 17px;
       }
-      .nav > li > a:hover{
+      #right-nav > li > a:hover{
         background-color: transparent;
       }
-      .nav > li > a{
+      #right-nav > li > a{
         background-color: #F6f6F6;
       }
+
+      .navbar-inner .nav-collapse .nav{
+        
+        margin-top:5px;
+        margin-left:450px;
+      }
+
     </style>
 
     <!-- Le fav and touch icons -->
@@ -142,20 +165,17 @@
           <a class="brand" href="#">
             <span>D</span><span>i</span><span>n</span><span>o</span><span>b</span><span>o</span><span>t</span>
           </a>
-          <!-- <div class="nav-collapse">
+          <div class="nav-collapse">
             <ul class="nav">
-              <li class="active"><a href="#">+You</a></li>
-              <li><a href="#about">Home</a></li>
-              <li><a href="#contact">Circles</a></li>
-              <li><a href="#contact">Photos</a></li>
-              <li><a href="#contact">Messages</a></li>
-            </ul> -->
+              <li><a href="#"> <i class="icon-white icon-user"></i></a></li>
+              <li><a href="#"> <i class="icon-white icon-envelope"></i></a></li>
+              <li><a href="#"> <i class="icon-white icon-flag"></i></a></li>
+            </ul> 
 
-
+              
             <div class="user pull-right">
                 
                 <div class="btn-group">
-                
                   <a id="user-btn" class="btn" href="#"><img class="pull-right" src="pic.png">Herp Derp</a>
                   <a class="btn dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
                   
@@ -167,8 +187,9 @@
                     <li><a href="#">Logout</a></li>
                   </ul>
               </div>
-            </div>
 
+            </div>
+                
           </div><!--/.nav-collapse -->
         </div>
       </div>
@@ -176,8 +197,44 @@
 
     <div id="main-container" class="container">
       <div class="row">
-        <div class="span4">
+        <div class="span4 sides">
+          <div class="profile-box">
+
+            <div class="top-profile-box" >
+              <div class="row-fluid">
+                <div class="span4">
+                  <img src="pic.png">
+                </div>
+                <div class="span8">
+                  <a href="#"><h4>Herp El Derp  <i class="icon-ok-sign icon-white"></i> </h4><a>
+                  <a href="#"><h5>Edit my profile</h5><a>
+                </div>
+            </div><!-- /row fluid -->
+            
+          </div><!-- /top-profile-box --> 
           
+           <div class="bottom-profile-box" >
+              <div class="row-fluid">
+                <div class="span4" id="part1">
+                <i class="icon-heart icon-white"></i>
+                <a href="#"><h5>Fans</h5><h5>124</h5><a>
+                  
+                </div>
+                <div class="span4" id="part2">
+                 <i class="icon-user icon-white"></i>
+                 <a href="#"><h5>Friends</h5><h5>44</h5><a>
+                </div>
+
+                  <div class="span4" id="part3">
+                  <i class="icon-share icon-white"></i>
+                  <a href="#"><h5>Sharing</h5><h5>12</h5><a>
+                </div>
+               
+            </div><!-- /row fluid -->
+            
+          </div><!-- /bottom-profile-box --> 
+            
+        </div><!-- /profile-box -->  
           <!-- <div class="well">
             <ul class="nav nav-list">
               <li class="nav-header">Main Links</li>
@@ -194,7 +251,7 @@
           </div> -->
 
           <div class="tabbable tabs-left">
-            <ul class="nav nav-tabs">
+            <ul class="nav nav-tabs" id="right-nav">
               <li class="active"><a href="#lA" data-toggle="tab"><i class="icon-home"></i> Home</a></li>
               <li class=""><a href="#lB" data-toggle="tab"><i class="icon-user"></i> Profile</a></li>
               <li class=""><a href="#lC" data-toggle="tab"><i class="icon-envelope"></i> Messages</a></li>
@@ -235,12 +292,43 @@
           </div>
         </div>
         
-        <div class="span8">
+        <div class="span8 middle">
+          <h1>Timline</h1>
+          <div class="share-box">
+            <textarea class="text-area" placeholder="What's in your Fuckin Mind Motha Fucka !!" rows="3"></textarea>
+
+
+            <div class="setting-area">
+
+                <div class="setting pull-right">
+                  <a href="#"><i class="icon-play"></i></a>
+                  <a href="#"><i class="icon-camera"></i></a>
+                  <a href="#"><i class="icon-map-marker"></i></a> 
+                  <a href="#"><i class="icon-tag"></i></a>
+                </div>
+                <div class="btn-group pull-left">
+                  <a class="btn btn-small  btn-success dropdown-toggle" data-toggle="dropdown" href="#">Public <span class="caret"></span></a>
+                  <ul class="dropdown-menu ">
+                    <li><a href="#">Public</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">Friends</a></li>
+                    <li><a href="#">Family</a></li>
+                    <li><a href="#">Co-Workers</a></li>
+                     <li class="divider"></li>
+                    <li><a href="#">Specific People</a></li>
+                  </ul>
+                </div> 
+                       
+            </div>
+            <button type="submit" class="btn btn-primary pull-right"><i class="icon-share icon-white"></i> Share</button>
+          </div>
+          <hr class="separator">
         </div>
 
-        <div class="span4 left-sidebar">
-        </div>
-      </div>
+        <div class="span4 right-sidebar sides">
+          
+          
+      </div><!-- /right-sidebar--> 
     </div> <!-- /container -->
 
    <!--  <footer class="footer"> 

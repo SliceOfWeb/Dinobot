@@ -1,4 +1,8 @@
 
+h1,h2,h3,h4,h5,h6{
+	font-family:"ubuntu";
+}
+
 /*
 footer style
 */
@@ -33,12 +37,12 @@ footer style
   	margin-bottom:0px;
   	right:0px;
   	left:0px;
-  	margin-top: 10px;
+  	
 	height: 89px;
 	font-size: 10px;
 	padding: 5px !important;
 	width: 170px;
-	margin-left: 18px !important;
+	margin-left: 13px !important;
 	border-radius: 6px;
 }
 
@@ -144,4 +148,105 @@ info List
 	text-align:center;
 	
 
+}
+
+/*
+info List
+*/
+
+.share-box{
+		
+	height:200px;
+	
+
+	
+}
+.text-area{
+	
+	width:490px;
+	margin:2px;
+	border:1px solid #ccc;	
+	height:70px;
+	color:black;
+	background-color:transparent;
+	padding:15px;
+	
+}
+
+.setting-area{
+	margin:2px;
+	border:1px solid #ccc;
+	height:30px;
+	padding-left:3px;
+	padding-right:3px;
+	margin-bottom:5px;
+	
+}
+
+.setting-area .btn-small{
+	height:15px;
+	padding-top:2px;
+	margin-top:3px;
+
+}
+
+.share-box .btn-primary{
+	font-weight: bold;
+}
+.setting{
+	
+	margin-top:5px;
+
+}
+
+.setting i{
+	margin-left:4px;
+}
+
+/*
+profile box
+*/
+
+.profile-box{
+	
+	width:190px;
+	height:120px;
+	margin:auto;
+	margin-top:10px;
+}
+
+.profile-box img{
+	width:55px;
+	height:55px;
+	margin-left:5px;
+	margin-top:5px;
+	border-radius: 6px;
+}
+
+
+.top-profile-box .span8{
+	
+	margin-top:13px;
+	margin-left:5px;
+}
+
+
+.bottom-profile-box .span4{
+	text-align:center;
+	margin: 4px 0px;
+	padding-top:3px;
+}
+
+.profile-box h4,h5,h6{
+	color:white;
+}
+
+.bottom-profile-box #part1, #part2{
+	background-image: -webkit-linear-gradient(top, #0088cc, #0044cc);
+	margin-right:5px;
+	border-radius: 6px;
+}
+.bottom-profile-box #part3, .top-profile-box{
+	background-image: -webkit-linear-gradient(top, #0088cc, #0044cc);
+	border-radius: 6px;
 }
