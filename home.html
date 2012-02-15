@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Dinobot Social Engine</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href='http://fonts.googleapis.com/css?family=Lemon' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu:400,500,700,400italic,500italic,700italic' rel='stylesheet' type='text/css'>
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/rse-style.css" rel="stylesheet">
+    <!-- <link href="../assets/css/bootstrap-responsive.css" rel="stylesheet"> -->
+    <style>
+      body {
+        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+        background-color:#353535;
+        font-family:"ubuntu";
+        zoom: 96%;
+      }
+
+      .navbar .brand{
+        font-size: 48px;
+        margin-left: 10px;
+      }
+      
+
+      .LoginArea{
+        float: right;
+        margin-top: 10px;
+        margin-right:80px;
+        color:white;
+        display: block;
+        
+      }
+     
+      .LoginArea button{
+        position: relative;
+        right:0px;
+        top: -6px;
+        margin-left: 10px;
+      }
+
+     
+
+      #container-main{
+        background-color:#353535;
+        background-image:url('back-effect.gif');
+        background-repeat:repeat-y;
+        background-position:center; 
+        color:white;
+        margin:auto;
+
+       
+        
+       
+      }
+      #container-main h1,h2{
+        color:white; 
+      }
+
+      #container-main h3{
+        color:#999;
+      }
+
+      #container-main h1{
+        font-size:42px;
+        width:auto;
+        margin-bottom: 20px;
+        line-height:120%;   
+        margin-right: 62px;
+        line-height: 53px;
+      }
+
+      
+
+       .span7{     
+        margin-top:70px;
+        background-color: rgba(0, 0, 0, .3);
+        -moz-border-radius: 18px;
+        -webkit-border-radius: 18px;
+        border-radius: 18px;
+        padding-left:50px;
+        width: 490px;;
+        height:500px;
+        padding-top:14px;
+
+        
+      }
+      .span5{
+        
+        margin-top:70px;
+        background-color: rgba(0, 0, 0, .3);
+        -moz-border-radius: 18px;
+        -webkit-border-radius: 18px;
+        border-radius: 18px;
+        padding-left:0px;
+
+        
+        height:500px;
+        padding-top:14px;
+
+      }
+      .span7 button{
+        margin-top: 20px;
+        margin-bottom: 30px;
+      
+      }
+
+      #fix{
+        margin-left: 0px;
+      }
+
+    
+
+      /*
+footer style
+*/
+
+
+
+.footer-home{
+    padding-top:10px;
+    /*margin: 30px 0px 100px 0px;*/
+    /*border-top: 2px solid #3C3B37;*/
+    /*-moz-box-shadow:2px 2px 4px 4px #ccc;
+    -webkit-box-shadow:2px 2px 4px 4px #ccc;
+    box-shadow:2px 2px 4px 4px #ccc;*/
+    text-align:center;
+    height:30px;
+    position: static;
+    background-color:transparent !important;
+    border:0.5px solid #C4C1BD;
+    bottom:0px;
+    margin-bottom:0px;
+    right:0px;
+    left:0px;
+    /*background-image:-webkit-linear-gradient(#ffffff, #ffffff 25%, #e6e6e6);
+    background-image: linear-gradient(#ffffff, #ffffff 25%, #e6e6e6);
+    background-image:-moz-linear-gradient(#ffffff, #ffffff 25%, #e6e6e6);*/
+    /*-moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;*/
+    margin-top:20px;
+
+    
+}
+
+.footer-links-home{
+  text-align:center;
+  /*float:right;*/
+  float: none;
+}
+.footer-links-home ul{
+  list-style:none;
+  
+}
+.footer-links-home li{
+  display:inline;
+  
+}
+
+.footer-links-home li:after{
+  content:"•";
+  padding:0 5px;
+  color:#BBB;
+}
+
+.footer-links-home li:last-child:after{
+  content:"";
+  
+}
+
+.footer-links-home  a{
+  color: #BBB;
+  
+}
+.footer-links-home a:hover{
+  /*background-color: rgba(22, 53, 40, .2);*/
+  text-decoration: none;
+  color:grey;
+}
+
+
+.copyright-home{
+  /*float:left;*/
+  float: none;
+  text-align:center;
+  margin left
+
+
+  
+}
+
+.copyright-home p{
+  font-family:ubuntu;
+  color:#BBB;
+  margin-top:5px;
+}
+
+  #footer-contrainer{
+        background-color: rgba(0, 0, 0, .3);
+        -moz-border-radius: 18px;
+        -webkit-border-radius: 18px;
+        border-radius: 18px;
+        padding-top:0px;
+  }   
+     
+     
+    </style>
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="i-bar"></span>
+            <span class="i-bar"></span>
+            <span class="i-bar"></span>
+          </a>
+          <a class="brand" href="#"><span>D</span><span>i</span><span>n</span><span>o</span><span>b</span><span>o</span><span>t</span></a>
+          
+          <div class="LoginArea">
+          Have Already Account?
+          <button type="submit" class="btn btn-primary">Login</button>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+
+    <div class="container" id="container-main">
+      
+      <div class="row">
+        <div class="span7">
+          <h1>Discover your creative talents, happiness, and fun!</h1>
+          <h3>Dinobot is the best place to show your different!.</h3>
+          <h3>When it absolutely, positively </h3>
+          <h3>has to be overnight</h3>
+          <button type="submit" class="btn btn-large btn-danger">Sign Up Now!</button>
+           <h2>or connect using</h2>
+          <ul class="thirdnav">
+              <li>
+                <a href="#">
+                  <div class="thirdprt" id="fb" > 
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <div class="thirdprt" id="tw" > 
+                  </div>
+                </a>  
+              </li>
+              <li>
+                <a href="#">
+                  <div class="thirdprt" id="go" > 
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <div class="thirdprt" id="re" > 
+                  </div>
+                </a>
+              </li>      
+            </ul>  
+
+        </div>
+
+         <div class="span5">
+            <div class="row-fluid" id="info-list">
+
+              <div class="span6">
+                <a href="">
+                <img src="img/icon1.gif">
+                <h2>Choice</h2>
+                <p class="info">You own your pictures, and you shouldn’t have to give that up just to share them.</p>
+              </a>      
+              </div>
+
+              <div class="span6">
+                <a href="">
+                <img src="img/icon3.gif">
+                <h2>Simplicity</h2>
+                <p class="info">Social mobility to the movement of individuals groups in social position over time.</p>
+              </a>      
+              </div>
+
+              <div class="span6" id="fix">
+                <a href="">
+                <img src="img/icon2.gif">
+                <h2>Ownership</h2>
+                <p class="info">You own your pictures, and you shouldn’t have to give that up just to share them.</p>
+              </a>  
+              </div>
+
+              <div class="span6">
+                <a href="">
+                <img src="img/icon2.gif">
+                <h2>Mobility</h2>
+                <p class="info">Social mobility to the movement of individuals groups in social position over time.</p>
+              </a> 
+              </div>
+
+      </div>         
+
+            </div>
+        </div>
+
+      
+    </div>
+
+    <footer class="footer-home"> 
+    <div class="container" id="footer-contrainer">
+      <div class="copyright-home">
+        <p>&copy; Copyright 2012 Dinobot Social Engine</p>
+      </div>
+      <div class="footer-links-home">  
+            <ul>
+              <li><a href="#">About</a></li>
+              <li><a href="#">Privacy</a></li>
+              <li><a href="#">Terms</a></li>
+              <li><a href="#">Advertising </a></li>
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">Contact</a></li>
+              <li><a href="#">Help</a></li>
+            </ul>
+        </div>
+       </div>    
+    </footer>
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+    <script src="../assets/js/tests/vendor/jquery.js"></script>
+    <script src="../assets/js/bootstrap-transition.js"></script>
+    <script src="../assets/js/bootstrap-alert.js"></script>
+    <script src="../assets/js/bootstrap-modal.js"></script>
+    <script src="../assets/js/bootstrap-dropdown.js"></script>
+    <script src="../assets/js/bootstrap-scrollspy.js"></script>
+    <script src="../assets/js/bootstrap-tab.js"></script>
+    <script src="../assets/js/bootstrap-tooltip.js"></script>
+    <script src="../assets/js/bootstrap-popover.js"></script>
+    <script src="../assets/js/bootstrap-button.js"></script>
+    <script src="../assets/js/bootstrap-collapse.js"></script>
+    <script src="../assets/js/bootstrap-carousel.js"></script>
+    <script src="../assets/js/bootstrap-typeahead.js"></script>
+
+  </body>
+</html>
