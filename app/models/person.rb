@@ -8,7 +8,7 @@ class Person < ActiveRecord::Base
 	has_many :group_memberships
 	has_many :groups, :through => :group_memberships
 	has_many :group_admins
-	many :groups, :through => :group_admins
+	has_many :groups, :through => :group_admins
 	has_many :notification_items
 	has_many :notifications, :through => :notification_items
 	has_many :action_items
