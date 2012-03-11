@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Dinabot | Create Group</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+<!-- Le HTML5 shim, for IE6-8 support of HTML elements --><!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+<!-- Le styles -->
+
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/rse-style.css" rel="stylesheet"><!-- <link href="../assets/css/bootstrap-responsive.css" rel="stylesheet">
+    -->
+    <style>
+   
+      .span8 .personal-info{
+        
+        border: 1px solid rgba(0, 0, 0, 0.15);
+        -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.1);
+        height: auto;
+        padding: 13px;
+        background-color: transparent;
+      }
+
+      .personal-info h3 span{
+        font-size: 15px;
+        font-weight: normal;
+      }
+
+      .span8 .bio{
+        
+        border: 1px solid rgba(0, 0, 0, 0.15);
+        -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.1);
+        height: auto;
+        padding: 13px;
+        background-color: transparent;
+      }
+
+      .span8 .intersests{
+        border: 1px solid rgba(0, 0, 0, 0.15);
+        -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.1);
+        height: auto;
+        padding: 13px;
+        background-color: transparent;
+      }
+
+      
+      .profile-box{
+        height:auto;
+      }
+      .profile-box img{
+        width: 180px;
+        height: 155px;
+      }
+      .top-profile-box .span4{
+        width: 100%;
+      }
+      .top-profile-box .span8 {
+        margin-top: 1px;
+      }
+      .middle p, .middle span, .middle dd{
+        color: #848484;
+      }
+      .modal-header{
+        margin-bottom: 15px;
+      }
+    </style>
+<!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png"></head>
+
+  <body>
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="i-bar"></span>
+            <span class="i-bar"></span>
+            <span class="i-bar"></span>
+          </a>
+          <img id="logo" src="blue_robot_sh.png">
+          <a class="brand" href="#">Dinobot
+          </a>
+            <form class="navbar-search pull-left" action="">
+            <input type="text" class="search-query span2" placeholder="Search"></form>
+          <div class="nav-collapse">
+
+            <div class="user pull-right">
+
+              <div class="btn-group">
+                <a class="btn" href="#">
+                  <img class="pull-right" src="pic.png">
+                  
+                </a>
+                <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                  <span class="caret"></span>
+                </a>
+
+                <ul class="dropdown-menu pull-right">
+                  <li>
+                    <a href="#">Profile</a>
+                  </li>
+                  <li>
+                    <a href="#">Setting</a>
+                  </li>
+                  <li>
+                    <a href="#">Help</a>
+                  </li>
+                  <li class="divider"></li>
+                  <li>
+                    <a href="#">Logout</a>
+                  </li>
+                </ul>
+              </div>
+
+            </div>
+
+            <ul class="nav pull-right">
+              <li>
+                <a href="#"> <i class="icon-white icon-user"></i>
+                </a>
+              </li>
+              <li>
+                <a href="#"> <i class="icon-white icon-envelope"></i>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <i class="icon-white icon-flag"></i>
+                </a>
+              </li>
+            </ul>
+
+          </div><!--/.nav-collapse --> </div>
+      </div>
+    </div>
+
+    <div id="main-container" class="container">
+      <div class="row">
+        <div class="span4 sides">
+
+          <div class="profile-box">
+
+            <div class="top-profile-box" >
+              <div class="row-fluid">
+                <div class="span4">
+                  <img src="facebook-groups.jpg"></div>
+                <div class="span8">
+                  <a href="#">
+                    <h4>
+                      Group Name
+                      <i class="icon-ok-sign icon-white"></i>
+                    </h4>
+                  </a>
+                  <a href="#">
+                    <h5>Edit my profile</h5>
+                  </a>
+                </div>
+              </div><!-- /row fluid --> </div><!-- /top-profile-box -->
+
+            <div class="bottom-profile-box" >
+              <div class="row-fluid">
+                <div class="span4" id="part1">
+                  <i class="icon-heart icon-white"></i>
+                  <a href="#">
+                    <h5>Fans</h5>
+                    <h5>124</h5>
+                  </a>
+                </div>
+
+                <div class="span4" id="part2">
+                  <i class="icon-user icon-white"></i>
+                  <a href="#">
+                    <h5>Friends</h5>
+                    <h5>44</h5>
+                  </a>
+                </div>
+
+                <div class="span4" id="part3">
+                  <i class="icon-share icon-white"></i>
+                  <a href="#">
+                    <h5>Sharing</h5>
+                    <h5>12</h5>
+                  </a>
+                </div>
+
+              </div><!-- /row fluid --> </div><!-- /bottom-profile-box --> </div><!-- /profile-box -->
+
+          <div class="tabbable tabs-left">
+
+            <ul class="nav nav-tabs" id="left-nav">
+              <li class="active">
+                <a href="profile" data-toggle="tab">
+                  <span>
+                    <i class="icon-home"></i>
+                    Home&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  </span>
+                </a>
+              </li>
+              <li >
+                <a href="#profile" data-toggle="tab">
+                  <span>
+                    <i class="icon-user"></i>
+                    Profile&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  </span>
+                </a>
+              </li>
+              <li >
+                <a href="messages" data-toggle="tab">
+                  <span>
+                    <i class="icon-envelope"></i>
+                    Messages
+                  </span>
+                </a>
+              </li>
+                  <li >
+                <a href="groups.html" data-toggle="tab">
+                  <span>
+                    <i class="icon-th-list"></i>
+                    Groups
+                  </span>
+                </a>
+              </li>
+              <li >
+                <a href="friends" data-toggle="tab">
+                  <span>
+                    <i class="icon-user"></i>
+                    Friends&nbsp;&nbsp;&nbsp;&nbsp;
+                  </span>
+                </a>
+              </li>
+              <li >
+                <a href="Groups" data-toggle="tab">
+                  <span>
+                    <i class="icon-comment"></i>
+                    Groups&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  </span>
+                </a>
+              </li>
+              <li >
+                <a href="photos" data-toggle="tab">
+                  <span>
+                    <i class="icon-picture"></i>
+                    Photos&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  </span>
+                </a>
+              </li>
+              <li >
+                <a href="Videos" data-toggle="tab">
+                  <span>
+                    <i class="icon-film"></i>
+                    Videos&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  </span>
+                </a>
+              </li>
+              <li >
+                <a href="Settings" data-toggle="tab">
+                  <span>
+                    <i class="icon-cog"></i>
+                    Settings&nbsp;&nbsp;&nbsp;
+                  </span>
+                </a>
+              </li>
+              <li >
+                <a href="Help" data-toggle="tab">
+                  <span>
+                    <i class="icon-flag"></i>
+                    Help&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  </span>
+                </a>
+              </li>
+            </ul>
+
+          </div>
+
+          <div class="well footer">
+            <div class="copyright">
+              <p>&copy; Copyright 2012 Dinobot Social Engine</p>
+            </div>
+            <div class="footer-links">
+              <a href="#">About •</a>
+              <a href="#">Privacy •</a>
+              <a href="#">Terms •</a>
+              <a href="#">Advertising</a>
+              <a href="#">Blog •</a>
+              <a href="#">Contact •</a>
+              <a href="#">Help •</a>
+              <a href="#">English</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="span8 middle">
+
+          <form class="form-horizontal">
+            <fieldset>
+              <h2 class="modal-header">Create New Group</h2>
+              <div class="control-group">
+                <label class="control-label" for="input01">Group Name</label>
+                <div class="controls">
+                  <input type="text" class="input-xlarge" id="input01"></div>
+              </div>
+              <div class="control-group">
+                <label class="control-label" for="input01">Pick a Category</label>
+                <div class="controls">
+
+                  <select class="span3">
+                    <option>1</option>
+
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
+                </div>
+              </div>
+              <div class="control-group">
+
+                <label class="control-label" for="input01">Descritpion</label>
+                <div class="controls">
+                  <textarea class="info" style="margin-top: 0px; margin-bottom: 0px; height: 140px; margin-left: 0px; margin-right: 0px; width: 271px; "></textarea>
+                </div>
+              </div>
+              <div class="control-group">
+                <label class="control-label">Privacy</label>
+
+                <div class="controls">
+                  <label class="radio">
+                    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>Public - Any one can see and post on the group</label>
+                  <label class="radio">
+                    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">Closed - Members only can see and post on the group</label>
+                </div>
+
+              </div>
+
+              <div class="control-group">
+                <label class="control-label" for="input01">Administrators</label>
+                <div class="controls">
+                  <input type="text" class="input-xlarge" id="input01"></div>
+              </div>
+
+              <div class="control-group">
+
+                <label class="control-label" for="input01">Invite Friends</label>
+                <div class="controls">
+                  <input type="text" class="input-xlarge" id="input01"></div>
+              </div>
+              <div class="form-actions">
+                <button type="submit" class="btn btn-primary">Create Group</button>
+                <button class="btn">Cancel</button>
+              </div>
+
+            </fieldset>
+          </form>
+
+        </div>
+
+        <div class="span4 right-sidebar sides"></div><!-- /right-sidebar--> </div><!-- /container -->
+<!-- fonts -->
+      <link href='http://fonts.googleapis.com/css?family=Knewave|Fredericka+the+Great|Alegreya' rel='stylesheet' type='text/css'>
+      <link href='http://fonts.googleapis.com/css?family=Lemon' rel='stylesheet' type='text/css'><!-- <link href='http://fonts.googleapis.com/css?family=Ubuntu:400,500,700,400italic,500italic,700italic' rel='stylesheet' type='text/css'>
+      --><!-- /fonts -->
+<!-- Le javascript
+    ================================================== --><!-- Placed at the end of the document so the pages load faster
+    <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+    -->
+    <script src="js/jquery-1.7.1.js"></script>
+    <script src="js/bootstrap-transition.js"></script>
+    <script src="js/bootstrap-alert.js"></script>
+    <script src="js/bootstrap-modal.js"></script>
+    <script src="js/bootstrap-dropdown.js"></script>
+    <script src="js/bootstrap-scrollspy.js"></script>
+    <script src="js/bootstrap-tab.js"></script>
+    <script src="js/bootstrap-tooltip.js"></script>
+    <script src="js/bootstrap-popover.js"></script>
+    <script src="js/bootstrap-button.js"></script>
+    <script src="js/bootstrap-collapse.js"></script>
+    <script src="js/bootstrap-carousel.js"></script>
+    <script src="js/bootstrap-typeahead.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Dinabot | Group</title>
+    <meta name="description" content="">
+    <meta name="author" content=""><!-- Le HTML5 shim, for IE6-8 support of HTML elements --><!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]--><!-- Le styles -->
+
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/rse-style.css" rel="stylesheet"><!-- <link href="../assets/css/bootstrap-responsive.css" rel="stylesheet">
+    -->
+    <style>
+     
+
+
+      .span8 .personal-info{
+        
+        border: 1px solid rgba(0, 0, 0, 0.15);
+        -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.1);
+        height: auto;
+        padding: 13px;
+        background-color: transparent;
+      }
+
+      .personal-info h3 span{
+        font-size: 15px;
+        font-weight: normal;
+      }
+
+      .span8 .bio{
+        
+        border: 1px solid rgba(0, 0, 0, 0.15);
+        -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.1);
+        height: auto;
+        padding: 13px;
+        background-color: transparent;
+      }
+
+      .span8 .intersests{
+        border: 1px solid rgba(0, 0, 0, 0.15);
+        -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.1);
+        height: auto;
+        padding: 13px;
+        background-color: transparent;
+      }
+
+      
+      .profile-box{
+        height:auto;
+      }
+      .profile-box img{
+        width: 180px;
+        height: 155px;
+      }
+      .top-profile-box .span4{
+        width: 100%;
+      }
+      .top-profile-box .span8 {
+        margin-top: 1px;
+      }
+      .middle p, .middle span, .middle dd{
+        color: #848484;
+      }
+      .bottom-profile-box .row-fluid:nth-child(2) .span4{
+        width: 190px;
+        height: auto;
+        background-color: rgba(0, 0, 0, 0.06);
+        border-radius: 6px;
+      }
+      .row-fluid p{
+        text-align: justify;
+        padding: 8px;
+      }
+      .row-fluid hr{
+        margin: 6px 4px 1px 4px;
+      }
+    </style><!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png"></head>
+
+  <body>
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="i-bar"></span>
+            <span class="i-bar"></span>
+            <span class="i-bar"></span>
+          </a>
+          <img id="logo" src="blue_robot_sh.png">
+          <a class="brand" href="#">Dinobot
+          </a>
+            <form class="navbar-search pull-left" action="">
+            <input type="text" class="search-query span2" placeholder="Search"></form>
+          <div class="nav-collapse">
+
+            <div class="user pull-right">
+
+              <div class="btn-group">
+                <a class="btn" href="#">
+                  <img class="pull-right" src="pic.png">
+                  
+                </a>
+                <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                  <span class="caret"></span>
+                </a>
+
+                <ul class="dropdown-menu pull-right">
+                  <li>
+                    <a href="#">Profile</a>
+                  </li>
+                  <li>
+                    <a href="#">Setting</a>
+                  </li>
+                  <li>
+                    <a href="#">Help</a>
+                  </li>
+                  <li class="divider"></li>
+                  <li>
+                    <a href="#">Logout</a>
+                  </li>
+                </ul>
+              </div>
+
+            </div>
+
+            <ul class="nav pull-right">
+              <li>
+                <a href="#"> <i class="icon-white icon-user"></i>
+                </a>
+              </li>
+              <li>
+                <a href="#"> <i class="icon-white icon-envelope"></i>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <i class="icon-white icon-flag"></i>
+                </a>
+              </li>
+            </ul>
+
+          </div><!--/.nav-collapse --> </div>
+      </div>
+    </div>
+
+    <div id="main-container" class="container">
+      <div class="row">
+        <div class="span4 sides">
+
+          <div class="profile-box">
+
+            <div class="top-profile-box" >
+              <div class="row-fluid">
+                <div class="span4">
+                  <img src="facebook-groups.jpg"></div>
+                <div class="span8">
+                  <a href="#">
+                    <h4>
+                      Group Name
+                      <i class="icon-ok-sign icon-white"></i>
+                    </h4>
+                  </a>
+                  <a href="#">
+                    <h5>Edit Group</h5>
+                  </a>
+                </div>
+              </div><!-- /row fluid --> </div><!-- /top-profile-box -->
+
+            <div class="bottom-profile-box" >
+              <div class="row-fluid">
+                <div class="span4" id="part1">
+                  <i class="icon-heart icon-white"></i>
+                  <a href="#">
+                    <h5>Posts</h5>
+                    <h5>124</h5>
+                  </a>
+                </div>
+
+                <div class="span4" id="part2">
+                  <i class="icon-user icon-white"></i>
+                  <a href="#">
+                    <h5>Members</h5>
+                    <h5>777</h5>
+                  </a>
+                </div>
+
+                <div class="span4" id="part3">
+                  <i class="icon-share icon-white"></i>
+                  <a href="#">
+                    <h5>Favorite</h5>
+                    <h5>34</h5>
+                  </a>
+                </div>
+
+              </div><!-- /row fluid -->
+              <div class="row-fluid">
+                
+                <div class="span4">
+                  <a href="#">
+                    <h4>
+                      Description
+                    </h4>
+                    <hr/>
+                  </a>
+                  <p>Auis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultriciuis risus eget urna mollis ornare vel eu leo. Cum sociis natoque </p>
+                </div>
+              </div>
+            </div><!-- /bottom-profile-box --> </div><!-- /profile-box -->
+
+          <div class="tabbable tabs-left">
+
+            <ul class="nav nav-tabs" id="left-nav">
+              <li class="active">
+                <a href="profile" data-toggle="tab">
+                  <span>
+                    <i class="icon-home"></i>
+                    Home&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  </span>
+                </a>
+              </li>
+              <li >
+                <a href="#profile" data-toggle="tab">
+                  <span>
+                    <i class="icon-user"></i>
+                    Profile&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  </span>
+                </a>
+              </li>
+              <li >
+                <a href="messages" data-toggle="tab">
+                  <span>
+                    <i class="icon-envelope"></i>
+                    Messages
+                  </span>
+                </a>
+              </li>
+                  <li >
+                <a href="groups.html" data-toggle="tab">
+                  <span>
+                    <i class="icon-th-list"></i>
+                    Groups
+                  </span>
+                </a>
+              </li>
+              <li >
+                <a href="friends" data-toggle="tab">
+                  <span>
+                    <i class="icon-user"></i>
+                    Friends&nbsp;&nbsp;&nbsp;&nbsp;
+                  </span>
+                </a>
+              </li>
+              <li >
+                <a href="Groups" data-toggle="tab">
+                  <span>
+                    <i class="icon-comment"></i>
+                    Groups&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  </span>
+                </a>
+              </li>
+              <li >
+                <a href="photos" data-toggle="tab">
+                  <span>
+                    <i class="icon-picture"></i>
+                    Photos&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  </span>
+                </a>
+              </li>
+              <li >
+                <a href="Videos" data-toggle="tab">
+                  <span>
+                    <i class="icon-film"></i>
+                    Videos&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  </span>
+                </a>
+              </li>
+              <li >
+                <a href="Settings" data-toggle="tab">
+                  <span>
+                    <i class="icon-cog"></i>
+                    Settings&nbsp;&nbsp;&nbsp;
+                  </span>
+                </a>
+              </li>
+              <li >
+                <a href="Help" data-toggle="tab">
+                  <span>
+                    <i class="icon-flag"></i>
+                    Help&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  </span>
+                </a>
+              </li>
+            </ul>
+
+          </div>
+
+          <div class="well footer">
+            <div class="copyright">
+              <p>&copy; Copyright 2012 Dinobot Social Engine</p>
+            </div>
+            <div class="footer-links">
+              <a href="#">About •</a>
+              <a href="#">Privacy •</a>
+              <a href="#">Terms •</a>
+              <a href="#">Advertising</a>
+              <a href="#">Blog •</a>
+              <a href="#">Contact •</a>
+              <a href="#">Help •</a>
+              <a href="#">English</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="span8 middle">
+          <div class="row post-box">
+            <a href="#">
+              <i class="icon-remove"></i>
+            </a>
+            <div class="content-header">
+              <div class="span2">
+                <a href="#">
+                  <img class="profile-pic" src="pic.png" alt=""></a>
+              </div>
+              <div class="span2">
+                <p class="user-name">
+                  <a href="#">User Name</a>
+                </p>
+              </div>
+              <div class="span2 post-title">
+                <a href=""></a>
+              </div>
+            </div><!-- header -->
+            <div class="content">
+              <div class="inner-content">
+                <a href="https://a248.e.akamai.net/assets.github.com/img/5770593f71326755ee331f2c9057c2fb8de83fff/687474703a2f2f646c2e64726f70626f782e636f6d2f752f32363532313837352f7072795f6c6f676f5f3335302e706e67">
+                  <img src="https://a248.e.akamai.net/assets.github.com/img/5770593f71326755ee331f2c9057c2fb8de83fff/687474703a2f2f646c2e64726f70626f782e636f6d2f752f32363532313837352f7072795f6c6f676f5f3335302e706e67"></a>
+              </div><!-- /inner-content --> </div><!-- /content -->
+            <div class="post-actions">
+              <ul class="nav nav-pills">
+                <li>
+                  <a href="#">
+                    <i class="icon-ok"></i>
+                    Like <sup class="post-counts">32</sup>
+                  </a>
+                </li>
+                <li class="active">
+                  <a href="#">
+                    <i class="icon-comment"></i>
+                    Comment <sup class="post-counts">5</sup>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <i class="icon-share"></i>
+                    Share
+                    <sup class="post-counts">10</sup>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <i class="icon-star"></i>
+                    Favorite
+                    <sup class="post-counts">7</sup>
+                  </a>
+                </li>
+              </ul>
+            </div><!-- /post-actions -->
+
+            <div class="content-footer">
+              <textarea class="text-area" placeholder="What do you think!" rows="3"></textarea>
+              <div class="comments">
+                <div class="span2">
+                  <a href="#">
+                    <img class="profile-pic" src="pic.png" alt=""></a>
+                </div>
+                <div class="span2">
+                  <p class="user-name">
+                    <a href="#">User Name</a>
+                  </p>
+                </div>
+                <div class="span2 comment-content">
+                  <p>Nice pic bro</p>
+                </div>
+
+                <div class="post-actions">
+                  <ul class="nav nav-pills">
+                    <li>
+                      <a href="#">
+                        <i class="icon-ok"></i>
+                        Like
+                        <sup class="post-counts">32</sup>
+                      </a>
+                    </li>
+                    <li class="active">
+                      <a href="#">
+                        <i class="icon-comment"></i>
+                        Comment
+                        <sup class="post-counts">5</sup>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <i class="icon-share"></i>
+                        Share
+                        <sup class="post-counts">10</sup>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <i class="icon-star"></i>
+                        Favorite
+                        <sup class="post-counts">7</sup>
+                      </a>
+                    </li>
+                  </ul>
+                </div><!-- /post-actions --> </div><!-- comments --> </div><!-- /content-footer --> </div>
+          <div class="row post-box">
+            <a href="#">
+              <i class="icon-remove"></i>
+            </a>
+            <div class="content-header">
+              <div class="span2">
+                <a href="#">
+                  <img class="profile-pic" src="pic.png" alt=""></a>
+              </div>
+              <div class="span2">
+                <p class="user-name">
+                  <a href="#">User Name</a>
+                </p>
+              </div>
+              <div class="span2 post-title">
+                <a href=""></a>
+              </div>
+            </div><!-- header -->
+            <div class="content">
+              <div class="inner-content">
+                <p>
+                  Four years ago, I wrote a column about the incompatibility between Apple and China . And four years later, that observation is proving to be truer than ever.
+                </p>
+              </div><!-- /inner-content --> </div><!-- /content -->
+            <div class="post-actions">
+              <ul class="nav nav-pills">
+                <li>
+                  <a href="#">
+                    <i class="icon-ok"></i>
+                    Like
+                    <sup class="post-counts">32</sup>
+                  </a>
+                </li>
+                <li class="active">
+                  <a href="#">
+                    <i class="icon-comment"></i>
+                    Comment
+                    <sup class="post-counts">5</sup>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <i class="icon-share"></i>
+                    Share
+                    <sup class="post-counts">10</sup>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <i class="icon-star"></i>
+                    Favorite
+                    <sup class="post-counts">7</sup>
+                  </a>
+                </li>
+              </ul>
+            </div><!-- /post-actions -->
+
+            <div class="content-footer">
+              <textarea class="text-area" placeholder="What do you think!" rows="3"></textarea>
+              <div class="comments">
+                <div class="span2">
+                  <a href="#">
+                    <img class="profile-pic" src="pic.png" alt=""></a>
+                </div>
+                <div class="span2">
+                  <p class="user-name">
+                    <a href="#">User Name</a>
+                  </p>
+                </div>
+                <div class="span2 comment-content">
+                  <p>
+                    I would disagree. Money makes culture come in second place. Money talks to everyone, anywhere, all in the same lang
+                  </p>
+                </div>
+
+                <div class="post-actions">
+                  <ul class="nav nav-pills">
+                    <li>
+                      <a href="#">
+                        <i class="icon-ok"></i>
+                        Like
+                        <sup class="post-counts">32</sup>
+                      </a>
+                    </li>
+                    <li class="active">
+                      <a href="#">
+                        <i class="icon-comment"></i>
+                        Comment
+                        <sup class="post-counts">5</sup>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <i class="icon-share"></i>
+                        Share
+                        <sup class="post-counts">10</sup>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <i class="icon-star"></i>
+                        Favorite
+                        <sup class="post-counts">7</sup>
+                      </a>
+                    </li>
+                  </ul>
+                </div><!-- /post-actions --> </div><!-- comments --> </div><!-- /content-footer --> </div>
+        </div>
+
+        <div class="span4 right-sidebar sides"></div><!-- /right-sidebar--> </div><!-- /container --><!-- fonts -->
+      <link href='http://fonts.googleapis.com/css?family=Knewave|Fredericka+the+Great|Alegreya' rel='stylesheet' type='text/css'>
+      <link href='http://fonts.googleapis.com/css?family=Lemon' rel='stylesheet' type='text/css'><!-- <link href='http://fonts.googleapis.com/css?family=Ubuntu:400,500,700,400italic,500italic,700italic' rel='stylesheet' type='text/css'>
+      --><!-- /fonts --><!-- Le javascript
+    ================================================== --><!-- Placed at the end of the document so the pages load faster
+    <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+    -->
+    <script src="js/jquery-1.7.1.js"></script>
+    <script src="js/bootstrap-transition.js"></script>
+    <script src="js/bootstrap-alert.js"></script>
+    <script src="js/bootstrap-modal.js"></script>
+    <script src="js/bootstrap-dropdown.js"></script>
+    <script src="js/bootstrap-scrollspy.js"></script>
+    <script src="js/bootstrap-tab.js"></script>
+    <script src="js/bootstrap-tooltip.js"></script>
+    <script src="js/bootstrap-popover.js"></script>
+    <script src="js/bootstrap-button.js"></script>
+    <script src="js/bootstrap-collapse.js"></script>
+    <script src="js/bootstrap-carousel.js"></script>
+    <script src="js/bootstrap-typeahead.js"></script>
+
+  </body>
+</html>

@@ -4,7 +4,7 @@ class CreateInvitations < ActiveRecord::Migration
     	t.string :email
     	t.text :message
     	t.integer :person_id
-      # t.timestamps
+      t.timestamps
     end
     add_index :invitations, :person_id
   end

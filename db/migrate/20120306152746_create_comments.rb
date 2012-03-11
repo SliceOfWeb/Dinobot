@@ -4,7 +4,7 @@ class CreateComments < ActiveRecord::Migration
     	t.text :content , null: false
     	t.integer :post_id
     	t.integer :person_id
-     	 # t.timestamps
+     	 t.timestamps
     end
     add_index :comments,:post_id
     add_index :comments,:person_id

@@ -3,8 +3,8 @@ class CreateConversations < ActiveRecord::Migration
     create_table :conversations do |t|
     	t.integer :reciver_id, null: false
     	t.integer :sender_id, null: false
-    	t.string :subject, null: false  	
-      # t.timestamps
+    	t.string :subject, null: false, :default => "no subject"
+      t.timestamps
     end
     add_index :conversations, :reciver_id
     add_index :conversations, :sender_id

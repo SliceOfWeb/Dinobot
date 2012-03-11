@@ -3,7 +3,7 @@ class CreateTaggings < ActiveRecord::Migration
     create_table :taggings do |t|
     	t.integer :profile_id
     	t.integer :tag_id
-    	# t.timestamps
+    	t.timestamps
     end
     add_index :taggings, [:profile_id,:tag_id]
   end

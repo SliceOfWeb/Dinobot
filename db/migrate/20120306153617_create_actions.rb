@@ -5,7 +5,7 @@ class CreateActions < ActiveRecord::Migration
     	t.integer :up_vote_count
     	t.integer :down_vote_count
       t.integer :post_id
-      # t.timestamps
+      t.timestamps
     end
       add_index :actions,:post_id
   end
