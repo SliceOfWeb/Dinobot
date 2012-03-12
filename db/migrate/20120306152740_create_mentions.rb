@@ -3,7 +3,7 @@ class CreateMentions < ActiveRecord::Migration
     create_table :mentions do |t|
     	t.integer :person_id
     	t.integer :post_id
-      # t.timestamps
+      t.timestamps
     end
     add_index :mentions, [:person_id,:post_id]
   end

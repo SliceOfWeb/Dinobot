@@ -4,7 +4,7 @@ class CreateMessages < ActiveRecord::Migration
     	t.integer :conversation_id 
     	t.text :content, null: false
     	t.integer :person_id
-      # t.timestamps
+      t.timestamps
     end
     add_index :messages, :person_id
     add_index :messages, :conversation_id

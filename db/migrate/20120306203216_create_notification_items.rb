@@ -3,7 +3,7 @@ class CreateNotificationItems < ActiveRecord::Migration
     create_table :notification_items do |t|
 		t.integer :person_id
 		t.integer :notification_id
-      # t.timestamps
+        t.timestamps
     end
     add_index :notification_items, [:notification_id,:person_id]
   end

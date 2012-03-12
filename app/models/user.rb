@@ -11,4 +11,6 @@ class User < ActiveRecord::Base
   has_one :contact
   has_many :aspects
   
+  validates :username, :presence => true, :uniqueness => true, :length => { :in => 3..20 }
+  
 end

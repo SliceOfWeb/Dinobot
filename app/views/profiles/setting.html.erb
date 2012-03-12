@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Dinabot | Setting1</title>
+    <meta name="description" content="">
+    <meta name="author" content=""><!-- Le HTML5 shim, for IE6-8 support of HTML elements --><!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]--><!-- Le styles -->
+
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/rse-style.css" rel="stylesheet"><!-- <link href="../assets/css/bootstrap-responsive.css" rel="stylesheet">
+    -->
+    <style>
+    
+      .form-horizontal .form-actions{
+        padding-left: 0px;
+        margin-left: -50px;
+        width: 540px;
+      }
+      .form-horizontal .btn:first-child{
+        margin-left: 200px;
+      }
+      .control-group .btn{
+        margin-left: 7px;
+      }
+      .field-label:last-child{
+        margin-right: 38px;
+      }
+        
+      
+    </style><!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png"></head>
+
+  <body>
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="i-bar"></span>
+            <span class="i-bar"></span>
+            <span class="i-bar"></span>
+          </a>
+          <img id="logo" src="blue_robot_sh.png">
+          <a class="brand" href="#">Dinobot</a>
+          <form class="navbar-search pull-left" action="">
+            <input type="text" class="search-query span2" placeholder="Search"></form>
+          <div class="nav-collapse">
+
+            <div class="user pull-right">
+
+              <div class="btn-group">
+                <a class="btn" href="#">
+                  <img class="pull-right" src="pic.png"></a>
+                <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                  <span class="caret"></span>
+                </a>
+
+                <ul class="dropdown-menu pull-right">
+                  <li>
+                    <a href="profile_layout.html">Profile</a>
+                  </li>
+                  <li>
+                    <a href="#">Setting</a>
+                  </li>
+                  <li>
+                    <a href="#">Help</a>
+                  </li>
+                  <li class="divider"></li>
+                  <li>
+                    <a href="#">Logout</a>
+                  </li>
+                </ul>
+              </div>
+
+            </div>
+
+            <ul class="nav pull-right">
+              <li>
+                <a href="#"> <i class="icon-white icon-user"></i>
+                </a>
+              </li>
+              <li>
+                <a href="#"> <i class="icon-white icon-envelope"></i>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <i class="icon-white icon-flag"></i>
+                </a>
+              </li>
+            </ul>
+
+          </div><!--/.nav-collapse --> </div>
+      </div>
+    </div>
+
+    <div id="main-container" class="container">
+      <div class="row">
+        <div class="span4 sides">
+
+          <div class="profile-box">
+
+            <div class="top-profile-box" >
+              <div class="row-fluid">
+                <div class="span4">
+                  <img src="pic.png"></div>
+                <div class="span8">
+                  <a href="#">
+                    <h4>
+                      User Name
+                      <i class="icon-ok-sign icon-white"></i>
+                    </h4>
+                  </a>
+                  <a href="#">
+                    <h5>Edit my profile</h5>
+                  </a>
+                </div>
+              </div><!-- /row fluid --> </div><!-- /top-profile-box -->
+
+            <div class="bottom-profile-box" >
+              <div class="row-fluid">
+                <div class="span4" id="part1">
+                  <i class="icon-heart icon-white"></i>
+                  <a href="#">
+                    <h5>Fans</h5>
+                    <h5>124</h5>
+                  </a>
+                </div>
+
+                <div class="span4" id="part2">
+                  <i class="icon-user icon-white"></i>
+                  <a href="#">
+                    <h5>Friends</h5>
+                    <h5>44</h5>
+                  </a>
+                </div>
+
+                <div class="span4" id="part3">
+                  <i class="icon-share icon-white"></i>
+                  <a href="#">
+                    <h5>Sharing</h5>
+                    <h5>12</h5>
+                  </a>
+                </div>
+
+              </div><!-- /row fluid --> </div><!-- /bottom-profile-box --> </div><!-- /profile-box -->
+
+          <div class="tabbable tabs-left">
+
+            <ul class="nav nav-tabs" id="left-nav">
+              <li >
+                <a href="home_layout.html" data-toggle="tab">
+                  <span>
+                    <i class="icon-home"></i>
+                    Home&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  </span>
+                </a>
+              </li>
+              <li >
+                <a href="profile_layout.html" data-toggle="tab" >
+                  <span>
+                    <i class="icon-user"></i>
+                    Profile&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  </span>
+                </a>
+              </li>
+              <li >
+                <a href="messages.html" data-toggle="tab">
+                  <span>
+                    <i class="icon-envelope"></i>
+                    Messages
+                  </span>
+                </a>
+              </li>
+              <li >
+                <a href="groups.html" data-toggle="tab">
+                  <span>
+                    <i class="icon-th-list"></i>
+                    Groups
+                  </span>
+                </a>
+              </li>
+              <li >
+                <a href="friends.html" data-toggle="tab">
+                  <span>
+                    <i class="icon-user"></i>
+                    Friends&nbsp;&nbsp;&nbsp;&nbsp;
+                  </span>
+                </a>
+              </li>
+              <li >
+                <a href="album_preview.html" data-toggle="tab">
+                  <span>
+                    <i class="icon-picture"></i>
+                    Photos&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  </span>
+                </a>
+              </li>
+              <li >
+                <a href="videos_preview.html" data-toggle="tab">
+                  <span>
+                    <i class="icon-film"></i>
+                    Videos&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  </span>
+                </a>
+              </li>
+              <li class="active">
+                <a href="setting.html" data-toggle="tab">
+                  <span>
+                    <i class="icon-cog"></i>
+                    Settings&nbsp;&nbsp;&nbsp;
+                  </span>
+                </a>
+              </li>
+              <li >
+                <a href="help.html" data-toggle="tab">
+                  <span>
+                    <i class="icon-flag"></i>
+                    Help&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  </span>
+                </a>
+              </li>
+            </ul>
+
+          </div>
+
+          <div class="well footer">
+            <div class="copyright">
+              <p>&copy; Copyright 2012 Dinobot Social Engine</p>
+            </div>
+            <div class="footer-links">
+              <a href="#">About •</a>
+              <a href="#">Privacy •</a>
+              <a href="#">Terms •</a>
+              <a href="#">Advertising</a>
+              <a href="#">Blog •</a>
+              <a href="#">Contact •</a>
+              <a href="#">Help •</a>
+              <a href="#">English</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="span8 middle">
+
+          <ul id="tab" class="nav nav-tabs">
+            <li class="active">
+              <a href="#Account" data-toggle="top-tab">
+                <i class="icon-user"></i>
+                Account
+              </a>
+            </li>
+            <li class="">
+              <a href="#Privacy" data-toggle="top-tab">
+                <i class="icon-eye-open"></i>
+                Privacy
+              </a>
+            </li>
+          </ul>
+          <div id="myTabContent" class="tab-content">
+            <div class="tab-pane fade active in" id="account">
+
+              <div class="span8">
+                <form class="form-horizontal">
+
+                  <h2>General Info</h2>
+                  <fieldset>
+                    <div class="control-group">
+
+                      <h4  class="field-label">User Name&nbsp;&nbsp;&nbsp;&nbsp;</h4>
+
+                      <input class="input-xlarge disabled" id="disabledInput" type="text" placeholder="User Name" disabled=""></div>
+                    <div class="control-group">
+
+                      <h4 class="field-label">E-mail Adress&nbsp;&nbsp;&nbsp;&nbsp;</h4>
+
+                      <input class="input-xlarge disabled" id="disabledInput" type="text" placeholder="user@email.com" disabled=""></div>
+                    <div class="control-group">
+
+                      <h4 class="field-label">Password&nbsp;&nbsp;&nbsp;&nbsp;</h4>
+
+                      <input class="input-xlarge disabled" id="disabledInput" type="text" placeholder="**************" disabled=""></div>
+                  </fieldset>
+
+                  <h2>Contact Details</h2>
+                  <fieldset>
+                    <div class="control-group">
+
+                      <h4>First Name&nbsp;&nbsp;&nbsp;&nbsp;</h4>
+
+                      <input class="input-xlarge disabled" id="disabledInput" type="text" placeholder="first name" disabled=""></div>
+                    <div class="control-group">
+
+                      <h4>Last Name&nbsp;&nbsp;&nbsp;&nbsp;</h4>
+
+                      <input class="input-xlarge disabled" id="disabledInput" type="text" placeholder="last name" disabled=""></div>
+                    <div class="control-group">
+
+                      <h4>Adress&nbsp;&nbsp;&nbsp;&nbsp;</h4>
+
+                      <input class="input-xlarge disabled" id="disabledInput" type="text" placeholder="town, city" disabled=""></div>
+                    <div class="control-group">
+
+                      <h4>country&nbsp;&nbsp;&nbsp;&nbsp;</h4>
+
+                      <select>
+                        <option value="saudi">Saudi</option>
+                        <option value="usa">Usa</option>
+                        <option value="egypt" selected>Egypt</option>
+                      </select>
+
+                    </div>
+                  </fieldset>
+
+                  <h2>Notification</h2>
+                  <fieldset>
+                    <div class="control-group">
+
+                      <h4>Photos&nbsp;&nbsp;&nbsp;&nbsp;</h4>
+
+                      <input type="checkbox"></div>
+                    <div class="control-group">
+
+                      <h4>Videos&nbsp;&nbsp;&nbsp;&nbsp;</h4>
+
+                      <input type="checkbox"></div>
+                    <div class="control-group">
+
+                      <h4>Comments&nbsp;&nbsp;&nbsp;&nbsp;</h4>
+
+                      <input type="checkbox"></div>
+                    <div class="control-group">
+
+                      <h4>Posts on wall&nbsp;&nbsp;&nbsp;&nbsp;</h4>
+
+                      <input type="checkbox"></div>
+                    <div class="control-group">
+
+                      <h4>friend request&nbsp;&nbsp;&nbsp;&nbsp;</h4>
+
+                      <input type="checkbox"></div>
+                    <div class="control-group">
+
+                      <h4>Event invitation&nbsp;&nbsp;&nbsp;&nbsp;</h4>
+
+                      <input type="checkbox"></div>
+
+                  </fieldset>
+
+                  <h2>Account Services</h2>
+                  <fieldset>
+                    <div class="control-group">
+
+                      <h4>Facebook&nbsp;&nbsp;&nbsp;&nbsp;</h4>
+
+                      <a class="btn" href="#">
+                        <i class="icon-pencil"></i>
+                        Edit
+                      </a>
+
+                    </div>
+                    <div class="control-group">
+
+                      <h4>Twitter&nbsp;&nbsp;&nbsp;&nbsp;</h4>
+
+                      <a class="btn" href="#">
+                        <i class="icon-pencil"></i>
+                        Edit
+                      </a>
+
+                    </div>
+
+                  </fieldset>
+
+                  <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                    <button class="btn">Cancel</button>
+                  </div>
+                </form>
+              </div>
+
+            </div>
+            <div class="tab-pane fade" id="Privacy">
+
+              <div class="span8">
+                <form class="form-horizontal">
+                  <p>
+                    <h2>Posting Privacy</h2>
+                    <fieldset>
+                      <div class="control-group">
+
+                        <h4>My Posts&nbsp;&nbsp;&nbsp;&nbsp;</h4>
+
+                        <select>
+
+                          <option value="Public">Public</option>
+                          <option value="only me">Only me</option>
+                          <option value="only frineds" selected>Only friends</option>
+                          <option value="only frineds" >Friends of Friends</option>
+
+                        </select>
+
+                      </div>
+                      <div class="control-group">
+
+                        <h4>friends posts&nbsp;&nbsp;&nbsp;&nbsp;</h4>
+
+                        <select>
+
+                          <option value="Public">Public</option>
+                          <option value="only me" selected>Only me</option>
+                          <option value="only frineds" >Only friends</option>
+                          <option value="only frineds" >Friends of Friends</option>
+
+                        </select>
+
+                      </div>
+                      <div class="control-group">
+
+                        <h4>group posts&nbsp;&nbsp;&nbsp;&nbsp;</h4>
+
+                        <select>
+
+                          <option value="Public">Public</option>
+                          <option value="only me">Only me</option>
+                          <option value="only frineds" >Only friends</option>
+                          <option value="only frineds" selected>Friends of Friends</option>
+
+                        </select>
+
+                      </div>
+                      <br></fieldset>
+
+                    <h2>Photo Privacy</h2>
+                    <fieldset>
+                      <div class="control-group">
+
+                        <h4>My Photos&nbsp;&nbsp;&nbsp;&nbsp;</h4>
+
+                        <select>
+
+                          <option value="Public">Public</option>
+                          <option value="only me">Only me</option>
+                          <option value="only frineds" selected>Only friends</option>
+                          <option value="only frineds" >Friends of Friends</option>
+
+                        </select>
+
+                      </div>
+                      <div class="control-group">
+
+                        <h4>Tagged Photos&nbsp;&nbsp;&nbsp;&nbsp;</h4>
+
+                        <select>
+
+                          <option value="Public">Public</option>
+                          <option value="only me" selected>Only me</option>
+                          <option value="only frineds" >Only friends</option>
+                          <option value="only frineds" >Friends of Friends</option>
+
+                        </select>
+
+                      </div>
+                      <br></fieldset>
+
+                    <h2>Video Privacy</h2>
+                    <fieldset>
+                      <div class="control-group">
+
+                        <h4>My Videos&nbsp;&nbsp;&nbsp;&nbsp;</h4>
+
+                        <select>
+
+                          <option value="Public">Public</option>
+                          <option value="only me">Only me</option>
+                          <option value="only frineds" selected>Only friends</option>
+                          <option value="only frineds" >Friends of Friends</option>
+
+                        </select>
+
+                      </div>
+                      <div class="control-group">
+
+                        <h4>Tagged Videos&nbsp;&nbsp;&nbsp;&nbsp;</h4>
+
+                        <select>
+
+                          <option value="Public">Public</option>
+                          <option value="only me" selected>Only me</option>
+                          <option value="only frineds" >Only friends</option>
+                          <option value="only frineds" >Friends of Friends</option>
+
+                        </select>
+
+                      </div>
+                      <br></fieldset>
+
+                    <div class="form-actions">
+                      <button type="submit" class="btn btn-primary">Save changes</button>
+                      <button class="btn">Cancel</button>
+                    </div>
+                  </form>
+
+                </div>
+              </div>
+
+            </div>
+
+            <script src="js/jquery-1.7.1.js"></script>
+            <script src="js/bootstrap-transition.js"></script>
+            <script src="js/bootstrap-alert.js"></script>
+            <script src="js/bootstrap-modal.js"></script>
+            <script src="js/bootstrap-dropdown.js"></script>
+            <script src="js/bootstrap-scrollspy.js"></script>
+            <script src="js/bootstrap-tab.js"></script>
+            <script src="js/bootstrap-tooltip.js"></script>
+            <script src="js/bootstrap-popover.js"></script>
+            <script src="js/bootstrap-button.js"></script>
+            <script src="js/bootstrap-collapse.js"></script>
+            <script src="js/bootstrap-carousel.js"></script>
+            <script src="js/bootstrap-typeahead.js"></script>
+            <script type="text/javascript">
+              var tab = $("#tab");
+              var account = $(tab.children()[0]);
+              var privacy = $(tab.children()[1]);
+
+              account.click(function (e) {
+                $("div#Privacy").removeClass("active in");
+                $("div#account").addClass("active in");
+                account.addClass("active");
+                privacy.removeClass("active");
+              })
+              privacy.click(function (e) {
+               $("div#account").removeClass("active in")
+               $("div#Privacy").addClass("active in")
+                privacy.addClass("active");
+                account.removeClass("active");
+
+              })
+              $(document).scrollTop(0);
+              
+              // $(document)
+            </script>
+          </body>
+        </html>

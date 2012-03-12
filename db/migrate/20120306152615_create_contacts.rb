@@ -4,7 +4,7 @@ class CreateContacts < ActiveRecord::Migration
       t.boolean :receive ,default: false
       t.boolean :share , default: false
       t.integer :user_id
-      # t.timestamps
+      t.timestamps
     end
     add_index :contacts, :user_id
   end
