@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Signup</title>
+
+     <%= stylesheet_link_tag    "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+      <%= csrf_meta_tags %>
+    <style type="text/css" media="screen">
+       body {
+        padding-top: 60px;
+        font-family:"ubuntu";
+        zoom: 96%;
+        background-image:url("/assets/patternBg.png");
+      }
+
+      .signform{
+        width:250px;
+        margin:auto;
+      }
+    </style>
+  </head>
+  <body>
+    
+    <div class="signform">
+      <h1 color='white'>Sign Up</h1>
+      </br>
+    <%= form_for(:user, :url => {:action => 'create'}) do |f| %>
+    <% if @user.errors.any? %>
+        <div>
+          <h2>Form is invalid</h2>
+          <ul>
+            <% for message in @user.errors.full_messages %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+      
+      <p>
+        <%= f.label 'Username' %><br />
+        <%= f.text_field :username %>
+      </p>
+      <p>
+        <%= f.label 'Email' %><br />
+        <%= f.text_field :email %>
+      </p>
+      <p>
+        <%= f.label 'Password' %><br />
+        <%= f.password_field :password %>
+      </p>
+      <p>
+        <%= f.label 'Password Confirmation'%><br />
+        <%= f.password_field :password_confirmation %>
+      </p>
+      <p class="button"><%= f.submit %></p>
+    <% end %>
+  </div>
+  </body>
+</html>
