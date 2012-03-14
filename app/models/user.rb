@@ -1,5 +1,10 @@
 class User < ActiveRecord::Base
 
+  has_one :person
+  has_one :profile
+  has_one :contact
+  has_many :aspects
+
   attr_accessor :password
 
   before_save :encrypt_password
