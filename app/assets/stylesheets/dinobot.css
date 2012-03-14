@@ -188,39 +188,39 @@ Third Parties Singin
 }
 #fb
 {
-    background-image:url('../img/facebook_dark.png');
+    background-image:url('facebook_dark.png');
 }
 
 #fb:hover
 {
-    background-image:url('../img/facebook_active.png');
+    background-image:url('facebook_active.png');
 }
 #tw
 {
-    background-image:url('../img/twitter_dark.png');
+    background-image:url('twitter_dark.png');
 }
 
 #tw:hover
 {
-    background-image:url('../img/twitter_active.png');
+    background-image:url('twitter_active.png');
 }
 #go
 {
-    background-image:url('../img/google_dark.png');
+    background-image:url('google_dark.png');
 }
 
 #go:hover
 {
-    background-image:url('../img/google_active.png');
+    background-image:url('google_active.png');
 }
 #re
 {
-    background-image:url('../img/reddit_dark.png');
+    background-image:url('reddit_dark.png');
 }
 
 #re:hover
 {
-    background-image:url('../img/reddit_active.png');
+    background-image:url('reddit_active.png');
 }
 .thirdnav
 {

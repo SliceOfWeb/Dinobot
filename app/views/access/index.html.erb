@@ -4,208 +4,11 @@
 	<meta charset="utf-8">
 	<title>Dinobot Social Engine</title>
 
-	<%= stylesheet_link_tag    "application", :media =>
-		"all" %>
-		<%= javascript_include_tag "application" %>
-			<%= csrf_meta_tags %>
+	<%= stylesheet_link_tag    "dinobot","bootstrap","access", :media => "all" %>
+	<%= javascript_include_tag "application" %>
+	<%= csrf_meta_tags %>
 
-				<style>
-      body {
-        padding-top: 60px;
-        font-family:"ubuntu";
-        zoom: 96%;
-        background-image:url("/assets/patternBg.png");
-      }
-    .LoginArea{
-      float: right;
-      margin-top: 31px;
-      margin-right: 5px;
-      color:white;
-      display: block;
-      font-size: 17px;
-      
-    }
-    .navbar .brand {
-    font-family:'Arista';
-    font-weight:bold;
-    float: left;
-    display: block;
-    padding: 4px 38px 12px;
-    margin-left: -45px;
-    line-height: 1;
-    
-text-shadow: 4px 3px 0px rgba(204, 204, 204,.3);
-    color: #fff;
-    font-size: 100px;
-    margin-top: -2px;
-    margin-left: -37px;
-   
-    color: #fff;  
-  }
-     .navbar .brand:hover {
-      text-decoration: none;
-      box-shadow: 0px 0px 0px 0px rgba(255,255,255, 0.4);
-    text-shadow: 4px 3px 0px rgba(204, 204, 204,.1);
-}
-    .LoginArea button{
-    position: relative;
-    right: 0px;
-    top: -6px;
-    margin-left: 8px;
-    font-size: 15px;
-    padding: 10px;
-    }
-
-     
-
-    #container-main{
-      background-repeat:repeat-y;
-      background-position:center; 
-      color:white;
-      margin:auto;
-    }
-    #container-main h1,h2{
-      color:white; 
-    }
-
-    #container-main h3{
-      color:#999;
-    }
-
-    #container-main h1{
-      font-size:42px;
-      width:auto;
-      margin-bottom: 20px;
-      line-height:120%;   
-      margin-right: 62px;
-      line-height: 53px;
-    }
-   .span7{     
-    margin-top:70px;
-    background-color: rgba(0, 0, 0, .3);
-    -moz-border-radius: 18px;
-    -webkit-border-radius: 18px;
-    border-radius: 18px;
-    padding-left:50px;
-    width: 490px;;
-    height:500px;
-    padding-top:14px;
-  }
-  .span5{
-      
-    margin-top:70px;
-    background-color: rgba(0, 0, 0, .3);
-    -moz-border-radius: 18px;
-    -webkit-border-radius: 18px;
-    border-radius: 18px;
-    padding-left:0px;
-    height:500px;
-    padding-top:14px;
-
-    }
-  .span7 button{
-      margin-top: 20px;
-      margin-bottom: 30px;
-  
-    }
-
-      #fix{
-        margin-left: 0px;
-      }
-
-    
-
-      /*
-footer style
-*/
-
-.navbar-inner {
-  background-color: rgba(0,0,0,0.7);
-  height: 101px;
-  background-image:none;
-}
-
-.footer-home{
-    padding-top:10px;
-    
-    text-align:center;
-    height:30px;
-    position: static;
-    background-color:transparent !important;
-    border:0.5px solid #C4C1BD;
-    bottom:0px;
-    margin-bottom:0px;
-    right:0px;
-    left:0px;
-    margin-top:20px;
-
-    
-}
-
-.footer-links-home{
-  text-align:center;
-  
-  float: none;
-}
-.footer-links-home ul{
-  list-style:none;
-  
-}
-.footer-links-home li{
-  display:inline;
-  
-}
-
-.footer-links-home li:after{
-  content:"•";
-  padding:0 5px;
-  color:#BBB;
-}
-
-.footer-links-home li:last-child:after{
-  content:"";
-  
-}
-
-.footer-links-home  a{
-  color: #BBB;
-  
-}
-.footer-links-home a:hover{
-  
-  text-decoration: none;
-  color:grey;
-}
-
-
-.copyright-home{
-  
-  float: none;
-  text-align:center;
-  margin left
-
-
-  
-}
-
-.copyright-home p{
-  font-family:ubuntu;
-  color:#BBB;
-  margin-top:5px;
-}
-
-  #footer-contrainer{
-        background-color: rgba(0, 0, 0, .3);
-        -moz-border-radius: 18px;
-        -webkit-border-radius: 18px;
-        border-radius: 18px;
-        padding-top:0px;
-  }   
-     .navbar-fixed-top{
-      position:absolute;
-     }
-     
-    </style>
+	
 				<!-- Le fav and touch icons -->
 				<link rel="shortcut icon" href="images/favicon.ico">
 				<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
@@ -226,7 +29,7 @@ footer style
 
 							<div class="LoginArea">
 								Have Already Account?
-								<button type="submit" class="btn btn-primary" target=>Login</button>
+								<%= link_to :Login , :login , class: "btn btn-primary"%>
 							</div>
 
 						</div>
@@ -241,7 +44,8 @@ footer style
 							<h3>Dinobot is the best place to show your different!.</h3>
 							<h3>When it absolutely, positively</h3>
 							<h3>has to be overnight</h3>
-							<button type="submit" class="btn btn-large btn-danger">Sign Up Now!</button>
+							
+							<%= link_to "Sign Up Now!" , :signup , class: "btn btn-large btn-success"%>
 							<h2>or connect using</h2>
 							<ul class="thirdnav">
 								<li>
@@ -352,4 +156,4 @@ footer style
 				</footer>
 
 </body>
-			</html>
+</html>
