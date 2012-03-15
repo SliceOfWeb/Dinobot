@@ -18,6 +18,6 @@ class UsersController < ApplicationController
       		redirect_to(:controller => 'access', :action => 'login')
     	else
       		render "new"
-      	end
+      end
     end
 end

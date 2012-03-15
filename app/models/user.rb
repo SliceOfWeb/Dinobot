@@ -22,7 +22,7 @@ class User < ActiveRecord::Base
     
     
   def self.authenticate(username="", login_password="")
-  	user= User.find_by_username(username)
+  	user = User.find_by_username(username)
   	if user && user.password_match?(login_password)
   		return user
   	else

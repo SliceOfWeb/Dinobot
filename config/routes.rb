@@ -1,8 +1,8 @@
 Dinobot::Application.routes.draw do
  
-  root :to => 'access#index'
+  root :to => 'access#index', :as => :welcome
   match ':controller(/:action(/:id))(.:format)'
-  match "sign_up", :to => "users#new"
+  match "signup", :to => "users#new"
   match "login", :to => "access#login"
   match "logout", :to => "access#logout"
   # The priority is based upon order of creation:
