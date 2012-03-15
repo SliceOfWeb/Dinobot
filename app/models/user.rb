@@ -19,7 +19,8 @@ class User < ActiveRecord::Base
   validates_length_of :password, :in => 6..20, :on => :create
 
   attr_accessible :username, :email, :password, :password_confirmation
-   
+    
+    
   def self.authenticate(username="", login_password="")
   	user= User.find_by_username(username)
   	if user && user.password_match?(login_password)

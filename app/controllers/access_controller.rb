@@ -5,6 +5,7 @@ class AccessController < ApplicationController
 	before_filter :save_login_state, :only => [:index, :login, :signing]
 	
 	def index
+		#Welcome Page
 	end 
 
 	def login
