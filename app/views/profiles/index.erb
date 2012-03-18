@@ -1,0 +1,290 @@
+<style>
+  .middle > div.row:hover{
+    border: 1.3px solid rgba(51, 181, 229, 0.4);
+  }
+
+  .span8 .personal-info{
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.1);
+    height: auto;
+    padding: 13px;
+    background-color: transparent;
+  }
+
+  .personal-info h3 span{
+    font-size: 15px;
+    font-weight: normal;
+  }
+
+  .span8 .bio{
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.1);
+    height: auto;
+    padding: 13px;
+    background-color: transparent;
+  }
+
+  .span8 .intersests{
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.1);
+    height: auto;
+    padding: 13px;
+    background-color: transparent;
+  }
+  .profile-box{
+    height:auto;
+  }
+  .profile-box img{
+    width: 180px;
+    height: 155px;
+  }
+  .top-profile-box .span4{
+    width: 100%;
+  }
+  .top-profile-box .span8 {
+    margin-top: 1px;
+  }
+  .middle p, .middle span, .middle dd{
+    color: #848484;
+  }
+</style>
+
+
+
+  <div id="main-container" class="container">
+    <div class="row">
+      <div class="span4 sides">
+
+        <div class="profile-box">
+
+          <div class="top-profile-box" >
+            <div class="row-fluid">
+              <div class="span4">
+                <%= image_tag "pic.png" %></div>
+                <div class="span8">
+                  <a href="#">
+                    <h4>
+                      <%= @current_user.username %>  
+                      <i class="icon-ok-sign icon-white"></i>
+                    </h4>
+                  </a>
+                  <a href="edit">
+                    <h5>Edit my profile</h5>
+                  </a> 
+
+              
+
+                </div>
+              </div>
+            </div>
+
+            <div class="bottom-profile-box" >
+              <div class="row-fluid">
+                <div class="span4" id="part1">
+                  <i class="icon-heart icon-white"></i>
+                  <a href="#">
+                    <h5>Fans</h5>
+                    <h5>124</h5>
+                  </a>
+                </div>
+
+                <div class="span4" id="part2">
+                  <i class="icon-user icon-white"></i>
+                  <a href="#">
+                    <h5>Friends</h5>
+                    <h5>44</h5>
+                  </a>
+                </div>
+
+                <div class="span4" id="part3">
+                  <i class="icon-share icon-white"></i>
+                  <a href="#">
+                    <h5>Sharing</h5>
+                    <h5>12</h5>
+                  </a>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <div class="tabbable tabs-left">
+
+            <ul class="nav nav-tabs" id="left-nav">
+              <li >
+                <a href="home_layout.html" data-toggle="tab">
+                  <span>
+                    <i class="icon-home"></i>
+                    Home&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  </span>
+                </a>
+              </li>
+              <li class="active">
+                <a href="profile_layout.html" data-toggle="tab" >
+                  <span>
+                    <i class="icon-user"></i>
+                    Profile&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  </span>
+                </a>
+              </li>
+              <li >
+                <a href="messages.html" data-toggle="tab">
+                  <span>
+                    <i class="icon-envelope"></i>
+                    Messages
+                  </span>
+                </a>
+              </li>
+              <li >
+                <a href="groups.html" data-toggle="tab">
+                  <span>
+                    <i class="icon-th-list"></i>
+                    Groups
+                  </span>
+                </a>
+              </li>
+              <li >
+                <a href="friends.html" data-toggle="tab">
+                  <span>
+                    <i class="icon-user"></i>
+                    Friends&nbsp;&nbsp;&nbsp;&nbsp;
+                  </span>
+                </a>
+              </li>
+              <li >
+                <a href="album_preview.html" data-toggle="tab">
+                  <span>
+                    <i class="icon-picture"></i>
+                    Photos&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  </span>
+                </a>
+              </li>
+              <li >
+                <a href="videos_preview.html" data-toggle="tab">
+                  <span>
+                    <i class="icon-film"></i>
+                    Videos&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  </span>
+                </a>
+              </li>
+              <li >
+                <a href="setting.html" data-toggle="tab">
+                  <span>
+                    <i class="icon-cog"></i>
+                    Settings&nbsp;&nbsp;&nbsp;
+                  </span>
+                </a>
+              </li>
+              <li >
+                <a href="help.html" data-toggle="tab">
+                  <span>
+                    <i class="icon-flag"></i>
+                    Help&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  </span>
+                </a>
+              </li>
+            </ul>
+
+          </div>
+
+          <div class="well footer">
+            <div class="copyright">
+              <p>&copy; Copyright 2012 Dinobot Social Engine</p>
+            </div>
+            <div class="footer-links">
+              <a href="#">About •</a>
+              <a href="#">Privacy •</a>
+              <a href="#">Terms •</a>
+              <a href="#">Advertising</a>
+              <a href="#">Blog •</a>
+              <a href="#">Contact •</a>
+              <a href="#">Help •</a>
+              <a href="#">English</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="span8 middle">
+          <h1>Personal Info</h1>
+          <div class="row well personal-info">
+            <h4>
+              Full Name:
+              <%= @profile.first_name %>
+            </h4>
+            <h4>
+              City:
+              <span>Ottawa, Canada</span>
+            </h4>
+            <h4>
+              Work:
+              <span>Engineer, Coder, Designer!</span>
+            </h4>
+            <h4>
+              Phone:
+              <span>01001001010010</span>
+            </h4>
+            <h4>
+              EMail:
+              <span>mailw@7ta4riba.zft</span>
+            </h4>
+            <h4>
+              Birthday:
+              <span>December 13</span>
+            </h4>
+            <h4>
+              Gender:
+              <span>Male</span>
+            </h4>
+            <h4>
+              Education:
+              <span>University of Ottawa, Canada. Software Engineering</span>
+            </h4>
+
+          </div>
+
+          <hr class="separator">
+
+          <h1>Bio</h1>
+          <div class="row well bio">
+            <p>
+              I am a Software Engineer that graduated in 2008. I work at a large technology company in the area. In my free time (hobby) I write free software, contribute in a couple of open source software projects, such Chromium (2008-2011) and a bunch of other projects around the net, and I design and develop beautiful web applications. I am Lebanese Canadian, born in Waterloo, raised in Ottawa, lived in Florida.
+            </p>
+          </div>
+
+          <hr class="separator">
+
+          <h1>Intersests</h1>
+          <div class="row well intersests">
+            <dl>
+              <dt>Description lists</dt>
+              <dd>A description list is perfect for defining terms.</dd>
+              <dt>Euismod</dt>
+              <dd>
+                Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.
+              </dd>
+              <dd>Donec id elit non mi porta gravida at eget metus.</dd>
+              <dt>Malesuada porta</dt>
+              <dd>Etiam porta sem malesuada magna mollis euismod.</dd>
+            </dl>
+          </div>
+
+          <hr class="separator">
+
+          <h1>Tags</h1>
+          <div class="row well tags">
+            <span class="label label-info">Linux</span>
+            <span class="label label-info">Ruby on Rails</span>
+            <span class="label label-info">HTML5</span>
+            <span class="label label-info">CSS3</span>
+            <span class="label label-info">JavaScript</span>
+            <span class="label label-info">JQuery</span>
+
+            <span class="label label-info">Ruby on Rails</span>
+
+          </div>
+
+          <hr class="separator"></div>
+
+       
+      </div>
+    </div>

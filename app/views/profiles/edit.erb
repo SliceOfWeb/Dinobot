@@ -47,6 +47,17 @@
   .middle p, .middle span, .middle dd{
     color: #848484;
   }
+  .text-area{
+  	max-width: 447px;
+  	max-height: 100px;
+  	height: 100px;
+  }
+  .separator{
+  	margin-left: -30px;
+  }
+   input[type="submit"].btn {
+   	margin-bottom: 2px;
+   }
 </style>
 
 
@@ -64,13 +75,13 @@
                 <div class="span8">
                   <a href="#">
                     <h4>
-                      User Name
+                      <%= @current_user.username %>  
                       <i class="icon-ok-sign icon-white"></i>
                     </h4>
                   </a>
-                  <a href="#">
-                    <h5>Edit my profile</h5>
-                  </a>
+                  <a href="profiles/edit">
+                    <h5>Save changes</h5>
+                  </a> 
                 </div>
               </div>
             </div>
@@ -202,50 +213,41 @@
         </div>
 
         <div class="span8 middle">
-          <h1>Personal Info</h1>
+        <%= form_for(@profile, :url => {:action => 'save_changes'}) do |f| %>
+		   	<% if @profile.errors.any? %>
+			  <div>
+			    <h2>Form is invalid</h2>
+			    <ul>
+			      <% for message in @profile.errors.full_messages %>
+			    <li>
+			      <%= message %></li>
+			      <% end %></ul>
+			  </div>
+			  <% end %>
+		  <h1>Personal Info</h1>
           <div class="row well personal-info">
-            <h4>
-              Full Name:
-              <span>User 2bn 2omw</span>
-            </h4>
-            <h4>
-              City:
-              <span>Ottawa, Canada</span>
-            </h4>
-            <h4>
-              Work:
-              <span>Engineer, Coder, Designer!</span>
-            </h4>
-            <h4>
-              Phone:
-              <span>01001001010010</span>
-            </h4>
-            <h4>
-              EMail:
-              <span>mailw@7ta4riba.zft</span>
-            </h4>
-            <h4>
-              Birthday:
-              <span>December 13</span>
-            </h4>
-            <h4>
-              Gender:
-              <span>Male</span>
-            </h4>
-            <h4>
-              Education:
-              <span>University of Ottawa, Canada. Software Engineering</span>
-            </h4>
-
+            <h4>First Name:</h4>
+            <%= f.text_field :first_name %>
+            <h4>Last Name:</h4>
+              <%= f.text_field :last_name %>
+            
+            <h4>Location:</h4>
+            <%= f.text_field :location %>
+            <h4>Birthdate:</h4>
+            <%= f.text_field :birthdate %>
+            <h4>EMail:</h4>
+            <span>mailw@7ta4riba.zft</span>
+            <h4>Gender:</h4>
+            <span>Male</span>
+            <h4>Education:</h4>
+            <span>University of Ottawa, Canada. Software </span>
           </div>
 
           <hr class="separator">
 
           <h1>Bio</h1>
           <div class="row well bio">
-            <p>
-              I am a Software Engineer that graduated in 2008. I work at a large technology company in the area. In my free time (hobby) I write free software, contribute in a couple of open source software projects, such Chromium (2008-2011) and a bunch of other projects around the net, and I design and develop beautiful web applications. I am Lebanese Canadian, born in Waterloo, raised in Ottawa, lived in Florida.
-            </p>
+			<%= f.text_area :bio, :class => "text-area" %>
           </div>
 
           <hr class="separator">
@@ -280,8 +282,16 @@
 
           </div>
 
-          <hr class="separator"></div>
+          <hr class="separator">
 
-       
+		 <div class="form-actions">
+           <%= f.submit "Save changes", :class => "btn btn-primary" %>
+            <a href="index" class="btn">Cancel</a>
+          </div>
+          
+		<% end %>
+      </div>
+
+
       </div>
     </div>

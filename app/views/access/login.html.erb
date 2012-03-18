@@ -27,7 +27,7 @@
     <div class="signform">
       <h1 color='white'>Log in</h1>
       </br>
-      <%= flash[:notice]%>
+     <p> <%= flash[:notice]%> </p>
       <%= form_tag(:action => 'signing') do %>
         
       <p>
@@ -40,7 +40,7 @@
       </p> 
       <td>&nbsp;</td>
 
-      <td><%= submit_tag("Log In") %></td>
+      <td><%= submit_tag("Log In", :class=>"btn btn-primary") %></td>
   <% end %>
   </div>
   </body>

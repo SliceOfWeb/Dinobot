@@ -16,7 +16,9 @@ class AccessController < ApplicationController
 		authorized_user = User.authenticate(params[:username],params[:password])
 		if authorized_user
 			session[:user_id] = authorized_user.id
-			redirect_to(:controller => 'people', :action => 'home_layout')
+			# redirect to User home page 
+			redirect_to(:controller => 'profiles', :action => 'index')
+
 		else
 			flash[:notice] = "Invalid email or password"
 			render "login"
@@ -25,7 +27,7 @@ class AccessController < ApplicationController
 
 	def logout
 		session[:user_id] = nil
-		redirect_to(:action => 'index')
+		redirect_to :action => 'index'
 	end
 
 end
