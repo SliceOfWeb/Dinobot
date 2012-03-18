@@ -1,0 +1,350 @@
+<div id="main-container" class="container">
+  <div class="row">
+    <div class="span4 sides">
+
+      <div class="profile-box">
+
+        <div class="top-profile-box" >
+          <div class="row-fluid">
+            <div class="span4">
+              <%= image_tag "pic.png" %></div>
+              <div class="span8">
+                <a href="#">
+                  <h4>
+                    User Name <i class="icon-ok-sign icon-white"></i>
+                  </h4>
+                </a>
+                <a href="#">
+                  <h5>Edit my profile</h5>
+                </a>
+              </div>
+            </div>
+            <!-- /row fluid --> </div>
+          <!-- /top-profile-box -->
+
+          <div class="bottom-profile-box" >
+            <div class="row-fluid">
+              <div class="span4" id="part1"> <i class="icon-heart icon-white"></i>
+                <a href="#">
+                  <h5>Fans</h5>
+                  <h5>124</h5>
+                </a>
+              </div>
+
+              <div class="span4" id="part2">
+                <i class="icon-user icon-white"></i>
+                <a href="#">
+                  <h5>Friends</h5>
+                  <h5>44</h5>
+                </a>
+              </div>
+
+              <div class="span4" id="part3">
+                <i class="icon-share icon-white"></i>
+                <a href="#">
+                  <h5>Sharing</h5>
+                  <h5>12</h5>
+                </a>
+              </div>
+
+            </div>
+            <!-- /row fluid --> </div>
+          <!-- /bottom-profile-box --> </div>
+        <!-- /profile-box -->
+
+        <div class="tabbable tabs-left">
+
+          <ul class="nav nav-tabs" id="left-nav">
+            <li class="active">
+              <a href="home_layout.html" data-toggle="tab">
+                <span>
+                  <i class="icon-home"></i>
+                  Home&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </span>
+              </a>
+            </li>
+            <li >
+              <a href="/profiles/profile_layout" data-toggle="tab" >
+                <span>
+                  <i class="icon-user"></i>
+                  Profile&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </span>
+              </a>
+            </li>
+            <li >
+              <a href="/conversations/messages" data-toggle="tab">
+                <span>
+                  <i class="icon-envelope"></i>
+                  Messages
+                </span>
+              </a>
+            </li>
+            <li >
+              <a href="groups.html" data-toggle="tab">
+                <span>
+                  <i class="icon-th-list"></i>
+                  Groups
+                </span>
+              </a>
+            </li>
+            <li >
+              <a href="friends.html" data-toggle="tab">
+                <span>
+                  <i class="icon-user"></i>
+                  Friends&nbsp;&nbsp;&nbsp;&nbsp;
+                </span>
+              </a>
+            </li>
+            <li >
+              <a href="album_preview.html" data-toggle="tab">
+                <span>
+                  <i class="icon-picture"></i>
+                  Photos&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </span>
+              </a>
+            </li>
+            <li >
+              <a href="videos_preview.html" data-toggle="tab">
+                <span>
+                  <i class="icon-film"></i>
+                  Videos&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </span>
+              </a>
+            </li>
+            <li >
+              <a href="setting.html" data-toggle="tab">
+                <span>
+                  <i class="icon-cog"></i>
+                  Settings&nbsp;&nbsp;&nbsp;
+                </span>
+              </a>
+            </li>
+            <li >
+              <a href="help.html" data-toggle="tab">
+                <span>
+                  <i class="icon-flag"></i>
+                  Help&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </span>
+              </a>
+            </li>
+            <li >
+              <a href="admin_layout.html" data-toggle="tab">
+                <span>
+                  <i class="icon-off"></i>
+                  Administration&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </span>
+              </a>
+            </li>
+          </ul>
+
+        </div>
+
+        <div class="well footer">
+          <div class="copyright">
+            <p>&copy; Copyright 2012 Dinobot Social Engine</p>
+          </div>
+          <div class="footer-links">
+            <a href="#">About •</a>
+            <a href="#">Privacy •</a>
+            <a href="#">Terms •</a>
+            <a href="#">Advertising</a>
+            <a href="#">Blog •</a>
+            <a href="#">Contact •</a>
+            <a href="#">Help •</a>
+            <a href="#">English</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="span8 middle">
+        <h1>Timline</h1>
+        <div class="share-box">
+          <!-- <textarea class="text-area" placeholder="What's in your Mind!?" rows="3"></textarea> -->
+          <%= form_for(:post, :url => {:controller => 'posts', :action => 'create'}) do |f| %>
+          <%= f.text_area(:content, class: "text-area" ) %>  
+          <div class="setting-area">
+
+            <div class="setting pull-right">
+              <a href="#">
+                <span class="wow"></span>
+              </a>
+              <a href="#">
+                <i class="icon-camera"></i>
+              </a>
+              <a href="#">
+                <i class="icon-map-marker"></i>
+              </a>
+              <a href="#">
+                <i class="icon-tag"></i>
+              </a>
+            </div>
+            <div class="btn-group pull-left">
+              <a class="btn btn-small  btn-success dropdown-toggle" data-toggle="dropdown" href="#">
+                Public
+                <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu ">
+                <li>
+                  <a href="#">Public</a>
+                </li>
+                <li class="divider"></li>
+                <li>
+                  <a href="#">Friends</a>
+                </li>
+                <li>
+                  <a href="#">Family</a>
+                </li>
+                <li>
+                  <a href="#">Co-Workers</a>
+                </li>
+                <li class="divider"></li>
+                <li>
+                  <a href="#">Specific People</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+           <%= f.submit "Share" , :class => "btn btn-primary pull-right"  %>
+            <%end%>
+         
+            <!-- <i class="icon-share icon-white"></i> -->
+            
+          
+        </div>
+        <!-- /share-box -->
+
+
+        <% @posts.each do |post| %>
+        <hr class="separator">
+
+        <div class="row post-box">
+          <a href="#">
+            <i class="icon-remove"></i>
+          </a>
+          <div class="content-header">
+            <div class="span2">
+              <a href="#">
+                <img class="profile-pic" src="pic.png" alt=""></a>
+            </div>
+
+
+            
+            <div class="span2">
+              <p class="user-name">
+                <a href="#"><%=post.person.user.username%></a>
+              </p>
+            </div>
+            <div class="span2 post-title">
+              <a href=""></a>
+            </div>
+          </div>
+          <!-- header -->
+          <div class="content">
+            <div class="inner-content">
+              <p>
+               <%=post.content%>
+              </p>
+            </div>
+            <!-- /inner-content --> </div>
+          <!-- /content -->
+          <div  class="post-actions">
+            <ul class="nav nav-pills">
+              <li >
+                <a href="#">
+                  <i class="icon-ok"></i>
+                  Like
+                  <sup class="post-counts">32</sup>
+                </a>
+              </li>
+              <li class="active">
+                <a href="#">
+                  <i class="icon-comment"></i>
+                  Comment
+                  <sup class="post-counts">5</sup>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <i class="icon-share"></i>
+                  Share
+                  <sup class="post-counts">10</sup>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <i class="icon-star"></i>
+                  Favorite
+                  <sup class="post-counts">7</sup>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <!-- /post-actions -->
+                 <%= form_for(:comment, :url => {:controller => 'comments', :action => 'create'}) do |f| %>
+          <%= f.text_area(:content, class: "text-area" ) %>
+           <%= f.hidden_field(:post_id, @post.id) %>
+           
+           <%= f.submit("Comment" , :class => "btn btn-primary pull-right") %>
+            <% end %>
+
+          <% @post.comments.each do |comment| %>
+
+          <div class="content-footer">      
+            <div class="comments">
+              <div class="span2">
+                <a href="#">
+                  <img class="profile-pic" src="pic.png" alt=""></a>
+              </div>
+              <div class="span2">
+                <p class="user-name">
+                  <a href="#"><%=comment.person.user.username%></a>
+                </p>
+              </div>
+              <div class="span2 comment-content">
+                <p>
+                  <%=comment.content%>
+                </p>
+              </div>
+              
+              <div  class="post-actions">
+                <ul class="nav nav-pills">
+                  <li >
+                    <a href="#">
+                      <i class="icon-ok"></i>
+                      Like
+                      <sup class="post-counts">32</sup>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <i class="icon-star"></i>
+                      Favorite
+                      <sup class="post-counts">7</sup>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <!-- /post-actions --> </div>
+            <!-- comments --> </div>
+          <!-- /content-footer --> </div>
+          <%end%>  
+        <!-- /post-box -->
+      <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
