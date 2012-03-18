@@ -1,0 +1,46 @@
+<div class="content-footer"> 
+            <%post.comments.each do |comment| %>     
+              <div class="comments">
+                <div class="span2">
+                  <a href="#">
+                    <img class="profile-pic" src="pic.png" alt=""></a>
+                </div> <!-- span2 profile picture -->
+
+                <div class="span2">
+                  <p class="user-name">
+                    <a href="#"><%=comment.person.user.username%></a>
+                  </p>
+                </div> <!-- span2 username -->
+
+                <div class="span2 comment-content">
+                  <p>
+                    <%=comment.content%>
+                  </p>
+                </div> <!-- span2 comment-content -->
+                
+                <div  class="post-actions">
+                  <ul class="nav nav-pills">
+                    <li >
+                      <a href="#">
+                        <i class="icon-ok"></i>
+                        Like
+                        <sup class="post-counts">32</sup>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <i class="icon-star"></i>
+                        Favorite
+                        <sup class="post-counts">7</sup>
+                      </a>
+                    </li>
+                  </ul>
+                </div> <!-- /post-actions --> 
+
+              </div> <!-- comments --> 
+            <%end%>
+            <%= form_tag({:controller => 'comments', :action => 'create', :post_id => post.id}) do  %>
+              <%= text_area_tag( :content , "" , {:class => "text-area"} ) %>
+              <%= submit_tag("Comment" , :class => "btn btn-primary pull-right") %>
+            <% end %> 
+ </div> <!-- /content-footer -->

@@ -1,11 +1,8 @@
 class PeopleController < ApplicationController
 	before_filter :authenticate_user
 
-	def index	
-		
-	end
-
-	def show
-
+	def home
+		@post = Post.new
+		@posts = Post.order("posts.created_at DESC")
 	end
 end

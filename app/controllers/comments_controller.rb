@@ -3,13 +3,12 @@ class CommentsController < ApplicationController
 
 
 	def create
-			@comment = Comment.new(params[:comment])
+			@comment = Comment.new({:content => params[:content] ,:post_id => params[:post_id]})
 			@comment.person_id = User.find(session[:user_id]).person.id
-			@comment.post_id= params[:post_id]
     	if @comment.save
       		# redirect_to(:controller => 'access', :action => 'login')
       		# render text: "you created comment by #{@comment.person.user.username}"
-      		redirect_to :controller => 'posts' , :action => 'new'
+      		redirect_to :controller => 'people' , :action => 'home'
     	else
       		render text: "Something worng happen while Commenting"
       end
