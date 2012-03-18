@@ -79,8 +79,8 @@
                       <i class="icon-ok-sign icon-white"></i>
                     </h4>
                   </a>
-                  <a href="profiles/edit">
-                    <h5>Save changes</h5>
+                  <a href="index">
+                    <h5>Change Avatar <i class="icon-camera icon-white"></i></h5>
                   </a> 
                 </div>
               </div>
@@ -213,30 +213,23 @@
         </div>
 
         <div class="span8 middle">
-        <%= form_for(@profile, :url => {:action => 'save_changes'}) do |f| %>
-		   	<% if @profile.errors.any? %>
-			  <div>
-			    <h2>Form is invalid</h2>
-			    <ul>
-			      <% for message in @profile.errors.full_messages %>
-			    <li>
-			      <%= message %></li>
-			      <% end %></ul>
-			  </div>
-			  <% end %>
-		  <h1>Personal Info</h1>
+        <%= form_tag("save_changes") do%>
+		   	
+        <!-- error messages -->
+
+		    <h1>Personal Info</h1>
           <div class="row well personal-info">
             <h4>First Name:</h4>
-            <%= f.text_field :first_name %>
+            <%= text_field_tag :first_name, @profile.first_name %>
             <h4>Last Name:</h4>
-              <%= f.text_field :last_name %>
+              <%= text_field_tag :last_name, @profile.last_name %>
             
             <h4>Location:</h4>
-            <%= f.text_field :location %>
+            <%= text_field_tag :location, @profile.location %>
             <h4>Birthdate:</h4>
-            <%= f.text_field :birthdate %>
-            <h4>EMail:</h4>
-            <span>mailw@7ta4riba.zft</span>
+            <%= text_field_tag :birthdate, @profile.birthdate %>
+            <h4>Email:</h4>
+            <%= text_field_tag :email, @current_user.email %>
             <h4>Gender:</h4>
             <span>Male</span>
             <h4>Education:</h4>
@@ -247,7 +240,7 @@
 
           <h1>Bio</h1>
           <div class="row well bio">
-			<%= f.text_area :bio, :class => "text-area" %>
+			   <%= text_area_tag :bio, @profile.bio,:class => "text-area" %>
           </div>
 
           <hr class="separator">
@@ -271,21 +264,14 @@
 
           <h1>Tags</h1>
           <div class="row well tags">
-            <span class="label label-info">Linux</span>
-            <span class="label label-info">Ruby on Rails</span>
-            <span class="label label-info">HTML5</span>
-            <span class="label label-info">CSS3</span>
-            <span class="label label-info">JavaScript</span>
-            <span class="label label-info">JQuery</span>
-
-            <span class="label label-info">Ruby on Rails</span>
+            <%= text_area_tag :tags, @tags.to_sentence,:class => "text-area" %>
 
           </div>
 
           <hr class="separator">
 
 		 <div class="form-actions">
-           <%= f.submit "Save changes", :class => "btn btn-primary" %>
+           <%= submit_tag "Save changes", :class => "btn btn-primary" %>
             <a href="index" class="btn">Cancel</a>
           </div>
           
