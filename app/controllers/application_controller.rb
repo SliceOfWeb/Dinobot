@@ -7,6 +7,8 @@ class ApplicationController < ActionController::Base
   		redirect_to(:controller => 'access', :action => 'login')
   		return false
   	else
+      # set current_user by the current user object
+      @current_user = User.find session[:user_id] 
   		return true
   	end
   end
@@ -14,7 +16,7 @@ class ApplicationController < ActionController::Base
   #This method for prevent user to access Signup & Welcome & Login Page without logout
   def save_login_state
     if session[:user_id]
-      redirect_to(:controller => 'people', :action => 'home_layout')
+      redirect_to(:controller => 'people', :action => 'home')
       return false
     else
       return true

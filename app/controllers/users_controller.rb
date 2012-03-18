@@ -4,15 +4,15 @@ class UsersController < ApplicationController
   before_filter :save_login_state
 
   def index
-    render ('new')
+    render 'new'
 	end
 
-	def new
-    #Signup Form
-    @user = User.new #HOOOW ERRORS ???
-	end
+    def new
+      #Signup Form
+      @user = User.new 
+    end
 
-	 def create
+   def create
     	@user = User.new(params[:user])
     	if @user.save
       		redirect_to(:controller => 'access', :action => 'login')

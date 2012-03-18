@@ -5,6 +5,7 @@ Dinobot::Application.routes.draw do
   match "signup", :to => "users#new"
   match "login", :to => "access#login"
   match "logout", :to => "access#logout"
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
