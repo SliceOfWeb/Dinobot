@@ -1,0 +1,121 @@
+<div class="share-box">
+        <%= form_for(:post, :url => {:controller => 'posts', :action => 'create'}) do |f| %>
+          <%= f.text_area(:content, class: "text-area" ) %>  
+          <div class="setting-area">
+            <div class="setting pull-right">
+              <a href="#">
+                <span class="wow"></span>
+              </a>
+              <a href="#">
+                <i class="icon-camera"></i>
+              </a>
+              <a href="#">
+                <i class="icon-map-marker"></i>
+              </a>
+              <a href="#">
+                <i class="icon-tag"></i>
+              </a>
+            </div> <!-- setting pull-right -->
+            <div class="btn-group pull-left">
+            <a class="btn btn-small  btn-success dropdown-toggle" data-toggle="dropdown" href="#">
+              Public
+              <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu ">
+              <li>
+                <a href="#">Public</a>
+              </li>
+              <li class="divider"></li>
+              <li>
+                <a href="#">Friends</a>
+              </li>
+              <li>
+                <a href="#">Family</a>
+              </li>
+              <li>
+                <a href="#">Co-Workers</a>
+              </li>
+              <li class="divider"></li>
+              <li>
+                <a href="#">Specific People</a>
+              </li>
+            </ul>
+            </div> <!-- btn-group pull-left -->
+          </div> <!-- setting-area -->
+          <i class="icon-share icon-white"></i><%= f.submit "Share" , :class => "btn btn-primary pull-right"  %>
+          
+        <%end%>        
+</div>  <!-- /share-box -->
+     
+<% @posts.each do |post| %>
+        <hr class="separator">
+        <div class="row post-box">
+          <a href="#">
+            <i class="icon-remove"></i>
+          </a>
+
+          <div class="content-header">
+            <div class="span2">
+              <a href="#">
+                <img class="profile-pic" src="pic.png" alt="">
+              </a>
+            </div> <!-- span2 -->
+
+            <div class="span2">
+              <p class="user-name">
+                <a href="#"><%=post.person.user.username%></a>
+              </p>
+            </div> <!-- span2 -->
+
+            <div class="span2 post-title">
+              <a href=""></a>  
+            </div> <!-- post-title -->
+          </div> <!-- content-header -->
+          
+          <div class="content">
+            <div class="inner-content">
+              <p>
+               <%=post.content%>
+              </p>
+            </div> <!-- /inner-content --> 
+          </div> <!-- /content --> 
+
+          <div class="post-actions">
+            <ul class="nav nav-pills">
+              <li >
+                <a href="#">
+                  <i class="icon-ok"></i>
+                  Like
+                  <sup class="post-counts">32</sup>
+                </a>
+              </li>
+              <li class="active">
+                <a href="#">
+                  <i class="icon-comment"></i>
+                  Comment
+                  <sup class="post-counts">5</sup>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <i class="icon-share"></i>
+                  Share
+                  <sup class="post-counts">10</sup>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <i class="icon-star"></i>
+                  Favorite
+                  <sup class="post-counts">7</sup>
+                </a>
+              </li>
+            </ul>
+          </div> <!-- /post-actions -->
+          
+         
+
+          <%= render({:partial => "comments/new", :locals => {:post => post}})%> 
+
+        </div> <!-- /post-box --> 
+<% end %>     
