@@ -1,11 +1,13 @@
 Dinobot::Application.routes.draw do
  
   root :to => 'access#index', :as => :welcome
-  match ':controller(/:action(/:id))(.:format)'
+  
   match "signup", :to => "users#new"
   match "login", :to => "access#login"
   match "logout", :to => "access#logout"
-  
+  # resources :profiles
+
+  match ':controller(/:action(/:id))(.:format)'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

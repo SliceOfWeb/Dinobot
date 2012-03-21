@@ -41,7 +41,7 @@ class ProfilesController < ApplicationController
 		unless @profile
 			@profile = Profile.new
 		else
-			@profile
+			
 			unless @profile.tags.empty?
 				@tags = []
 				Profile.first.tags.each do |tag| @tags << tag.text end
@@ -49,6 +49,7 @@ class ProfilesController < ApplicationController
 				@tags = []
 			end
 
+			@profile
 		end
 
 		
