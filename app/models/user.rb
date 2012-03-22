@@ -21,8 +21,15 @@ class User < ActiveRecord::Base
   attr_accessible :username, :email, :password, :password_confirmation
     
     
-  def self.authenticate(username="", login_password="")
-  	user = User.find_by_username(username)
+  def self.authenticate(username_or_email="", login_password="")
+
+    
+    if  EMAIL_REGEX.match(username_or_email)    
+      user = User.find_by_email(username_or_email)
+    else
+      user = User.find_by_username(username_or_email)
+    end
+
   	if user && user.password_match?(login_password)
   		return user
   	else
