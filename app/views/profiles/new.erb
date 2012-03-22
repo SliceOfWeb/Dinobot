@@ -6,12 +6,12 @@
 <div class="signform">
   <h1 color='white'>Sign Up</h1>
   <br/>
-  <%= form_for(@user, :url => {:action => 'create'}) do |f| %>
-  <% if @user.errors.any? %>
+  <%= form_for(@profile, :url => {:action => 'create'}) do |f| %>
+  <% if @profile.errors.any? %>
   <div>
     <h2>Form is invalid</h2>
     <ul>
-      <% for message in @user.errors.full_messages %>
+      <% for message in @profile.errors.full_messages %>
     <li>
       <%= message %></li>
       <% end %></ul>

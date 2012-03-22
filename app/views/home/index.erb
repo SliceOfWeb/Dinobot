@@ -13,10 +13,7 @@
                 <h4>
                   User Name <i class="icon-ok-sign icon-white"></i>
                 </h4>
-              </a>
-              <a href="#">
-                <h5>Edit my profile</h5>
-              </a>
+              <br/>
             </div><!-- span8 --> 
           </div><!-- /row fluid -->
         </div> <!-- /top-profile-box -->
@@ -58,7 +55,8 @@
             </a>
           </li>
           <li >
-            <a href="/profiles/index" data-toggle="tab" >
+
+            <a href="<%="/profiles/#{@current_user.username}"%>" data-toggle="tab" >
               <span>
                 <i class="icon-user"></i>
                 Profile&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

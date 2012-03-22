@@ -8,7 +8,7 @@ class CommentsController < ApplicationController
     	if @comment.save
       		# redirect_to(:controller => 'access', :action => 'login')
       		# render text: "you created comment by #{@comment.person.user.username}"
-      		redirect_to :controller => 'people' , :action => 'home'
+      		redirect_to '/home'
     	else
       		render text: "Something worng happen while Commenting"
       end

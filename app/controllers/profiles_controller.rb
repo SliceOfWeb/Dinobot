@@ -1,20 +1,22 @@
 class ProfilesController < ApplicationController
 	before_filter :authenticate_user
 	
-	def index
-		@profile = Profile.find_by_user_id @current_user.id
+	def show
+		@profile = Profile.find_by_user_id @current_user.id	
+
 	end
 
-	def save_changes
-
-		unless @profile
-			@profile = Profile.new
-			@profile.user = @current_user
-		else
-			@profile = Profile.find_by_user_id @current_user.id
-		end
-
+	def index
 		
+	end
+
+	def new
+		@profile = Profile.new
+	end
+
+
+	def update
+		@profile = Profile.find_by_user_id @current_user.id
 		@profile.update_attributes(:first_name => params[:first_name], :last_name => params[:last_name], :location => params[:location], :birthdate => params[:birthdate], :bio => params[:bio], :gender =>params[:gender], :education => params[:education])
 		tags = params[:tags].split('/')
 		
@@ -37,6 +39,11 @@ class ProfilesController < ApplicationController
 			end
 		end
 
+		@tags = []
+		@profile.tags.each do |tag|
+			@tags << tag.text
+		end
+		
 		# change email
 		@current_user.email = params[:email]
 
@@ -44,29 +51,23 @@ class ProfilesController < ApplicationController
 			
 			flash[:notice] = "Your changes have been saved"
 
-			redirect_to('/profiles/index')	
+			redirect_to('/profiles/edit')	
 		else
-			render 'update'
+
+			render 'edit'
 		end
 
 	end
 
-	def update
+	def edit
+
 		@profile = Profile.find_by_user_id @current_user.id
 
-		unless @profile
-			@profile = Profile.new
-		end
 		@tags = []
 		@profile.tags.each do |tag|
 			@tags << tag.text
 		end
 		
-	end
-
-
-	def upload_avatar
-
 	end
 
 end

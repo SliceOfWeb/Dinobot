@@ -220,7 +220,7 @@
         </div>
 
         <div class="span8 middle">
-        <%= form_tag("save_changes") do%>
+        <%= form_tag "/profiles/update" do%>
 		   	
         <!-- error messages -->
         <% @profile.errors.full_messages.each do |msg| %>
@@ -229,6 +229,7 @@
         <% @current_user.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
         <% end %>
+        
 		    <h1>Personal Info</h1>
           <div class="row well personal-info">
             <h4>First Name:</h4>

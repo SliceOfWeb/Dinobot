@@ -9,7 +9,7 @@ class PostsController < ApplicationController
     	if @post.save
       		# redirect_to(:controller => 'access', :action => 'login')
       		# render text: "you created post by #{@post.person.user.username}"
-      		redirect_to :controller =>'people', :action => 'home'
+      		redirect_to "/home"
     	else
       		render text: "Something worng happen while posting"
       end
