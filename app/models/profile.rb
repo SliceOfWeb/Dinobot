@@ -6,5 +6,10 @@ class Profile < ActiveRecord::Base
 	validates :last_name, :length => { :in => 3..20 }, :presence =>true
 	
 
+	def to_param
+		user_id		
+	end
+
+
 	
 end

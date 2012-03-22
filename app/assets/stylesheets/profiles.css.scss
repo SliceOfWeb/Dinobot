@@ -1,3 +1,52 @@
 // Place all the styles related to the profiles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+  .middle > div.row:hover{
+    border: 1.3px solid rgba(51, 181, 229, 0.4);
+  }
+
+  .span8 .personal-info{
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.1);
+    height: auto;
+    padding: 13px;
+    background-color: transparent;
+  }
+
+  .personal-info h3 span{
+    font-size: 15px;
+    font-weight: normal;
+  }
+
+  .span8 .bio{
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.1);
+    height: auto;
+    padding: 13px;
+    background-color: transparent;
+  }
+
+  .span8 .intersests{
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.1);
+    height: auto;
+    padding: 13px;
+    background-color: transparent;
+  }
+  .profile-box{
+    height:auto;
+  }
+  .profile-box img{
+    width: 180px;
+    height: 155px;
+  }
+  .top-profile-box .span4{
+    width: 100%;
+  }
+  .top-profile-box .span8 {
+    margin-top: 1px;
+  }
+  .middle p, .middle span, .middle dd{
+    color: #848484;
+  }
