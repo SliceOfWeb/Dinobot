@@ -6,6 +6,9 @@ class CreateProfiles < ActiveRecord::Migration
       t.text :bio
       t.date :birthdate
       t.string :location
+      t.string :gender
+      t.string :education 
+      t.string :avatar
       t.boolean :allow_search, default: true
       t.integer :user_id      
       t.timestamps

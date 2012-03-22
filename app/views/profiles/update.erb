@@ -58,6 +58,13 @@
    input[type="submit"].btn {
    	margin-bottom: 2px;
    }
+   .text-area{
+    font-size: 21px;
+    text-shadow: 0px 1px 1px black
+   }
+   label{
+    display:inline;
+   }
 </style>
 
 
@@ -216,7 +223,12 @@
         <%= form_tag("save_changes") do%>
 		   	
         <!-- error messages -->
-
+        <% @profile.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        <% @current_user.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
 		    <h1>Personal Info</h1>
           <div class="row well personal-info">
             <h4>First Name:</h4>
@@ -231,9 +243,14 @@
             <h4>Email:</h4>
             <%= text_field_tag :email, @current_user.email %>
             <h4>Gender:</h4>
-            <span>Male</span>
+     
+              <%= label_tag :gender_male, "Male" %>
+              <%= radio_button_tag :gender, "male" %>
+              <%= label_tag :gender_female, "Female"%>
+              <%= radio_button_tag :gender, "female" %>
+         
             <h4>Education:</h4>
-            <span>University of Ottawa, Canada. Software </span>
+            <%= text_field_tag :education, @profile.education %>
           </div>
 
           <hr class="separator">
@@ -242,7 +259,7 @@
           <div class="row well bio">
 			   <%= text_area_tag :bio, @profile.bio,:class => "text-area" %>
           </div>
-
+<!-- 
           <hr class="separator">
 
           <h1>Intersests</h1>
@@ -259,23 +276,23 @@
               <dd>Etiam porta sem malesuada magna mollis euismod.</dd>
             </dl>
           </div>
-
+ -->
           <hr class="separator">
 
           <h1>Tags</h1>
+          <p>Separate tags with '/'</p>
           <div class="row well tags">
-            <%= text_area_tag :tags, @tags.to_sentence,:class => "text-area" %>
-
+            <%= text_area_tag :tags, @tags.to_param,:class => "text-area" %>
           </div>
 
           <hr class="separator">
 
-		 <div class="form-actions">
+		      <div class="form-actions">
            <%= submit_tag "Save changes", :class => "btn btn-primary" %>
             <a href="index" class="btn">Cancel</a>
           </div>
           
-		<% end %>
+		  <% end %>
       </div>
 
 

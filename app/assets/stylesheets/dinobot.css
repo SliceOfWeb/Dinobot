@@ -476,7 +476,8 @@ profile box
     border-radius: 4px;
 }
 .content-footer textarea{
-    height: 34px;
+    /*height: 34px;*/
+    height:18px;
     width: 406px;
     margin-left: 71px;
     padding: 17px;

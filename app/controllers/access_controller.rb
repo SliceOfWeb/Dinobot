@@ -9,15 +9,11 @@ class AccessController < ApplicationController
 	end 
 
 	def login
-		#Login Form
-	end
-
-	def signing
 		authorized_user = User.authenticate(params[:username],params[:password])
 		if authorized_user
 			session[:user_id] = authorized_user.id
 			# redirect to User home page 
-			redirect_to(:controller => 'profiles', :action => 'index')
+			redirect_to('/profiles/update')
 
 		else
 			flash[:notice] = "Invalid email or password"

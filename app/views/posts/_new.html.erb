@@ -1,6 +1,6 @@
 <div class="share-box">
         <%= form_for(:post, :url => {:controller => 'posts', :action => 'create'}) do |f| %>
-          <%= f.text_area(:content, class: "text-area" ) %>  
+          <%= f.text_area(:content, class: "text-area", :id => "sharearea", :style=>"height: 20px" ) %>  
           <div class="setting-area">
             <div class="setting pull-right">
               <a href="#">
@@ -42,7 +42,7 @@
             </ul>
             </div> <!-- btn-group pull-left -->
           </div> <!-- setting-area -->
-          <i class="icon-share icon-white"></i><%= f.submit "Share" , :class => "btn btn-primary pull-right"  %>
+          <i class="icon-share icon-white"></i><%= f.submit "Share" , :id=>"share" , :class => "btn btn-primary pull-right"  %>
           
         <%end%>        
 </div>  <!-- /share-box -->
@@ -119,3 +119,18 @@
 
         </div> <!-- /post-box --> 
 <% end %>     
+
+ <script type="text/javascript">
+        $('#sharearea').click(function() {
+          $(this).animate({
+            height: "40px"
+          }, 500);
+
+        });
+        $('#share').click(function() {
+          $("#sharearea").animate({
+            "height": "20px",
+          }, "fast");
+
+        });  
+      </script>

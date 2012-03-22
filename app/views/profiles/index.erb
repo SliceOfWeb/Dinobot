@@ -1,5 +1,6 @@
 <%= stylesheet_link_tag "profiles"%>
 
+
   <div id="main-container" class="container">
     <div class="row">
       <div class="span4 sides">
@@ -17,7 +18,7 @@
                       <i class="icon-ok-sign icon-white"></i>
                     </h4>
                   </a>
-                  <a href="edit">
+                  <a href="update">
                     <h5>Edit my profile</h5>
                   </a> 
 
@@ -155,6 +156,7 @@
 
         <div class="span8 middle">
           <h1>Personal Info</h1>
+          <p id="flash" ><%= flash[:notice] %></p>
           <div class="row well personal-info">
             <h4>Full Name:</h4>
               <%= @profile.first_name %>
@@ -169,13 +171,13 @@
             <%= @profile.birthdate %>
             
             <h4>EMail:</h4>
-            <span>mailw@7ta4riba.zft</span>
+            <%= @current_user.email%>
             
             <h4>Gender:</h4>
-            <span>Male</span>
+            <%= @profile.gender %>
 
             <h4>Education:</h4>
-            <span>University of Ottawa, Canada. Software </span>
+            <%= @profile.education %>
 
           </div>
 
@@ -188,7 +190,7 @@
             </p>
           </div>
 
-          <hr class="separator">
+         <!--  <hr class="separator">
 
           <h1>Intersests</h1>
           <div class="row well intersests">
@@ -203,21 +205,19 @@
               <dt>Malesuada porta</dt>
               <dd>Etiam porta sem malesuada magna mollis euismod.</dd>
             </dl>
-          </div>
+          </div> -->
 
           <hr class="separator">
 
           <h1>Tags</h1>
           <div class="row well tags">
-            <span class="label label-info">Linux</span>
-            <span class="label label-info">Ruby on Rails</span>
-            <span class="label label-info">HTML5</span>
-            <span class="label label-info">CSS3</span>
-            <span class="label label-info">JavaScript</span>
-            <span class="label label-info">JQuery</span>
-
-            <span class="label label-info">Ruby on Rails</span>
-
+            <% unless @profile.tags == [] %>
+              <% @profile.tags.each do |tag| %>
+              <span class="label label-info"><%= tag.text %></span>
+              <% end %>
+            <% else %>
+              <span class="label label-info">NO TAGS</span>
+            <% end %>
           </div>
 
           <hr class="separator"></div>
