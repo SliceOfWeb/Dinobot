@@ -1,40 +1,54 @@
-<%= stylesheet_link_tag    "bootstrap", "access", :media => "all" %>
-<%= javascript_include_tag "access" %>
-<%= csrf_meta_tags %>
+  <%= form_tag profiles_path do%>
+		   	
+        <!-- error messages -->
+        <% @profile.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        <% @current_user.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        
+		    <h1>Personal Info</h1>
+          <div class="row well personal-info">
+            <h4>First Name:</h4>
+            <%= text_field_tag :first_name %>
+            <h4>Last Name:</h4>
+              <%= text_field_tag :last_name %>
+            
+            <h4>Location:</h4>
+            <%= text_field_tag :location%>
+            <h4>Birthdate:</h4>
+            <%= text_field_tag :birthdate%>
+            <h4>Gender:</h4>
+     
+              <%= label_tag :gender_male, "Male" %>
+              <%= radio_button_tag :gender, "male" %>
+              <%= label_tag :gender_female, "Female"%>
+              <%= radio_button_tag :gender, "female" %>
+         
+            <h4>Education:</h4>
+            <%= text_field_tag :education%>
+          </div>
 
+          <hr class="separator">
 
-<div class="signform">
-  <h1 color='white'>Sign Up</h1>
-  <br/>
-  <%= form_for(@profile, :url => {:action => 'create'}) do |f| %>
-  <% if @profile.errors.any? %>
-  <div>
-    <h2>Form is invalid</h2>
-    <ul>
-      <% for message in @profile.errors.full_messages %>
-    <li>
-      <%= message %></li>
-      <% end %></ul>
-  </div>
-  <% end %>
+          <h1>Bio</h1>
+          <div class="row well bio">
+			   <%= text_area_tag :bio, :class => "text-area" %>
+          </div>
+          <hr class="separator">
 
-  <p>
-    <%= f.label 'Username' %>
-    <br />        
-    <%= f.text_field :username , :class =>"input-xlarge"%></p>
-  <p>
-    <%= f.label 'Email' %>
-  <br />        
-    <%= f.email_field :email , :class =>"input-xlarge" %></p>
-  <p>
-    <%= f.label 'Password' %>
-    <br />        
-    <%= f.password_field :password , :class =>"input-xlarge" %></p>
-  <p>
-    <%= f.label 'Password Confirmation'%>
-    <br />        
-    <%= f.password_field :password_confirmation, :class =>"input-xlarge" %></p>
-    <%= f.submit :class => "btn"  %>
-    <a class="btn btn-primary" href="/"> Cancel </a>
-    <% end %>
-</div>
+          <h1>Tags</h1>
+          <p>Separate tags with '/'</p>
+          <div class="row well tags">
+            <%= text_area_tag :tags,:class => "text-area" %>
+          </div>
+
+          <hr class="separator">
+
+		      <div class="form-actions">
+           <%= submit_tag "Save changes", :class => "btn btn-primary" %>
+            <a href="index" class="btn">Cancel</a>
+          </div>
+          
+		  <% end %>

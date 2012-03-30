@@ -1,65 +1,78 @@
 <div class="content-footer"> 
-            <%post.comments.each do |comment| %>     
-              <div class="comments">
-                <div class="span2">
-                  <a href="#">
-                    <img class="profile-pic" src="pic.png" alt=""></a>
-                </div> <!-- span2 profile picture -->
+  <div class="comments">
+    <%post.comments.each do |comment| %>
+      <a href="#">
+        <i class="icon-remove"></i>
+      </a>
+      <div class="row content-header">
+        <div class="span4">
+          <a href="#">
+            <%= image_tag "pic.png", :class => 'profile-pic' %>
+          </a>
+        </div> <!-- span4 -->
+        <div class="span8">
+          <h4>
+            <a href="<%= profile_path(comment.person.user.username) %>"><%="#{comment.person.user.profile.first_name} #{comment.person.user.profile.last_name}"%></a>
+          </h4>
+          <div class=" comment-title">
+            <%=comment.content%>     
+          </div> <!-- comment-title -->
 
-                <div class="span2">
-                  <p class="user-name">
-                    <a href="#"><%=comment.person.user.username%></a>
-                  </p>
-                </div> <!-- span2 username -->
-
-                <div class="span2 comment-content">
-                  <p>
-                    <%=comment.content%>
-                  </p>
-                </div> <!-- span2 comment-content -->
-                
-                <div  class="post-actions">
-                  <ul class="nav nav-pills">
-                    <li >
-                      <a href="#">
+          <div class="row header-bottom">
+            <div class="span8 comment-actions pull-left ">
+              <ul class="nav nav-pills pull-left">
+                <li >
+                  <a href= "<%=upvote_path(comment.action.id)%>">
                         <i class="icon-ok"></i>
                         Like
-                        <sup class="post-counts">32</sup>
+                        <sup class="post-counts"><%=comment.action.upvote_count%></sup>
                       </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <i class="icon-star"></i>
-                        Favorite
-                        <sup class="post-counts">7</sup>
-                      </a>
-                    </li>
-                  </ul>
-                </div> <!-- /post-actions --> 
+                </li>
+              </ul>
+            </div> <!-- /comment-actions -->
 
-              </div> <!-- comments --> 
-            <%end%>
-            <%= form_tag({:controller => 'comments', :action => 'create', :post_id => post.id}) do  %>
-              <%= text_area_tag( :content , "" , {:class => "text-area"} ) %>
-              <%= submit_tag("Comment" , :class => "btn btn-primary pull-right" , :id=>"click") %>
-            <% end %> 
- </div> <!-- /content-footer -->
+            <div class="span4 pull-right ">
+              <p> <% date = (Time.now - comment.created_at).to_i %>
+              <%case date%>
+              <% when 0..60  %>
+              <%= "#{date+3} Seconds ago"%>
+              <% when 60..3600  %>
+              <%= "#{pluralize(date/60, 'Minute')} ago"%>
+              <% when  3600..86400  %>
+              <%= "#{pluralize(date/3600, 'Hour')} ago"%>
+              <% when  86400..172800  %>
+              <%= "Yesterday"%>
+              <%else%>
+              <%=comment.created_at.strftime("%B %e, %Y at %l:%M %p")%>
+              <% end%>
+              </p>
+            </div> <!-- span4 Date-->
+          </div><!--row header-bottom-->
+        </div> <!-- span8 --> 
+      </div> <!-- content-header --> 
+    <%end%>  
+    <%= form_tag({:controller => 'comments', :action => 'create', :post_id => post.id}) do  %>
+    <%= text_area_tag( :content , "" , {:class => "comment-text-area"} ) %>
+    <%= submit_tag("Comment" , :class => "btn btn-primary pull-right") %>
+    <% end %>
+  </div>  <!-- /comments -->
+</div> <!-- /content-footer -->
 
-    <script type="text/javascript">
-        $(document).ready(function() {
-         $('.text-area').focus(function(){
-          $(this).animate({
-            height: "55px",
-            borderWidth: "0px"
-            }, 700 );
-          });
-        });
-        $(document).ready(function() {
-          $('#click').click(function(){
-            $('#textarea').animate({
-              height: "18px",
-              borderWidth: "0px"
-            }, 700 );
-          });
-        });
-      </script>
+     <script type="text/javascript">
+    //     $(document).ready(function() {
+    //      $('.text-area').focus(function(){
+    //       $(this).animate({
+    //         height: "55px",
+    //         borderWidth: "0px"
+    //         }, 700 );
+    //       });
+    //     });
+    //     $(document).ready(function() {
+    //       $('#click').click(function(){
+    //         $('#textarea').animate({
+    //           height: "18px",
+    //           borderWidth: "0px"
+    //         }, 700 );
+    //       });
+    //     });
+    //   </script>

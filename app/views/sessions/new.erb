@@ -28,7 +28,7 @@
       <h1 color='white'>Log in</h1>
       </br>
      <p> <%= flash[:notice]%> </p>
-      <%= form_tag(:action => 'create') do %>
+      <%= form_tag sessions_path do %>
         
       <p>
         <%= label_tag :username %>

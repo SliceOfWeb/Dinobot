@@ -25,15 +25,15 @@ ActiveRecord::Schema.define(:version => 20120313222557) do
   add_index "action_items", ["action_id", "person_id"], :name => "index_action_items_on_action_id_and_person_id"
 
   create_table "actions", :force => true do |t|
-    t.string   "target_type",     :null => false
-    t.integer  "up_vote_count"
-    t.integer  "down_vote_count"
-    t.integer  "post_id"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.string   "target_type",    :null => false
+    t.integer  "target_id"
+    t.integer  "upvote_count"
+    t.integer  "downvote_count"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
 
-  add_index "actions", ["post_id"], :name => "index_actions_on_post_id"
+  add_index "actions", ["target_id"], :name => "index_actions_on_target_id"
 
   create_table "aspect_memberships", :force => true do |t|
     t.integer  "aspect_id"

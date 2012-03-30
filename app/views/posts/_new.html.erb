@@ -1,136 +1,150 @@
 <div class="share-box">
-        <%= form_for(:post, :url => {:controller => 'posts', :action => 'create'}) do |f| %>
-          <%= f.text_area(:content, class: "text-area", :id => "sharearea", :style=>"height: 20px" ) %>  
-          <div class="setting-area">
-            <div class="setting pull-right">
-              <a href="#">
-                <span class="wow"></span>
-              </a>
-              <a href="#">
-                <i class="icon-camera"></i>
-              </a>
-              <a href="#">
-                <i class="icon-map-marker"></i>
-              </a>
-              <a href="#">
-                <i class="icon-tag"></i>
-              </a>
-            </div> <!-- setting pull-right -->
-            <div class="btn-group pull-left">
-            <a class="btn btn-small  btn-success dropdown-toggle" data-toggle="dropdown" href="#">
-              Public
-              <span class="caret"></span>
-            </a>
-            <ul class="dropdown-menu ">
-              <li>
-                <a href="#">Public</a>
-              </li>
-              <li class="divider"></li>
-              <li>
-                <a href="#">Friends</a>
-              </li>
-              <li>
-                <a href="#">Family</a>
-              </li>
-              <li>
-                <a href="#">Co-Workers</a>
-              </li>
-              <li class="divider"></li>
-              <li>
-                <a href="#">Specific People</a>
-              </li>
-            </ul>
-            </div> <!-- btn-group pull-left -->
-          </div> <!-- setting-area -->
-          <i class="icon-share icon-white"></i><%= f.submit "Share" , :id=>"share" , :class => "btn btn-primary pull-right"  %>
-          
-        <%end%>        
+  <%= form_for @post do |f| %>
+    <%= f.text_area(:content, :class => "share-text-area") %>  
+    <div class="settings-area">
+      <div class="settings pull-right">
+        <a href="#">
+          <i class="icon-play"></i>
+        </a>
+        <a href="#">
+          <i class="icon-camera"></i>
+        </a>
+        <a href="#">
+          <i class="icon-map-marker"></i>
+        </a>
+        <a href="#">
+          <i class="icon-tag"></i>
+        </a>
+
+      </div> <!-- settings pull-right -->
+      <div class="btn-group pull-left">
+      <a class="btn btn-small  btn-success dropdown-toggle" data-toggle="dropdown" href="#">
+        Public
+        <span class="caret"></span>
+      </a>
+      <ul class="dropdown-menu ">
+        <li>
+          <a href="#">Public</a>
+        </li>
+        <li class="divider"></li>
+        <li>
+          <a href="#">Friends</a>
+        </li>
+        <li>
+          <a href="#">Family</a>
+        </li>
+        <li>
+          <a href="#">Co-Workers</a>
+        </li>
+        <li class="divider"></li>
+        <li>
+          <a href="#">Specific People</a>
+        </li>
+      </ul>
+      </div> <!-- btn-group pull-left -->
+    </div> <!-- settings-area -->
+    <i class="icon-share icon-white"></i><%= f.submit "Share",:class => "btn btn-primary pull-right"%>
+  <%end%>        
 </div>  <!-- /share-box -->
      
 <% @posts.each do |post| %>
         <hr class="separator">
-        <div class="row post-box">
+        <div class="post-box">
           <a href="#">
             <i class="icon-remove"></i>
           </a>
 
-          <div class="content-header">
-            <div class="span2">
+          <div class="row content-header">
+            <div class="span4">
               <a href="#">
-                <img class="profile-pic" src="pic.png" alt="">
+                <%= image_tag "pic.png", :class => 'profile-pic' %>
               </a>
             </div> <!-- span2 -->
+            <div class="span8">
+              <h4>
+                <a href="<%= profile_path(post.person.user.username) %>"><%="#{post.person.user.profile.first_name} #{post.person.user.profile.last_name}"%></a>
+              </h4>
+              <div class=" post-title">
+                <%=post.content%>     
+              </div> <!-- post-title -->
+             
+              <div class="row header-bottom">
+                <div class="span4 pull-left ">
+                  <p> <% date = (Time.now - post.created_at).to_i %>
+                    <%case date%>
+                      <% when 0..60  %>
+                        <%= "#{date+3} Seconds ago"%>
+                      <% when 60..3600  %>
+                        <%= "#{pluralize(date/60, 'Minute')} ago"%>
+                      <% when  3600..86400  %>
+                          <%= "#{pluralize(date/3600, 'Hour')} ago"%>
+                      <% when  86400..172800  %>
+                          <%= "Yesterday"%>
+                      <%else%>
+                        <%=post.created_at.strftime("%B %e, %Y at %l:%M %p")%>
+                   <% end%>
+                  </p>
+                </div>
 
-            <div class="span2">
-              <p class="user-name">
-                <a href="#"><%=post.person.user.username%></a>
-              </p>
-            </div> <!-- span2 -->
+                <div class="span8 post-actions pull-right ">
+                  <ul class="nav nav-pills pull-right">
+                    <li >
+                      <a href= "<%=upvote_path(post.action.id)%>">
+                        <i class="icon-ok"></i>
+                        Like
+                        <sup class="post-counts"><%=post.action.upvote_count%></sup>
+                      </a>
+                    </li>
+                    <li class="active">
+                      <a href="#">
+                        <i class="icon-comment"></i>
+                        Comment
+                        <sup class="post-counts"><%=post.comments.count%></sup>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <i class="icon-share"></i>
+                        Share
+                        <sup class="post-counts">10</sup>
+                      </a>
+                    </li>
+                    <!-- <li>
+                      <a href="#">
+                        <i class="icon-star"></i>
+                        Favorite
+                        <sup class="post-counts">7</sup>
+                      </a>
+                    </li> -->
+                  </ul>
+                </div> <!-- /post-actions -->
+              </div><!-- / -->
+              
 
-            <div class="span2 post-title">
-              <a href=""></a>  
-            </div> <!-- post-title -->
+            </div> <!--span8-->
           </div> <!-- content-header -->
           
-          <div class="content">
+         <!--  <div class="content">
             <div class="inner-content">
-              <p>
-               <%=post.content%>
-              </p>
-            </div> <!-- /inner-content --> 
-          </div> <!-- /content --> 
+            </div>  /inner-content  
+          </div>  /content -->  
 
-          <div class="post-actions">
-            <ul class="nav nav-pills">
-              <li >
-                <a href="#">
-                  <i class="icon-ok"></i>
-                  Like
-                  <sup class="post-counts">32</sup>
-                </a>
-              </li>
-              <li class="active">
-                <a href="#">
-                  <i class="icon-comment"></i>
-                  Comment
-                  <sup class="post-counts">5</sup>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <i class="icon-share"></i>
-                  Share
-                  <sup class="post-counts">10</sup>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <i class="icon-star"></i>
-                  Favorite
-                  <sup class="post-counts">7</sup>
-                </a>
-              </li>
-            </ul>
-          </div> <!-- /post-actions -->
-          
-         
-
-          <%= render({:partial => "comments/new", :locals => {:post => post}})%> 
+          <%= render({:partial => new_comment_path, :locals => {:post => post}})%> 
 
         </div> <!-- /post-box --> 
 <% end %>     
 
- <script type="text/javascript">
-        $('#sharearea').click(function() {
-          $(this).animate({
-            height: "40px"
-          }, 500);
+    <script type="text/javascript">
+//         $('#sharearea').click(function() {
+//           $(this).animate({
+//             height: "40px"
+//           }, 500);
 
-        });
-        $('#share').click(function() {
-          $("#sharearea").animate({
-            "height": "20px",
-          }, "fast");
+//         });
+//         $('#share').click(function() {
+//           $("#sharearea").animate({
+//             "height": "20px",
+//           }, "fast");
 
-        });  
-      </script>
+//         });  
+// </script>

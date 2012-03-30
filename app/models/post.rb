@@ -1,5 +1,5 @@
 class Post < ActiveRecord::Base
-	has_one :action
+	has_one :action, :as => :target
 	belongs_to :person
 	belongs_to :group
 	has_many :comments

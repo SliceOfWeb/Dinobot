@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<title>Dinobot Social Engine</title>
 
-	<%= stylesheet_link_tag    "dinobot","bootstrap","access", :media => "all" %>
+	<%= stylesheet_link_tag "bootstrap","dinobot","sessions", :media => "all" %>
 	<%= javascript_include_tag "application" %>
 	<%= csrf_meta_tags %>
 
@@ -29,7 +29,7 @@
 
 							<div class="LoginArea">
 								Have Already Account?
-								<%= link_to :Login , new_acces_path , class: "btn btn-primary"%>
+								<%= link_to :Login , login_path , class: "btn btn-primary"%>
 							</div>
 
 						</div>
@@ -45,7 +45,7 @@
 							<h3>When it absolutely, positively</h3>
 							<h3>has to be overnight</h3>
 							
-							<%= link_to "Sign Up Now!" , new_user_path , class: "btn btn-large btn-success"%>
+							<%= link_to "Sign Up Now!" , signup_path , class: "btn btn-large btn-success"%>
 							<h2>or connect using</h2>
 							<ul class="thirdnav">
 								<li>

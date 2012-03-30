@@ -1,12 +1,12 @@
-<%= stylesheet_link_tag    "bootstrap", "access", :media => "all" %>
-<%= javascript_include_tag "access" %>
+<%= stylesheet_link_tag    "bootstrap", "sessions", :media => "all" %>
+<%= javascript_include_tag "sessions" %>
 <%= csrf_meta_tags %>
 
 
 <div class="signform">
   <h1 color='white'>Sign Up</h1>
   <br/>
-  <%= form_for(@user, :url => {:action => 'create'}) do |f| %>
+  <%= form_for @user do |f| %>
   <% if @user.errors.any? %>
   <div>
     <h2>Form is invalid</h2>

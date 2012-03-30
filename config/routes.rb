@@ -1,19 +1,21 @@
 Dinobot::Application.routes.draw do
 
-  root :to => 'access#index', :as => :welcome
-
-  get "log_out" => "access#destroy"
+  root :to => 'sessions#index', :as => "welcome"
   
-  resources :users
-
-  resources :access 
-
-  resources :profiles
-
-  get "home" => "home#index"
-  
+  resources :users, :sessions, :profiles, :posts, :comments, :actions 
 
   match ':controller(/:action(/:id))(.:format)'
+  
+  get "home" => "home#index", :as => "home"
+  get "logout" => "sessions#destroy", :as => "logout"
+  get "login" => "sessions#new", :as => "login"
+  get "signup" => "users#new", :as => "signup"
+
+  put 'actions/update/:id' => 'actions#update', :as => 'upvote'
+
+  match ':username' => "profiles#show", :as => 'profile'
+  
+  
 
   
   # match "signup", :to => "users#new"

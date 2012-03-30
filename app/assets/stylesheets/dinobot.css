@@ -21,34 +21,7 @@
     /*border: 1px outset #fff;*/
 }
 
-/* Middle Container*/
-.middle{
-    padding:20px;
-    width:520px;
-    margin-left: 1px;
-    border-left:2px solid rgba(191,191,191, 0.5);
-    border-right: 2px solid rgba(191,191,191, 0.5);
-    padding-top: 7px;
-    margin-top: -15px;
-  }
 
-.middle h1,h2,h3 {
-    margin-top: 5px;
-    color: #0044cc;
-    
-    text-shadow: 1px 1px 1px #000;
-}
-.separator{
-    width:560px;
-    margin:0px;
-    margin-left:-20px;
-    height:1px;
-    background:#ccc;
-  }  
-  .well{
-        padding: 0px;
-        margin-left:0px;
-      }
 
 /*
 user profile
@@ -97,10 +70,10 @@ user profile
 
 /*user info in left sidebar*/
 .sides{
-        height:400px;
-        width: 205px;
-        top: 69px;
-      }
+    height:400px;
+    width: 205px;
+    top: 69px;
+}
 /* right sidebar */
 .right-sidebar{
         height:1800px;
@@ -248,140 +221,92 @@ info List
 
 .span6 {
     text-align:center;
-    
-
 }
 
 /*
 info List
 */
 
-.share-box{
-        
-    height:180px;
-    
-
-    
-}
-.text-area{
-    height: 55px;
-    max-height: 55px;
-    max-width: 490px;
-    width:490px;
-    margin:2px;
-    border:1px solid #ccc;  
-    height:70px;
-    color:black;
-    background-color:transparent;
+/* Middle Container*/
+.middle{
     padding:15px;
-    font-size: 14px;
+    width:520px;
+    margin-left: 1px;
+    border-left:2px solid rgba(191,191,191, 0.5);
+    border-right: 2px solid rgba(191,191,191, 0.5);
+    padding-top: 7px;
+    margin-top: -15px;
+  }
+
+.middle h1,h2,h3 {
+    margin-top: 5px;
+    color: #0044cc;  
+    text-shadow: 1px 1px 1px #000;
+}
+.separator{
+    width:551px;
+    margin:0px;
+    margin-left:-15.5px;
+    height:1px;
+    background:#ccc;
+}  
+.well{
+    padding: 0px;
+    margin-left:0px;
+}
+/* Middle Container*/
+
+/*Share Box*/
+.share-box{      
+    height:150px;
+    padding:0px;  
+}
+.share-text-area{
+    height: 50px;
+    width:498px;
+    margin-left:-10px;
+    border:1px solid #ccc;  
+    color:black;
+    background-color:white;
+    padding:10px;
+    font-size: 13px;
     font-family: "Ubuntu";
     box-shadow: inset 0px 0px 3.3px 1px #ddd;
 }
-
-.setting-area{
-    margin:2px;
+.settings-area{
+    background-color:white;
+    margin-left:-9px;
+    margin-top:-5px;
     border:1px solid #ccc;
     height:30px;
-    padding-left:3px;
-    padding-right:3px;
+    padding: 0px 3px;
     margin-bottom:5px;
     box-shadow: 0px 0px 0.3px 1px #ddd;
-    margin-right: -3px;
+    border-radius: 6px;
 }
-
-.wow{
-    background-image:url("../img/share-icons.png");
-    width:17px;
-    height:14px;
-}
-
-.setting-area .btn-small{
+.settings-area .btn-small{
     height:15px;
     padding-top:2px;
     margin-top:3px;
-
 }
-
 .share-box .btn-primary{
     font-weight: bold;
     height: 40px;
     width: 95px;
 }
-.setting{
-    
+.settings{ 
+    padding-top:2px;   
     margin-top:5px;
-
 }
-
-.setting i{
+.settings i{
     margin-left:4px;
 }
+/*Share Box*/
 
-/*
-profile box
-*/
-
-.profile-box{
-    /*background-color: rgba(0, 0, 0, 0.06);*/
-    width:190px;
-    height:120px;
-    margin:auto;
-    margin-top:0px;
-}
-
-.profile-box img{
-    width:55px;
-    height:55px;
-    margin-left:5px;
-    margin-top:5px;
-    border-radius: 6px;
-}
-
-
-.top-profile-box .span8{
-    
-    margin-top:13px;
-    margin-left:5px;
-}
-
-
-.bottom-profile-box .span4{
-    text-align:center;
-    margin: 4px 0px;
-    padding-top:3px;
-}
-
-.profile-box h4,h5,h6{
-    color: #fff;
-    text-shadow: 0px 0px 0px #ccc;
-}
-
-.bottom-profile-box #part1, #part2{
-    background: -webkit-linear-gradient(top, #0088cc, #0044cc);
-    margin-right:5px;
-    border-radius: 6px;
-}
-.bottom-profile-box #part3, .top-profile-box{
-    
-    background: -webkit-linear-gradient(top, #0088cc, #0044cc);
-    background: -moz-linear-gradient(top, #0088cc, #0044cc);
-    background: linear-gradient(top, #0088cc, #0044cc);
-    border-radius: 6px;
-}
-
-/*
- * post box style
- */
-
+/* post box style*/
 .post-box{
-    width: 517px;
-    margin-left: 0px;
-    margin: 15px 0px 15px 0px;
-    padding-left: 7px;
-    border-radius: 1px;
+    margin-top:10px;
     border-left: 1px solid rgba(191, 191, 191, 0.2);
-    /*height: 445px;*/
 }
 .post-box:hover{
     border-left: 1px solid rgba(51, 181, 229, 0.5);
@@ -394,35 +319,86 @@ profile box
 .post-box > a:hover{
     background-color:#ccc;
 }
-.content-header{
-    background: rgba(0, 0, 0, 0.01);
-    border-radius: 7px;
+.post-box > .content-header{
+    margin:0px;
+    background: white;
+    border-radius: 10px;
     box-shadow: 0px 0px 3.3px 1px #ddd;
-    height: 68px;
+    padding:5px;
+    padding-top:10px;
+
+    
 }
-.content-header .span2:first-child{
-    margin-top: 4px;
-    margin-left: 6px;
+.post-box .content-header .span4{ 
+    width:60px;
+    text-align:center;
+    margin:0px;
+    margin-right:5px;
+
 }
-.content-header .span2:nth-child(2){
-    margin-left: -66px;
-    margin-top: 6px;
-    font-size: 37px;
+.post-box .profile-pic{
+    height:50px;
+    width:50px;
+    background: rgba(0, 0, 0, 0.01);
+    border-radius: 10px;
+    box-shadow: 0px 0px 3.3px 1px #ddd;
 }
-.content-header .post-title{
-    margin-left: -55px;
-    margin-top: -4px;
-    width: 400px;
-    height: 36px;
+.post-box .content-header .span8{
+    margin:0px;
+    margin-right:0px;
+    padding-top:3px;
+    width: 425px;
 }
-.content-header .span2 p a{
+
+.post-box .content-header .post-title{
+    margin-top:10px;
+    margin-bottom:10px;
+
+}
+.content-header .span4, .content-header .span8 p a{
     font-size: 19px;
     font-weight: bold;
     color:#555;
 }
 
-.content-header img{
-    height:60px;
+.post-box .header-bottom .span4{
+        width:170px;
+        text-align:left;
+        margin-left:20px;
+        padding-top:5px;
+}
+.post-box .header-bottom .span4 p{
+    margin-top: -3px;
+    color: #AAA;
+    text-shadow: -0.1px 0.3px 1px #AAA;
+    font-size: 11px;
+}
+
+.post-box .header-bottom .span8{
+    width:250px;
+    height:29px;
+    padding:0px;
+}
+.post-actions .nav-pills > li > a{
+    padding:3px;
+    margin-left:2px;
+    -webkit-border-radius: 0.9px;
+    -moz-border-radius: 5px;
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, 0.1);
+    background-color: transparent;
+}
+.post-actions .nav-pills .active > a, .post-actions .nav-pills .active > a:hover{
+    color: #344;
+}
+
+.post-actions .nav > li > a:hover{
+    background-color:#ccc;
+}
+.post-actions .post-counts{
+    background-color: #ddd;
+    padding: 2px; 
+    border-radius: 4px;
 }
 
 .content{
@@ -436,106 +412,130 @@ profile box
     border-radius: 7px;
     box-shadow: 0px 0px 3.3px 1px #ddd;
 }
+/* Post-Style */
 
-.content-footer{
-    /*background: rgba(0, 0, 0, 0.06);*/
-    /*height: 81px;*/
-    margin-top: 8px;
-    border-radius: 7px;
-    /*box-shadow: 0.2px 2px 3px 1px #CCC;*/
+/* Comment Style */
+.comments{
+    margin-top:10px;
+    margin-left:70px;
+    margin-right:25px;
+}
+.comments > a{
+    float: right;
+    margin-top: 3px;
+    margin-right: 5px;
+}
+.comments > a:hover{
+    background-color:#ccc;
+}
+.comments .content-header{
+    margin:0px;
+    background: white;
+    box-shadow: 0px 0px 3.3px 1px #ddd;
+    padding:10px;
+    margin-bottom:2px;   
 }
 
+.comments .content-header:nth-child(2) {
+     border-top-left-radius:10px;
+    border-top-right-radius:10px;
+}
 
-.post-actions .nav-pills > li > a{
-    padding-top: 3px;
-    padding-bottom: 5px;
-    margin-top: 4px;
-    margin-bottom: 2px;
+.comments .content-header:nth-last-child(2) {
+    border-bottom-right-radius:10px;
+    border-bottom-left-radius:10px; 
+}
+.comments .content-header > .span4{ 
+    width:40px;
+    text-align:center;
+    margin:0px;
+    margin-right:5px;
+
+}
+.comments .profile-pic{
+    height:30px;
+    width:30px;
+    background: rgba(0, 0, 0, 0.01);
+    border-radius: 5px;
+    box-shadow: 0px 0px 3.3px 1px #ddd;
+}
+.comments .content-header > .span8{
+    margin:0px;
+    margin-right:0px;
+    padding-top:3px;
+    width: 340px;
+}
+
+.comments .content-header .comment-title{
+    margin-top:10px;
+    margin-bottom:10px;
+
+}
+.comments .content-header > .span4, .comments .content-header > .span8 p a{
+    font-size: 19px;
+    font-weight: bold;
+    color:#555;
+}
+.comments .header-bottom .span4{
+        width:170px;
+        text-align:left;
+        margin-left:20px;
+        padding-top:5px;
+}
+.comments .header-bottom .span4 p{
+    margin-top: -3px;
+    color: #AAA;l
+    text-shadow: -0.1px 0.3px 1px #AAA;
+    font-size: 11px;
+    text-align:right;
+}
+
+.comments .header-bottom .span8{
+    width:100px;
+    height:29px;
+    padding:0px;
+    margin-left:20px;
+}
+.comment-actions .nav-pills > li > a{
+    padding:3px;
+    margin-left:2px;
     -webkit-border-radius: 0.9px;
     -moz-border-radius: 5px;
     border-radius: 4px;
-    padding-left: 3px;
-    /*background-color: rgba(0, 0, 0, 0.1);*/
+    background-color: rgba(0, 0, 0, 0.1);
     background-color: transparent;
-    padding-right: 5px;
 }
-.post-actions .nav-pills .active > a, .post-actions .nav-pills .active > a:hover{
+.comment-actions .nav-pills .active > a, .comment-actions .nav-pills .active > a:hover{
     color: #344;
-    /*background-color: transparent;*/
-}
-.post-actions ul:first-child{
-    margin-left: 80px;
 }
 
-.post-actions .nav > li > a:hover{
+.comment-actions .nav > li > a:hover{
     background-color:#ccc;
 }
-.post-actions .post-counts{
+.comment-actions .comment-counts{
     background-color: #ddd;
     padding: 2px; 
     border-radius: 4px;
 }
-.content-footer textarea{
-    /*height: 34px;*/
-    height:18px;
-    width: 406px;
-    margin-left: 71px;
-    padding: 17px;
-    padding-top: 7px;
-    box-shadow: 0px 0px 3.3px 1px #ddd;
+
+.comments .btn{
+    margin-right:0px
+}
+.comment-text-area{
+    margin-left:-12px ;
+    height: 20px;
+    width:406px;
+    margin-top:-5px;
+    border:1px solid #ccc;  
+    color:black;
+    background-color:white;
+    padding:10px;
+    font-size: 13px;
+    font-family: "Ubuntu";
+    box-shadow: inset 0px 0px 3.3px 1px #ddd;
 }
 
 
-.comments{
-    /*height: 80px;*/
-    background: #CCC;
-    margin-top: 6px;
-    width: 442px;
-    margin-left: 71px;
-    background: rgba(0, 0, 0, 0.01);
-    box-shadow: 0px 0px 3.3px 1px #ddd;
-    border-radius: 7px;
-    
-}
-.comments .span2{
-    margin-top: 5px;
-    margin-left: 7px;
-}
-.comments .span2 img {
-    height: 41px;
-}
-.comments .span2:nth-child(2){
-    margin-left: -90px;
-    margin-top: 6px;
-    font-size: 37px;
-}
-
-.comments .comment-content{
-    margin-left: -125px;
-    margin-top: 34px;
-    margin-bottom: 10px;
-    width: 345px;
-    background: rgba(0, 0, 0, 0.01);
-    box-shadow: 0px 0px 3.3px 1px #ddd;
-    padding: 7px;
-    padding-top: 2px;
-}
-.content-footer .post-actions ul:first-child {
-    margin-left: 70px;
-}
-.user-name{
-    background-color: rgba(0, 0, 0, 0.05);
-    margin-right: 0px;
-    padding: 3px;
-    padding-left: 5px;
-}
-
-img.profile-pic{
-    background: rgba(0, 0, 0, 0.01);
-    border-radius: 7px;
-    box-shadow: 0px 0px 3.3px 1px #ddd;
-    height: 56px;
-}
 
 div.tags{
     border: 1px solid rgba(0, 0, 0, 0.15);
@@ -563,6 +563,48 @@ div.tags{
     background-color: transparent;
     border: 0px solid transparent;
 }
+
+
+/* profile box*/
+.profile-box{
+    width:190px;
+    height:120px;
+    margin:auto;
+    margin-top:0px;
+}
+.profile-box img{
+    width:55px;
+    height:55px;
+    margin-left:5px;
+    margin-top:5px;
+    border-radius: 6px;
+}
+.top-profile-box .span8{ 
+    margin-top:13px;
+    margin-left:5px;
+}
+.bottom-profile-box .span4{
+    text-align:center;
+    margin: 4px 0px;
+    padding-top:3px;
+}
+.profile-box h4,h5,h6{
+    color: #fff;
+    text-shadow: 0px 0px 0px #ccc;
+}
+.bottom-profile-box #part1, #part2{
+    background: -webkit-linear-gradient(top, #0088cc, #0044cc);
+    margin-right:5px;
+    border-radius: 6px;
+}
+.bottom-profile-box #part3, .top-profile-box{ 
+    background: -webkit-linear-gradient(top, #0088cc, #0044cc);
+    background: -moz-linear-gradient(top, #0088cc, #0044cc);
+    background: linear-gradient(top, #0088cc, #0044cc);
+    border-radius: 6px;
+}
+/* profile box*/
+
 
 
 /*left sidebar tabs*/

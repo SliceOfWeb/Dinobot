@@ -1,8 +1,7 @@
 class UsersController < ApplicationController
 
-	layout false
   before_filter :save_login_state
-
+  layout false
   #Signup Form
   def new
     @user = User.new 
@@ -11,7 +10,8 @@ class UsersController < ApplicationController
   def create
   	@user = User.new(params[:user])
   	if @user.save
-    		redirect_to(:controller => 'profile', :action => 'new')
+        session[:user_id] = @user.id
+    		redirect_to new_profile_path
   	else
     		render "new"
     end

@@ -97,13 +97,12 @@ textarea {
 }
 body {
   margin: 0;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "ubuntu", Helvetica, Arial, sans-serif;
   font-size: 13px;
   line-height: 18px;
   color: #333333;
   padding-top: 60px;
-  background-image: url("background.png");
-background-color: rgba(240, 240, 240,0.2);
+  background-color: #FAFAFA;
   
 }
 a {

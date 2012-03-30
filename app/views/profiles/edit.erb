@@ -1,301 +1,61 @@
-<style>
-  .middle > div.row:hover{
-    border: 1.3px solid rgba(51, 181, 229, 0.4);
-  }
+<%= form_tag "/profiles/update" do%>
 
-  .span8 .personal-info{
-    border: 1px solid rgba(0, 0, 0, 0.15);
-    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.1);
-    height: auto;
-    padding: 13px;
-    background-color: transparent;
-  }
+  <!-- error messages for Profile -->
+  <% @profile.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+  <% end %>
+  <!-- error messages for User -->
+  <% @current_user.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+  <% end %>
 
-  .personal-info h3 span{
-    font-size: 15px;
-    font-weight: normal;
-  }
+  <h1>Personal Info</h1>
+  <div class="row well personal-info">
+    <h4>First Name:</h4>
+    <%= text_field_tag :first_name, @profile.first_name %>
+    
+    <h4>Last Name:</h4>
+    <%= text_field_tag :last_name, @profile.last_name %>
 
-  .span8 .bio{
-    border: 1px solid rgba(0, 0, 0, 0.15);
-    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.1);
-    height: auto;
-    padding: 13px;
-    background-color: transparent;
-  }
+    <h4>Location:</h4>
+    <%= text_field_tag :location, @profile.location %>
 
-  .span8 .intersests{
-    border: 1px solid rgba(0, 0, 0, 0.15);
-    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.1);
-    height: auto;
-    padding: 13px;
-    background-color: transparent;
-  }
-  .profile-box{
-    height:auto;
-  }
-  .profile-box img{
-    width: 180px;
-    height: 155px;
-  }
-  .top-profile-box .span4{
-    width: 100%;
-  }
-  .top-profile-box .span8 {
-    margin-top: 1px;
-  }
-  .middle p, .middle span, .middle dd{
-    color: #848484;
-  }
-  .text-area{
-  	max-width: 447px;
-  	max-height: 100px;
-  	height: 100px;
-  }
-  .separator{
-  	margin-left: -30px;
-  }
-   input[type="submit"].btn {
-   	margin-bottom: 2px;
-   }
-   .text-area{
-    font-size: 21px;
-    text-shadow: 0px 1px 1px black
-   }
-   label{
-    display:inline;
-   }
-</style>
+    <h4>Birthdate:</h4>
+    <%= text_field_tag :birthdate, @profile.birthdate %>
 
+    <h4>Email:</h4>
+    <%= text_field_tag :email, @current_user.email %>
 
+    <h4>Gender:</h4>
+    <%= label_tag :gender_male, "Male" %>
+    <%= radio_button_tag :gender, "male" %>
+    <%= label_tag :gender_female, "Female"%>
+    <%= radio_button_tag :gender, "female" %>
 
-  <div id="main-container" class="container">
-    <div class="row">
-      <div class="span4 sides">
+    <h4>Education:</h4>
+    <%= text_field_tag :education, @profile.education %>
+  </div>
 
-        <div class="profile-box">
+  <hr class="separator">
 
-          <div class="top-profile-box" >
-            <div class="row-fluid">
-              <div class="span4">
-                <%= image_tag "pic.png" %></div>
-                <div class="span8">
-                  <a href="#">
-                    <h4>
-                      <%= @current_user.username %>  
-                      <i class="icon-ok-sign icon-white"></i>
-                    </h4>
-                  </a>
-                  <a href="index">
-                    <h5>Change Avatar <i class="icon-camera icon-white"></i></h5>
-                  </a> 
-                </div>
-              </div>
-            </div>
+  <h1>Bio</h1>
+  <div class="row well bio">
+    <%= text_area_tag :bio, @profile.bio,:class => "text-area" %>
+  </div>
 
-            <div class="bottom-profile-box" >
-              <div class="row-fluid">
-                <div class="span4" id="part1">
-                  <i class="icon-heart icon-white"></i>
-                  <a href="#">
-                    <h5>Fans</h5>
-                    <h5>124</h5>
-                  </a>
-                </div>
+  <hr class="separator">
 
-                <div class="span4" id="part2">
-                  <i class="icon-user icon-white"></i>
-                  <a href="#">
-                    <h5>Friends</h5>
-                    <h5>44</h5>
-                  </a>
-                </div>
+  <h1>Tags</h1>
+  <p>Separate tags with '/'</p>
+  <div class="row well tags">
+    <%= text_area_tag :tags, @tags.join(" "),:class => "text-area" %>
+  </div>
 
-                <div class="span4" id="part3">
-                  <i class="icon-share icon-white"></i>
-                  <a href="#">
-                    <h5>Sharing</h5>
-                    <h5>12</h5>
-                  </a>
-                </div>
+  <hr class="separator">
 
-              </div>
-            </div>
-          </div>
+  <div class="form-actions">
+    <%= submit_tag "Save changes", :class => "btn btn-primary" %>
+    <a href="index" class="btn">Cancel</a>
+  </div>
 
-          <div class="tabbable tabs-left">
-
-            <ul class="nav nav-tabs" id="left-nav">
-              <li >
-                <a href="home_layout.html" data-toggle="tab">
-                  <span>
-                    <i class="icon-home"></i>
-                    Home&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                  </span>
-                </a>
-              </li>
-              <li class="active">
-                <a href="profile_layout.html" data-toggle="tab" >
-                  <span>
-                    <i class="icon-user"></i>
-                    Profile&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                  </span>
-                </a>
-              </li>
-              <li >
-                <a href="messages.html" data-toggle="tab">
-                  <span>
-                    <i class="icon-envelope"></i>
-                    Messages
-                  </span>
-                </a>
-              </li>
-              <li >
-                <a href="groups.html" data-toggle="tab">
-                  <span>
-                    <i class="icon-th-list"></i>
-                    Groups
-                  </span>
-                </a>
-              </li>
-              <li >
-                <a href="friends.html" data-toggle="tab">
-                  <span>
-                    <i class="icon-user"></i>
-                    Friends&nbsp;&nbsp;&nbsp;&nbsp;
-                  </span>
-                </a>
-              </li>
-              <li >
-                <a href="album_preview.html" data-toggle="tab">
-                  <span>
-                    <i class="icon-picture"></i>
-                    Photos&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                  </span>
-                </a>
-              </li>
-              <li >
-                <a href="videos_preview.html" data-toggle="tab">
-                  <span>
-                    <i class="icon-film"></i>
-                    Videos&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                  </span>
-                </a>
-              </li>
-              <li >
-                <a href="setting.html" data-toggle="tab">
-                  <span>
-                    <i class="icon-cog"></i>
-                    Settings&nbsp;&nbsp;&nbsp;
-                  </span>
-                </a>
-              </li>
-              <li >
-                <a href="help.html" data-toggle="tab">
-                  <span>
-                    <i class="icon-flag"></i>
-                    Help&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                  </span>
-                </a>
-              </li>
-            </ul>
-
-          </div>
-
-          <div class="well footer">
-            <div class="copyright">
-              <p>&copy; Copyright 2012 Dinobot Social Engine</p>
-            </div>
-            <div class="footer-links">
-              <a href="#">About •</a>
-              <a href="#">Privacy •</a>
-              <a href="#">Terms •</a>
-              <a href="#">Advertising</a>
-              <a href="#">Blog •</a>
-              <a href="#">Contact •</a>
-              <a href="#">Help •</a>
-              <a href="#">English</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="span8 middle">
-        <%= form_tag "/profiles/update" do%>
-		   	
-        <!-- error messages -->
-        <% @profile.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-        <% @current_user.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-        
-		    <h1>Personal Info</h1>
-          <div class="row well personal-info">
-            <h4>First Name:</h4>
-            <%= text_field_tag :first_name, @profile.first_name %>
-            <h4>Last Name:</h4>
-              <%= text_field_tag :last_name, @profile.last_name %>
-            
-            <h4>Location:</h4>
-            <%= text_field_tag :location, @profile.location %>
-            <h4>Birthdate:</h4>
-            <%= text_field_tag :birthdate, @profile.birthdate %>
-            <h4>Email:</h4>
-            <%= text_field_tag :email, @current_user.email %>
-            <h4>Gender:</h4>
-     
-              <%= label_tag :gender_male, "Male" %>
-              <%= radio_button_tag :gender, "male" %>
-              <%= label_tag :gender_female, "Female"%>
-              <%= radio_button_tag :gender, "female" %>
-         
-            <h4>Education:</h4>
-            <%= text_field_tag :education, @profile.education %>
-          </div>
-
-          <hr class="separator">
-
-          <h1>Bio</h1>
-          <div class="row well bio">
-			   <%= text_area_tag :bio, @profile.bio,:class => "text-area" %>
-          </div>
-<!-- 
-          <hr class="separator">
-
-          <h1>Intersests</h1>
-          <div class="row well intersests">
-            <dl>
-              <dt>Description lists</dt>
-              <dd>A description list is perfect for defining terms.</dd>
-              <dt>Euismod</dt>
-              <dd>
-                Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.
-              </dd>
-              <dd>Donec id elit non mi porta gravida at eget metus.</dd>
-              <dt>Malesuada porta</dt>
-              <dd>Etiam porta sem malesuada magna mollis euismod.</dd>
-            </dl>
-          </div>
- -->
-          <hr class="separator">
-
-          <h1>Tags</h1>
-          <p>Separate tags with '/'</p>
-          <div class="row well tags">
-            <%= text_area_tag :tags, @tags.to_param,:class => "text-area" %>
-          </div>
-
-          <hr class="separator">
-
-		      <div class="form-actions">
-           <%= submit_tag "Save changes", :class => "btn btn-primary" %>
-            <a href="index" class="btn">Cancel</a>
-          </div>
-          
-		  <% end %>
-      </div>
-
-
-      </div>
-    </div>
+<% end %>
