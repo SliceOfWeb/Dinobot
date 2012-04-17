@@ -2,19 +2,21 @@ Dinobot::Application.routes.draw do
 
   root :to => 'sessions#index', :as => "welcome"
   
-  resources :users, :sessions, :profiles, :posts, :comments, :actions 
-
-  match ':controller(/:action(/:id))(.:format)'
-  
   get "home" => "home#index", :as => "home"
   get "logout" => "sessions#destroy", :as => "logout"
   get "login" => "sessions#new", :as => "login"
   get "signup" => "users#new", :as => "signup"
 
-  put 'actions/update/:id' => 'actions#update', :as => 'upvote'
+  resources :users, :sessions, :posts, :comments, :actions 
 
+  # no need for show method since the next route exist 
+  resources :profiles, :except => "show"
+  # cause bug with logout actin
   match ':username' => "profiles#show", :as => 'profile'
+
+  put 'actions/update/:id' => 'actions#update', :as => 'upvote'
   
+  match ':controller(/:action(/:id))(.:format)'
   
 
   
