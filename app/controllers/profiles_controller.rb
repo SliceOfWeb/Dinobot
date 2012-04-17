@@ -7,12 +7,11 @@ class ProfilesController < ApplicationController
 			render "show"
 		else
 			redirect_to "/profiles/new"
-
 		end
 	end
 
 	def index
-		
+
 	end
 
 	def new
@@ -104,6 +103,7 @@ class ProfilesController < ApplicationController
 		end
 
 	end
+
 	def setting
 		render 'setting'
 	end
