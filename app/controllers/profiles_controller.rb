@@ -3,7 +3,12 @@ class ProfilesController < ApplicationController
 	
 	def show
 		@profile = Profile.find_by_user_id User.find_by_username params[:username]	
+		if @profile
+			render "show"
+		else
+			redirect_to "/profiles/new"
 
+		end
 	end
 
 	def index
@@ -17,6 +22,8 @@ class ProfilesController < ApplicationController
 	def create
 		@profile = Profile.create(:first_name => params[:first_name], :last_name => params[:last_name], :location => params[:location], :birthdate => params[:birthdate], :bio => params[:bio], :gender =>params[:gender], :education => params[:education])
 		@profile.user = @current_user
+
+		# colleting tag
 		tags = params[:tags].split(' ')
 
 		tags.each do |tag|
@@ -30,8 +37,12 @@ class ProfilesController < ApplicationController
 		end
 
 		if @profile.save
+
+			# bootstrapping essiential objects
 			Person.create :profile_link => '/#{current_user.username}', :user_id => @current_user.id
+			Contact.create :user_id => @current_user.id
 			redirect_to home_path	
+			
 		else
 
 			render 'new'
@@ -86,7 +97,7 @@ class ProfilesController < ApplicationController
 			
 			flash[:notice] = "Your changes have been saved"
 
-			redirect_to('/profiles/show')	
+			redirect_to("/#{@current_user.username}")	
 		else
 
 			render 'edit'
