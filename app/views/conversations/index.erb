@@ -1,0 +1,125 @@
+<style type="text/css">
+  .message-box img{
+    height: 55px;
+  }
+  .btn{
+    float: none;
+  }
+  #delete-btn{
+    margin-left: -24px;
+  }
+  #unread{
+    background-image: -webkit-linear-gradient(white, #CCC);
+  }
+</style>
+
+<h1>Conversation</h1>
+
+<div class="messages-list">
+  <div class="messages-setting">
+
+    <a href="<%= new_conversation_path %>" class="btn pull-left">
+      <i class="icon-plus"></i> New Conversation
+    </a>
+    
+
+    <input type="text" class="input-medium search-query pull-right">
+    <div class="btn-group pull-right">
+      <a class="btn btn-primary more-button dropdown-toggle" data-toggle="dropdown" href="#">All</i>
+      <span class="caret"></span>
+    </a>
+    <ul class="dropdown-menu ">
+      <li>
+        <a href="#">Unread</a>
+      </li>
+      <li>
+        <a href="#">Read</a>
+      </li>
+      <li>
+        <a href="#">Favorites</a>
+      </li>
+      <li>
+        <a href="#">Sent Messages</a>
+      </li>
+    </ul>
+  </div><!-- /btn-group--> </div><!-- /messages-setting-->
+
+
+<% @conversations.each do |conversation| %>
+<% if conversation == nil %>
+<h3>you have no messages</h3>
+<% else %>
+
+<% #if conversation.messages.last.unread == true %>
+<div id="unread" class="message-box row">
+<% #else %>
+<!--<div class="message-box row">-->
+<% #end %>
+  <div class="span4">
+    <a href="#">
+      <img class="profile-pic" src="/assets/pic.png" alt=""></a>
+  </div>
+  <div class="span8">
+    <p >
+      <a href="<%= conversation.id %>"><%= conversation.subject %></a>
+    </p>
+    <p>
+      <a href="#">by <%= @name = User.find_by_id(conversation.sender_id).username %></a>
+        
+        <% date = (Time.now - conversation.created_at).to_i %>
+        <%case date%>
+          <% when 0..60  %>
+            <%= "#{date+3} Seconds ago"%>
+          <% when 60..3600  %>
+            <%= "#{pluralize(date/60, 'Minute')} ago"%>
+          <% when  3600..86400  %>
+              <%= "#{pluralize(date/3600, 'Hour')} ago"%>
+          <% when  86400..172800  %>
+              <%= "Yesterday"%>
+          <%else%>
+            <%=conversation.created_at.strftime("%B %e, %Y at %l:%M %p")%>
+       <% end%>
+       
+    </p>
+    <p>
+      
+        <%= conversation.messages[0].content[0..60] + "...."%>
+      
+    </p>
+  </div>
+  <div class="span2">
+ 
+    <a href="/conversations/<%= conversation.id %>" id="delete-btn" rel="nofollow" data-method="delete" class="btn pull-left">
+      <i class="icon-trash"></i>
+    </a>
+    
+  </div>
+</div><!-- /messages-box-->
+<% end %>
+<%end%>
+
+
+
+<div class="pagination pull-right">
+  <ul>
+    <li class="disabled">
+      <a href="#">«</a>
+    </li>
+    <li class="active">
+      <a href="#">1</a>
+    </li>
+    <li>
+      <a href="#">2</a>
+    </li>
+    <li>
+      <a href="#">3</a>
+    </li>
+    <li>
+      <a href="#">4</a>
+    </li>
+    <li>
+      <a href="#">»</a>
+    </li>
+  </ul>
+</div>
+</div><!-- /messages-list-->

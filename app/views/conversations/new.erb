@@ -1,0 +1,66 @@
+  <style type="text/css">
+    .bio input{
+      margin: 9px;
+      width: 480px;
+    }
+    .bio textarea{
+      margin: 9px;
+      width: 480px;
+      height: 150px
+    }
+    #friends{
+      width: 235px;
+    }
+    #friends_username{
+      margin: 8px;
+      
+      background: #EEE;
+    }
+  </style>
+  <%= form_tag conversations_path do%>
+		   	
+        <!-- error messages -->
+        
+
+        <h1>New Conversation</h1>
+        <hr>
+        <h2>Send to</h2>
+
+        <div id="friends" class="row well ">
+          <input id="receiver" type="hidden" value="<%= params[:receiver] %>">
+         <%= select "friends", "username" , User.all.collect{ |f| [f.username.capitalize]  } %>
+        </div>
+
+        <h2>Subject</h2>
+        <div class="row well bio">
+		     <%= text_field_tag :subject %>
+        </div>
+        
+        <hr>
+
+        <h2>Body</h2>
+        <div class="row well bio">
+        <h3><%= flash[:no_content] %></h3>
+         <%= text_area_tag :content, "" %>
+        </div>
+        
+	      <div class="form-actions">
+         <%= submit_tag "Send", :class => "btn btn-primary" %>
+          <a href="/conversations/" class="btn">Cancel</a>
+        </div>
+          
+		  <% end %>
+
+
+<script type="text/javascript">
+  $(function (argument) {
+    var receiver = $("input[type=hidden]#receiver").attr("value");
+
+    if(receiver){
+      $("#friends_username").find("[value="+receiver+"]").attr("selected","selected");  
+    }
+    
+  })
+
+
+</script>

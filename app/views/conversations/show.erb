@@ -1,0 +1,54 @@
+<style type="text/css">
+  .message-box img{
+    height: 55px;
+  }
+</style>
+<h1>Messages</h1>
+
+<div class="messages-list">
+  <h2>Back to Work Again</h2>
+
+  <% @messages.each do |message| %>
+  <% @name = User.find_by_id(message.person_id).username %>
+  <div class="message-box row">
+    <div class="span4">
+      <a href="/<%= @name  %>">
+        <img class="profile-pic" src="/assets/pic.png" alt=""></a>
+    </div>
+    <div class="span8">
+      <p>
+        <a href="/<%= @name  %>"><%= @name %></a>
+      </p>
+      <p>       
+        <% date = (Time.now - message.created_at).to_i %>
+          <%case date%>
+            <% when 0..60  %>
+              <%= "#{date+3} Seconds ago"%>
+            <% when 60..3600  %>
+              <%= "#{pluralize(date/60, 'Minute')} ago"%>
+            <% when  3600..86400  %>
+                <%= "#{pluralize(date/3600, 'Hour')} ago"%>
+            <% when  86400..172800  %>
+                <%= "Yesterday"%>
+            <%else%>
+              <%=message.created_at.strftime("%B %e, %Y at %l:%M %p")%>
+        <% end%>
+      </p>
+      <p>
+       <%= message.content %>
+      </p>
+    </div>
+  </div><!-- /messages-box-->
+
+  <% end %>
+  <div>
+    <%= form_tag ({:controller => :messages, :action => :create}) do %>
+      <h3><%= flash[:no_content] %></h3>
+      <%= text_area_tag :content, "" %>
+      <%= submit_tag "Reply", class: "btn btn-primary" %>
+      <%= hidden_field_tag :conversation_id, @messages[0].conversation_id %>
+      <a href="/conversations/" class="btn">Back</a>
+    <%end%>
+  </div>
+</div><!-- /messages-list--> 
+  
