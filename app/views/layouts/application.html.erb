@@ -26,6 +26,7 @@
 					<!-- <form class="navbar-search pull-left" action="">
 					<input type="text" class="search-query span2" placeholder="Search"></form> -->
 					<form class="navbar-search pull-left" action="">
+						<a href="<%=people_path%>"> <i class="icon-white icon-search"></i></a>
 						<input type="text" class="search-query span2" placeholder="Search" style="margin: 0 auto;" data-provide="typeahead" data-items="4" data-source="[]">
 					</form>
 					<div class="nav-collapse">
@@ -39,7 +40,7 @@
 								</a>
 								<ul class="dropdown-menu pull-right">
 									<li>
-										<a href="profiles/index">Profile</a>
+										<a href="profiles/show">Profile</a>
 									</li>
 									<li>
 										<a href="#">Setting</a>
@@ -73,157 +74,159 @@
 		<div id="main-container" class="container">
 			<div class="row">
 				<div class="span4 sides">
-					<div class="profile-box">
-						<div class="top-profile-box" >
-							<div class="row-fluid">
-								<div class="span4">
-									<%= image_tag "pic.png" %>
-								</div>
-								<div class="span8">
-									<a href="">
-										<h4>
-											<% if params[:controller]== 'profiles'%>
-												<%= params[:username]%>  
-											<%else%>
-												<%=@current_user.username%>
-											<%end%>
-											<i class="icon-ok-sign icon-white"></i>
-										</h4>
-									</a>
-									<% if params[:action]== 'edit'%>
+					<% if params[:controller] != 'profiles' || params[:action] != 'new'%>
+						<div class="profile-box">
+							<div class="top-profile-box" >
+								<div class="row-fluid">
+									<div class="span4">
+										<%= image_tag "pic.png" %>
+									</div>
+									<div class="span8">
 										<a href="">
-											<h5>Change Avatar</h5>
-										</a>	
-									<%else%>
-										<% if params[:username] == @current_user.username%>
-											<a href="<%= edit_profile_path(@current_user.username)%>">
-											<h5>Edit my profile</h5>
+											<h4>
+												<% if params[:controller]== 'profiles'%>
+													<%= params[:username]%>  
+												<%else%>
+													<%=@current_user.username%>
+												<%end%>
+												<i class="icon-ok-sign icon-white"></i>
+											</h4>
+										</a>
+										<% if params[:action]== 'edit'%>
+											<a href="">
+												<h5>Change Avatar</h5>
+											</a>	
+										<%else%>
+											<% if params[:username] == @current_user.username%>
+												<a href="<%= edit_profile_path(@current_user.username)%>">
+												<h5>Edit my profile</h5>
+											<%end%>
+											</a> 
 										<%end%>
-										</a> 
-									<%end%>
-								</div> <!--span8-->
-							</div> <!--row-fluid-->
-						</div> <!--top-profile-box-->
-						<div class="bottom-profile-box" >
-							<div class="row-fluid">
-								<div class="span4" id="part1">
-									<i class="icon-heart icon-white"></i>
-									<a href="#">
-										<h5>Fans</h5>
-										<h5>124</h5>
-									</a>
-								</div>
-								<div class="span4" id="part2">
-									<i class="icon-user icon-white"></i>
-									<a href="#">
-										<h5>Friends</h5>
-										<h5>44</h5>
-									</a>
-								</div>
-								<div class="span4" id="part3">
-									<i class="icon-share icon-white"></i>
-									<a href="#">
-										<h5>Sharing</h5>
-										<h5>12</h5>
-									</a>
-								</div>
-							</div> <!--row-fluid-->
-						</div> <!--bottom-profile-box-->
-					</div> <!--profile-box-->
+									</div> <!--span8-->
+								</div> <!--row-fluid-->
+							</div> <!--top-profile-box-->
+							<div class="bottom-profile-box" >
+								<div class="row-fluid">
+									<div class="span4" id="part1">
+										<i class="icon-heart icon-white"></i>
+										<a href="#">
+											<h5>Fans</h5>
+											<h5>124</h5>
+										</a>
+									</div>
+									<div class="span4" id="part2">
+										<i class="icon-user icon-white"></i>
+										<a href="#">
+											<h5>Friends</h5>
+											<h5>44</h5>
+										</a>
+									</div>
+									<div class="span4" id="part3">
+										<i class="icon-share icon-white"></i>
+										<a href="#">
+											<h5>Sharing</h5>
+											<h5>12</h5>
+										</a>
+									</div>
+								</div> <!--row-fluid-->
+							</div> <!--bottom-profile-box-->
+						</div> <!--profile-box-->
 
-					<div class="tabbable tabs-left">
-						<ul class="nav nav-tabs" id="left-nav">
-							<li >
-								<a href="<%= home_path%>" data-toggle="tab">
-									<span>
-										<i class="icon-home"></i>
-										Home&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-									</span>
-								</a>
-							</li>
-							<li>
-								<a href="<%= profile_path(@current_user.username)%>" data-toggle="tab" >
-									<span>
-										<i class="icon-user"></i>
-										Profile&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-									</span>
-								</a>
-							</li>
-							<li >
-								<a href="messages.html" data-toggle="tab">
-									<span>
-										<i class="icon-envelope"></i>
-										Messages
-									</span>
-								</a>
-							</li>
-							<li >
-								<a href="groups.html" data-toggle="tab">
-									<span>
-										<i class="icon-th-list"></i>
-										Groups
-									</span>
-								</a>
-							</li>
-							<li >
-								<a href="friends.html" data-toggle="tab">
-									<span>
-										<i class="icon-user"></i>
-										Friends&nbsp;&nbsp;&nbsp;&nbsp;
-									</span>
-								</a>
-							</li>
-							<li >
-								<a href="album_preview.html" data-toggle="tab">
-									<span>
-										<i class="icon-picture"></i>
-										Photos&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-									</span>
-								</a>
-							</li>
-							<li >
-								<a href="videos_preview.html" data-toggle="tab">
-									<span>
-										<i class="icon-film"></i>
-										Videos&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-									</span>
-								</a>
-							</li>
-							<li >
-								<a href="setting.html" data-toggle="tab">
-									<span>
-										<i class="icon-cog"></i>
-										Settings&nbsp;&nbsp;&nbsp;
-									</span>
-								</a>
-							</li>
-							<li >
-								<a href="help.html" data-toggle="tab">
-									<span>
-										<i class="icon-flag"></i>
-										Help&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-									</span>
-								</a>
-							</li>
-						</ul>
-					</div> <!--tabbable tabs-left-->
+						<div class="tabbable tabs-left">
+							<ul class="nav nav-tabs" id="left-nav">
+								<li >
+									<a href="<%= home_path%>" data-toggle="tab">
+										<span>
+											<i class="icon-home"></i>
+											Home&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										</span>
+									</a>
+								</li>
+								<li>
+									<a href="<%= profile_path(@current_user.username)%>" data-toggle="tab" >
+										<span>
+											<i class="icon-user"></i>
+											Profile&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										</span>
+									</a>
+								</li>
+								<li >
+									<a href="messages.html" data-toggle="tab">
+										<span>
+											<i class="icon-envelope"></i>
+											Messages
+										</span>
+									</a>
+								</li>
+								<li >
+									<a href="groups.html" data-toggle="tab">
+										<span>
+											<i class="icon-th-list"></i>
+											Groups
+										</span>
+									</a>
+								</li>
+								<li >
+									<a href="friends.html" data-toggle="tab">
+										<span>
+											<i class="icon-user"></i>
+											Friends&nbsp;&nbsp;&nbsp;&nbsp;
+										</span>
+									</a>
+								</li>
+								<li >
+									<a href="album_preview.html" data-toggle="tab">
+										<span>
+											<i class="icon-picture"></i>
+											Photos&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										</span>
+									</a>
+								</li>
+								<li >
+									<a href="videos_preview.html" data-toggle="tab">
+										<span>
+											<i class="icon-film"></i>
+											Videos&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										</span>
+									</a>
+								</li>
+								<li >
+									<a href="setting.html" data-toggle="tab">
+										<span>
+											<i class="icon-cog"></i>
+											Settings&nbsp;&nbsp;&nbsp;
+										</span>
+									</a>
+								</li>
+								<li >
+									<a href="help.html" data-toggle="tab">
+										<span>
+											<i class="icon-flag"></i>
+											Help&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										</span>
+									</a>
+								</li>
+							</ul>
+						</div> <!--tabbable tabs-left-->
 
-					<div class="well footer">
-						<div class="copyright">
-							<p>&copy; Copyright 2012 Dinobot Social Engine</p>
+						<div class="well footer">
+							<div class="copyright">
+								<p>&copy; Copyright 2012 Dinobot Social Engine</p>
+							</div>
+							<div class="footer-links">
+								<a href="#">About •</a>
+								<a href="#">Privacy •</a>
+								<a href="#">Terms •</a>
+								<a href="#">Advertising</a>
+								<a href="#">Blog •</a>
+								<a href="#">Contact •</a>
+								<a href="#">Help •</a>
+								<a href="#">English</a>
+							</div>
 						</div>
-						<div class="footer-links">
-							<a href="#">About •</a>
-							<a href="#">Privacy •</a>
-							<a href="#">Terms •</a>
-							<a href="#">Advertising</a>
-							<a href="#">Blog •</a>
-							<a href="#">Contact •</a>
-							<a href="#">Help •</a>
-							<a href="#">English</a>
-						</div>
-					</div>
-				</div> <!--span4 left-sidebar sides-->
+					</div> <!--span4 left-sidebar sides-->
+				<%end%>
 				<div class="span8 middle">
 					<%= yield %>
 				</div> <!--span4 middle-->

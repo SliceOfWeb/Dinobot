@@ -2,7 +2,7 @@ Dinobot::Application.routes.draw do
 
   root :to => 'sessions#index', :as => "welcome"
   
-  resources :users, :sessions, :profiles, :posts, :comments, :actions 
+  resources :users, :sessions, :profiles, :posts, :comments, :actions, :people 
 
   match ':controller(/:action(/:id))(.:format)'
   

@@ -878,3 +878,71 @@ Messages list
     margin-bottom:5px;
     background-color:#fff;
 }
+/*
+Messages list
+*/
+
+
+/*
+People Search list
+*/
+.people{
+    padding:5px;
+    margin-top:10px;
+}
+.person{
+    height: 80px;
+    margin:5px;
+    padding:5px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0px 0px 3.3px 1px #ddd;
+}
+
+.person .span4{
+    margin:0px;
+    width:60px;
+    text-align:center;
+
+}
+
+.person .span5{
+    margin:0px;
+    width:120px;
+    height: 73px;
+    text-align:center;
+
+}
+
+.person .span8{
+
+    margin:0px;
+    width:290px;
+    margin-left:5px;
+    margin-right:5px;
+}
+
+.person .profile-pic{
+    width:50px;
+    height:50px;
+    border-radius:5px;
+}
+
+.person .span5 button{
+    margin-top:15px;
+}
+
+.person-bio{
+    color:gray;
+    clear: both;
+}
+.person .span8 h4, .person .span8 h5{
+    float:left;
+}
+.person .span8 h5{
+   color:gray;
+   margin-left:6px; 
+}
+/*
+People Search list
+*/
