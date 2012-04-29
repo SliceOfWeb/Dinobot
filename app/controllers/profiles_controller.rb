@@ -30,7 +30,7 @@ class ProfilesController < ApplicationController
 		end
 
 		if @profile.save
-			Person.create :profile_link => '/#{current_user.username}', :user_id => @current_user.id
+			Person.create :profile_link => "www.dinobot.com/#{current_user.username}", :user_id => @current_user.id
 			redirect_to home_path	
 		else
 
