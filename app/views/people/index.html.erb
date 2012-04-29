@@ -1,0 +1,30 @@
+<h1>Search Result</h1>
+<div class="people">
+	<% for p in @people%>
+	   	<div class="person row">
+	   		<div class="span4">
+	   			 <a href="#">
+	                <%= image_tag "pic.png", :class => 'profile-pic' %>
+	              </a>
+	   		</div>
+
+	   		<div class="span8">
+	   			 <h4>
+	   			 <a href="<%= profile_path(p.user.username) %>"><%="#{p.user.profile.first_name} #{p.user.profile.last_name}"%></a>
+	   			 <h5>@<%= p.user.username%></h5>	
+	   			 </h4>
+	   			<div class="person-bio">
+	   				<%=p.user.profile.bio%>
+	   				</br> <%=p.user.profile.location%>
+	   			</div>
+
+	            
+	   		</div>
+
+	   		<div class="span5">
+	   			<%= button_tag "Following", :class => 'btn btn-success btn-large' %>
+	   		</div>
+		</div>
+	<%end%>
+	
+</div>
