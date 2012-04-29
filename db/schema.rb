@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120313222557) do
+ActiveRecord::Schema.define(:version => 20120429065422) do
 
   create_table "action_items", :force => true do |t|
     t.integer  "action_id"
@@ -37,12 +37,12 @@ ActiveRecord::Schema.define(:version => 20120313222557) do
 
   create_table "aspect_memberships", :force => true do |t|
     t.integer  "aspect_id"
-    t.integer  "contact_id"
+    t.integer  "person_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
-  add_index "aspect_memberships", ["aspect_id", "contact_id"], :name => "index_aspect_memberships_on_aspect_id_and_contact_id"
+  add_index "aspect_memberships", ["aspect_id", "person_id"], :name => "index_aspect_memberships_on_aspect_id_and_contact_id"
 
   create_table "aspect_visibilities", :force => true do |t|
     t.integer  "aspect_id"

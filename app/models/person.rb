@@ -14,6 +14,8 @@ class Person < ActiveRecord::Base
 	has_many :action_items
 	has_many :actions, :through => :action_items
 	has_many :comments
+	has_many :aspect_memberships
+	has_many :aspects, :through => :aspect_memberships
 
 	#validates :profile_link, :format => { :with => /\A[a-zA-Z]+\z/ }
     
