@@ -30,7 +30,10 @@ class ProfilesController < ApplicationController
 		end
 
 		if @profile.save
-			Person.create :profile_link => "www.dinobot.com/#{current_user.username}", :user_id => @current_user.id
+			Person.create :profile_link => "www.dinobot.com/#{@current_user.username}", :user_id => @current_user.id
+			@mydefaultaspect= Aspect.new :name => "MyAspects"
+			@mydefaultaspect.user= @current_user
+			@mydefaultaspect.save
 			redirect_to home_path	
 		else
 

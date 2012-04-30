@@ -22,8 +22,11 @@ class AspectsController < ApplicationController
 
 	def add
 		@aspect= Aspect.find params[:id]
-		 p = Person.find params[:person_id]
-		 @aspect.people << p
+		p = Person.find params[:person_id]
+		unless @aspect == @current_user.aspects[0]
+		 	@aspect.people << p
+		end
+		@current_user.aspects[0].people << p
 		redirect_to people_path
 	end
 end
