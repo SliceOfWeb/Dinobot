@@ -736,6 +736,17 @@ Friend list
     margin-left:0px;
 }
 
+.friend-box a{
+    height: 20px;
+    font-size: 8px;
+}
+
+.friend-box .span8 .btn{
+    float:none;
+    padding:1px 3px;
+    margin-left:15px;
+}
+
 .mid{
     margin-right:14px;
     margin-left:14px;
@@ -922,11 +933,11 @@ People Search list
     float:none;
 }
 
-.person .dropdown-menu{
+.person .dropdown-menu, .friend-box .dropdown-menu{
     text-align:left; 
 }
 
-.person .icon-list , .person .icon-check{
+.person .icon-list , .person .icon-check,.friend-box .icon-list , .friend-box .icon-check{
     float:left;
     margin-right:2px;
     margin-top:2px;

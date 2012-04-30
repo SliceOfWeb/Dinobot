@@ -27,6 +27,6 @@ class AspectsController < ApplicationController
 		 	@aspect.people << p
 		end
 		@current_user.aspects[0].people << p
-		redirect_to people_path
+		redirect_to :back
 	end
 end

@@ -35,67 +35,15 @@
   <!-- /friends-search-->
   <%@current_user.aspects[0].people.each do |aspect_member| %>
       <div class="friend-box span4">
-      <div class="span4">
-        <%= image_tag "pic.png" %></div>
-      <div class="span8">
-        <a href="#">
-          <h4>User Username</h4>
-        </a>
-        <div class="btn-group pull-left">
-          <a class="btn btn-small dropdown-toggle" data-toggle="dropdown" href="#">
-            Friends
-            <span class="caret"></span>
-          </a>
-          <ul class="dropdown-menu ">
-            <li>
-              <a href="#">
-                <i class="icon-ok-circle"></i>
-                Friends
-              </a>
-            </li>
-            <li class="divider"></li>
-            <li>
-              <a href="#">
-                <i class="icon-list"></i>
-                Collegues
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <i class="icon-list"></i>
-                Family
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <i class="icon-list"></i>
-                Co-Workers
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <i class="icon-plus"></i>
-                Add to New List
-              </a>
-            </li>
-            <li class="divider"></li>
-            <li>
-              <a href="#">
-                <i class="icon-remove"></i>
-                Remove from friends
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <i class="icon-ban-circle"></i>
-                Block
-              </a>
-            </li>
-          </ul>
+        <div class="span4">
+          <%= image_tag "pic.png" %>
         </div>
-        <!-- /btn-group--> </div>
-      <!-- /span8--> </div>
-      <!-- /friend-box-->
+        <div class="span8">
+            <h4 style="font-size:9px;"><a href="<%= profile_path(aspect_member.user.username) %>"><%="#{aspect_member.user.profile.first_name} #{aspect_member.user.profile.last_name}"%></a>
+            </h4>
+          <%= render(:partial => 'people/person', :locals => {:p => aspect_member} )%>
+        </div><!-- /span8--> 
+      </div><!-- /friend-box-->
   <%end%>
 
   <div class="btn-group pull-left" style="clear:both;">
