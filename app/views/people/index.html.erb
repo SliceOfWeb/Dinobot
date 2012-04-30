@@ -22,7 +22,54 @@
 	   		</div>
 
 	   		<div class="span5">
-	   			<%= button_tag "Following", :class => 'btn btn-success btn-large' %>
+	   			<%@classname= "btn btn-large btn-danger dropdown-toggle"%>
+	   			<%@buttonname= "Follow"%>
+	   			<%@current_user.aspects.each do |aspect| %>
+	   				<%i=0%>
+	   				<%for belong_aspcet in p.aspects%>
+	   					<%if belong_aspcet == aspect%>
+	   						<%@classname= "btn btn-large btn-success dropdown-toggle"%>
+	   						<%@buttonname= "Following"%>
+	   					<%end%>
+	   				<%end%>
+	   			<%end%>
+	   				
+				<div class="btn-group pull-left">
+					<a class= "<%=@classname%>" data-toggle="dropdown">
+					<%=@buttonname%>
+					</a>
+					<ul class="dropdown-menu ">
+						<li>
+							<a href="#">
+								<i class="icon-plus"></i> Add to New List
+								
+							</a>
+						</li>
+						<li class="divider"></li>
+						<%@current_user.aspects.each do |aspect| %>
+							<li>
+								<%@icon_name= "icon-list" %>
+								<%@selected_class= "non-selected-aspect" %>
+								<%for belong_person in aspect.people%>
+				   					<%if belong_person == p%>
+				   						<%@icon_name= "icon-check" %>
+				   						<%@selected_class= "selected-aspect" %>
+			   						<%end%>
+			   					<%end%>
+								<%=link_to({:controller => 'aspects', :action => 'add', :id => aspect.id, :person_id => p.id}) do %>
+									<i class="<%=@icon_name%>"></i> <p class="<%=@selected_class%>"><%=aspect.name%></p>
+									<%end%>
+							</li>
+						<%end%>
+						<li class="divider"></li>
+						<li>
+							<a href="#">
+								<i class="icon-ban-circle"></i> Block
+								
+							</a>
+						</li>
+					</ul>
+				</div>
 	   		</div>
 		</div>
 	<%end%>

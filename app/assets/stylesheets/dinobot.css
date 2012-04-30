@@ -755,6 +755,9 @@ Friend list
 .friends-search{
     height:20px;
 }
+.friends-search > a:hover{
+    text-decoration:none;
+}
 .friends-search .btn{
     margin-left:5px;
 }
@@ -906,12 +909,32 @@ People Search list
 
 }
 
-.person .span5{
+.person > .span5{
     margin:0px;
     width:120px;
-    height: 73px;
+    height: 60px;
     text-align:center;
+    padding-top:15px;
+}
 
+
+.person .span5 .btn-group, .person .span5 .btn-group a{ 
+    float:none;
+}
+
+.person .dropdown-menu{
+    text-align:left; 
+}
+
+.person .icon-list , .person .icon-check{
+    float:left;
+    margin-right:2px;
+    margin-top:2px;
+}
+
+.selected-aspect{
+    color:#08C;
+    float:left;
 }
 
 .person .span8{

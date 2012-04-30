@@ -1,0 +1,18 @@
+<h1>Create new Aspect</h1>
+<%= form_for @aspect do |f| %>
+  <p>
+    <%= f.label :name, 'Aspect Name' %>
+    <br />        
+    <%= f.text_field :name , :class =>"input-xlarge"%></p>
+  <p>
+  <p>
+    <%= f.label 'Hidden' %>
+    <br />
+
+    	<%= f.label :hidden_true, "Yes" %>       
+    	<%= f.radio_button :hidden, "True" %>
+    	<%= f.label :hidden_false, "No" %>   
+		<%= f.radio_button :hidden, "False" %>
+  <p>
+    <%= f.submit :class => "btn"  %>
+  <% end %>

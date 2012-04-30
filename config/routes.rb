@@ -2,9 +2,10 @@ Dinobot::Application.routes.draw do
 
   root :to => 'sessions#index', :as => "welcome"
   
-  resources :users, :sessions, :profiles, :posts, :comments, :actions, :people 
+  resources :users, :sessions, :profiles, :posts, :comments, :actions, :people, :aspects 
 
   match ':controller(/:action(/:id))(.:format)'
+  match ':controller/:action/:id/:person_id'
   
   get "home" => "home#index", :as => "home"
   get "logout" => "sessions#destroy", :as => "logout"

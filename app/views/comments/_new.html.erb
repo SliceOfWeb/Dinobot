@@ -52,8 +52,8 @@
       </div> <!-- content-header --> 
     <%end%>  
     <%= form_tag({:controller => 'comments', :action => 'create', :post_id => post.id}) do  %>
-    <%= text_area_tag( :content , "" , {:class => "comment-text-area"} ) %>
-    <%= submit_tag("Comment" , :class => "btn btn-primary pull-right") %>
+      <%= text_area_tag( :content , "" , {:class => "comment-text-area"} ) %>
+      <%= submit_tag("Comment" , :class => "btn btn-primary pull-right") %>
     <% end %>
   </div>  <!-- /comments -->
 </div> <!-- /content-footer -->
