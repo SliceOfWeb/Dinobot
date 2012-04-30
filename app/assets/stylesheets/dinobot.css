@@ -714,6 +714,7 @@ Friend list
     border-radius: 9px;
     padding:5px;
     background-image: -webkit-linear-gradient(#fff, #eee);
+    margin-right:8px;
     
 }
 
@@ -737,7 +738,7 @@ Friend list
 }
 
 .friend-box a{
-    height: 20px;
+    height: 17px;
     font-size: 8px;
 }
 

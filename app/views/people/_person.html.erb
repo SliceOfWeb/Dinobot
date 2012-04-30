@@ -20,6 +20,7 @@
 		</li>
 		<li class="divider"></li>
 		<%@current_user.aspects.each do |aspect| %>
+			<%next if aspect.name == 'MyAspects'%>
 			<li>
 				<%@icon_name= "icon-list" %>
 				<%@selected_class= "non-selected-aspect" %>
@@ -29,7 +30,12 @@
 						<%@selected_class= "selected-aspect" %>
 					<%end%>
 				<%end%>
-				<%=link_to({:controller => 'aspects', :action => 'add', :id => aspect.id, :person_id => p.id}) do %>
+				<% if @selected_class== "selected-aspect" %>
+					<%@click_action= 'remove'%>
+				<%else%>	
+					<%@click_action= 'add'%>		
+				<%end%>	
+				<%=link_to({:controller => 'aspects', :action => @click_action, :id => aspect.id, :person_id => p.id}) do %>
 					<i class="<%=@icon_name%>"></i> <p class="<%=@selected_class%>"><%=aspect.name%></p>
 				<%end%>
 			</li>

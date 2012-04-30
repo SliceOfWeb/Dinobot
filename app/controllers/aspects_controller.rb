@@ -22,11 +22,29 @@ class AspectsController < ApplicationController
 
 	def add
 		@aspect= Aspect.find params[:id]
-		p = Person.find params[:person_id]
+		@p = Person.find params[:person_id]
 		unless @aspect == @current_user.aspects[0]
-		 	@aspect.people << p
+		 	@aspect.people << @p
 		end
-		@current_user.aspects[0].people << p
+		@current_user.aspects[0].people << @p
+		redirect_to :back
+	end
+
+	def remove
+		@aspect= Aspect.find params[:id]
+		@p = Person.find params[:person_id]
+		@aspect.people.delete(@p)
+
+		@current_user.aspects.each do |aspect|
+			next if aspect.name == 'MyAspects'
+			aspect.people.each do |member|
+				if member == @p
+					redirect_to :back
+					return
+				end
+			end
+		end
+		@current_user.aspects[0].people.delete(@p)
 		redirect_to :back
 	end
 end
