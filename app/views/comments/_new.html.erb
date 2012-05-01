@@ -1,7 +1,7 @@
 <div class="content-footer"> 
   <div class="comments">
-    <%post.comments.each do |comment| %>
-      <a href="#">
+    <% post.comments.each do |comment| %>
+      <a href="/comments/<%= comment.id %>" data-method="delete">
         <i class="icon-remove"></i>
       </a>
       <div class="row content-header">
@@ -12,7 +12,7 @@
         </div> <!-- span4 -->
         <div class="span8">
           <h4>
-            <a href="<%= profile_path(comment.person.user.username) %>"><%="#{comment.person.user.profile.first_name} #{comment.person.user.profile.last_name}"%></a>
+            <a href="<%= profile_path(comment.person.user.username) %>"><%="#{comment.person.user.profile.first_name.capitalize} #{comment.person.user.profile.last_name.capitalize}"%></a>
           </h4>
           <div class=" comment-title">
             <%=comment.content%>     
@@ -25,7 +25,7 @@
                   <a href= "<%=upvote_path(comment.action.id)%>">
                         <i class="icon-ok"></i>
                         Like
-                        <sup class="post-counts"><%=comment.action.upvote_count%></sup>
+                        <sup class="comment-counts"><%=comment.action.upvote_count%></sup>
                       </a>
                 </li>
               </ul>

@@ -3,11 +3,15 @@ class ProfilesController < ApplicationController
 	
 	def show
 		@profile = Profile.find_by_user_id User.find_by_username params[:username]	
-
+		if @profile
+			render "show"
+		else
+			render text: "this page dose not exist"
+		end
 	end
 
 	def index
-		
+
 	end
 
 	def new
@@ -17,6 +21,8 @@ class ProfilesController < ApplicationController
 	def create
 		@profile = Profile.create(:first_name => params[:first_name], :last_name => params[:last_name], :location => params[:location], :birthdate => params[:birthdate], :bio => params[:bio], :gender =>params[:gender], :education => params[:education])
 		@profile.user = @current_user
+
+		# colleting tag
 		tags = params[:tags].split(' ')
 
 		tags.each do |tag|
@@ -30,11 +36,12 @@ class ProfilesController < ApplicationController
 		end
 
 		if @profile.save
-			Person.create :profile_link => "www.dinobot.com/#{@current_user.username}", :user_id => @current_user.id
+			Person.create :profile_link => "/#{@current_user.username}", :user_id => @current_user.id
 			@mydefaultaspect= Aspect.new :name => "MyAspects"
 			@mydefaultaspect.user= @current_user
 			@mydefaultaspect.save
 			redirect_to home_path	
+			
 		else
 
 			render 'new'
@@ -89,14 +96,23 @@ class ProfilesController < ApplicationController
 			
 			flash[:notice] = "Your changes have been saved"
 
-			redirect_to('/profiles/show')	
+			redirect_to("/#{@current_user.username}")	
 		else
 
 			render 'edit'
 		end
 
 	end
-	def setting
-		render 'setting'
+
+	def account_setting
+		
+	end
+
+	def privacy_setting
+		
+	end
+
+	def save
+		render text: params.to_json
 	end
 end

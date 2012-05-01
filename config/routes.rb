@@ -1,21 +1,29 @@
 Dinobot::Application.routes.draw do
 
   root :to => 'sessions#index', :as => "welcome"
-  
-  resources :users, :sessions, :profiles, :posts, :comments, :actions, :people, :aspects 
 
-  match ':controller(/:action(/:id))(.:format)'
-  match ':controller/:action/:id/:person_id'
-  
   get "home" => "home#index", :as => "home"
   get "logout" => "sessions#destroy", :as => "logout"
   get "login" => "sessions#new", :as => "login"
   get "signup" => "users#new", :as => "signup"
+  
+  resources :users, :sessions, :posts, :comments, :actions, :people, :aspects, :conversations, :messages
 
-  put 'actions/update/:id' => 'actions#update', :as => 'upvote'
+  match ':controller/:action/:id/:person_id'
+  
+  resources :profiles, :except => "show" do
+    member do
+      get :account_setting
+      get :privacy_setting
+      put :save
+    end
+  end
 
   match ':username' => "profiles#show", :as => 'profile'
+
+  put 'actions/update/:id' => 'actions#update', :as => 'upvote'
   
+  match ':controller(/:action(/:id))(.:format)'
   
 
   

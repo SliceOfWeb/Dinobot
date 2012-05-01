@@ -7,8 +7,12 @@ class ApplicationController < ActionController::Base
   		redirect_to login_path
   		return false
   	else
-      # set current_user by the current user object
-      @current_user = User.find session[:user_id] 
+
+      # set globals varibales by the current user object 
+      @current_user = User.find session[:user_id]
+      @current_profile = @current_user.profile 
+      @current_person = @current_user.person
+
       
 
   		return true

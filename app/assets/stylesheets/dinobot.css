@@ -306,10 +306,12 @@ info List
 /* post box style*/
 .post-box{
     margin-top:10px;
-    border-left: 1px solid rgba(191, 191, 191, 0.2);
+   
+
 }
 .post-box:hover{
-    border-left: 1px solid rgba(51, 181, 229, 0.5);
+    
+ 
 }
 .post-box > a{
     float: right;
@@ -328,6 +330,9 @@ info List
     padding-top:10px;
 
     
+}
+.post-box > .content-header:hover{
+    background: rgba(238, 238, 238, .01);
 }
 .post-box .content-header .span4{ 
     width:60px;
@@ -435,7 +440,9 @@ info List
     padding:10px;
     margin-bottom:2px;   
 }
-
+.comments > .content-header:hover{
+    background: rgba(238, 238, 238, .01);
+}
 .comments .content-header:nth-child(2) {
      border-top-left-radius:10px;
     border-top-right-radius:10px;
@@ -505,6 +512,11 @@ info List
     background-color: rgba(0, 0, 0, 0.1);
     background-color: transparent;
 }
+.comment-actions .comment-counts{
+background-color: #DDD;
+padding: 2px;
+border-radius: 4px;
+}
 .comment-actions .nav-pills .active > a, .comment-actions .nav-pills .active > a:hover{
     color: #344;
 }
@@ -522,17 +534,21 @@ info List
     margin-right:0px
 }
 .comment-text-area{
-    margin-left:-12px ;
+    margin-left:-2px ;
     height: 20px;
     width:406px;
     margin-top:-5px;
     border:1px solid #ccc;  
     color:black;
-    background-color:white;
+    background-color:rgba(238, 238, 238, .4);
     padding:10px;
     font-size: 13px;
     font-family: "Ubuntu";
     box-shadow: inset 0px 0px 3.3px 1px #ddd;
+    max-height: 30px;
+    min-height: 30px;
+    max-width: 390px;
+    min-width: 390px;
 }
 
 

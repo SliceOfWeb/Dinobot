@@ -85,14 +85,14 @@ ActiveRecord::Schema.define(:version => 20120429065422) do
   add_index "contacts", ["user_id"], :name => "index_contacts_on_user_id"
 
   create_table "conversations", :force => true do |t|
-    t.integer  "reciver_id",                           :null => false
-    t.integer  "sender_id",                            :null => false
-    t.string   "subject",    :default => "no subject", :null => false
-    t.datetime "created_at",                           :null => false
-    t.datetime "updated_at",                           :null => false
+    t.integer  "receiver_id",                           :null => false
+    t.integer  "sender_id",                             :null => false
+    t.string   "subject",     :default => "no subject", :null => false
+    t.datetime "created_at",                            :null => false
+    t.datetime "updated_at",                            :null => false
   end
 
-  add_index "conversations", ["reciver_id"], :name => "index_conversations_on_reciver_id"
+  add_index "conversations", ["receiver_id"], :name => "index_conversations_on_receiver_id"
   add_index "conversations", ["sender_id"], :name => "index_conversations_on_sender_id"
 
   create_table "group_admins", :force => true do |t|
@@ -143,6 +143,7 @@ ActiveRecord::Schema.define(:version => 20120429065422) do
     t.integer  "conversation_id"
     t.text     "content",         :null => false
     t.integer  "person_id"
+    t.boolean  "unread"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
   end
