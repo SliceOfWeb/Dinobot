@@ -9,9 +9,8 @@ class ApplicationController < ActionController::Base
   	else
       # set current_user by the current user object
       @current_user = User.find session[:user_id] 
-      @post = Post.new
-      @posts = Post.order("posts.created_at DESC")
       
+
   		return true
   	end
   end
@@ -25,4 +24,19 @@ class ApplicationController < ActionController::Base
       return true
     end
   end
+
+  def get_posts
+    @post = Post.new
+      @posts = []
+      @current_user.aspects[0].people.each do |person|
+        person.posts.each do |post|
+          @posts << post
+        end
+      end
+      @current_user.person.posts.each do |post|
+        @posts << post
+      end
+      @posts.reverse!
+  end
+
 end

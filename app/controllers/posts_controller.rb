@@ -1,6 +1,8 @@
 class PostsController < ApplicationController
 	before_filter :authenticate_user
 
+	
+
 	def create
 			@post = Post.new(params[:post])
 			@post.post_type= "status"

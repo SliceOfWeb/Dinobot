@@ -946,7 +946,15 @@ People Search list
 
 .selected-aspect{
     color:#08C !important;
-    float:left;
+}
+
+.selected-aspect:hover{
+    color:white !important;
+}
+
+
+.non-selected-aspect:hover{
+    color:white !important;
 }
 
 .person .span8{
