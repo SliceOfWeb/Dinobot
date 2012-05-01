@@ -6,7 +6,7 @@ class ProfilesController < ApplicationController
 		if @profile
 			render "show"
 		else
-			redirect_to "/profiles/new"
+			render text: "this page dose not exist"
 		end
 	end
 
@@ -104,7 +104,15 @@ class ProfilesController < ApplicationController
 
 	end
 
-	def setting
-		render 'setting'
+	def account_setting
+		
+	end
+
+	def privacy_setting
+		
+	end
+
+	def save
+		render text: params.to_json
 	end
 end

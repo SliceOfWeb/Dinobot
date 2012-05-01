@@ -11,11 +11,15 @@ Dinobot::Application.routes.draw do
 
   resources :conversations, :messages
   # no need for show method since the next route exist 
+  
   resources :profiles, :except => "show" do
     member do
-      get :setting
+      get :account_setting
+      get :privacy_setting
+      put :save
     end
   end
+  
   # cause bug with logout actin
   match ':username' => "profiles#show", :as => 'profile'
 

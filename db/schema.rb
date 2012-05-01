@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120428104342) do
+ActiveRecord::Schema.define(:version => 20120313222557) do
 
   create_table "action_items", :force => true do |t|
     t.integer  "action_id"
@@ -92,7 +92,7 @@ ActiveRecord::Schema.define(:version => 20120428104342) do
     t.datetime "updated_at",                            :null => false
   end
 
-  add_index "conversations", ["receiver_id"], :name => "index_conversations_on_reciver_id"
+  add_index "conversations", ["receiver_id"], :name => "index_conversations_on_receiver_id"
   add_index "conversations", ["sender_id"], :name => "index_conversations_on_sender_id"
 
   create_table "group_admins", :force => true do |t|
@@ -143,6 +143,7 @@ ActiveRecord::Schema.define(:version => 20120428104342) do
     t.integer  "conversation_id"
     t.text     "content",         :null => false
     t.integer  "person_id"
+    t.boolean  "unread"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
   end

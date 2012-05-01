@@ -42,7 +42,7 @@
 				<%= link_to("Profile", "/#{@current_user.username}") %>
 			</li>
 			<li>
-				<a href="#">Setting</a>
+				<a href="/profiles/<%= @current_user.username %>/account_setting">Setting</a>
 			</li>
 			<li>
 				<a href="#">Help</a>
@@ -186,7 +186,7 @@
 		</a>
 	</li>
 	<li >
-		<a href="/profiles/<%= @current_user.username %>/setting" data-toggle="tab">
+		<a href="/profiles/<%= @current_user.username %>/account_setting" data-toggle="tab">
 			<span>
 				<i class="icon-cog"></i>
 				Settings&nbsp;&nbsp;&nbsp;

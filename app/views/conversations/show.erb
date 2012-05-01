@@ -6,10 +6,11 @@
 <h1>Messages</h1>
 
 <div class="messages-list">
-  <h2>Back to Work Again</h2>
+  <h2><%= @conversation.subject %></h2>
 
   <% @messages.each do |message| %>
   <% @name = User.find_by_id(message.person_id).username %>
+  
   <div class="message-box row">
     <div class="span4">
       <a href="/<%= @name  %>">
@@ -39,8 +40,8 @@
       </p>
     </div>
   </div><!-- /messages-box-->
-
   <% end %>
+
   <div>
     <%= form_tag ({:controller => :messages, :action => :create}) do %>
       <h3><%= flash[:no_content] %></h3>

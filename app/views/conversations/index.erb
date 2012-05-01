@@ -9,7 +9,7 @@
     margin-left: -24px;
   }
   #unread{
-    background-image: -webkit-linear-gradient(white, #CCC);
+    background-image: -webkit-linear-gradient(#ddd, #CCC);
   }
 </style>
 
@@ -50,11 +50,11 @@
 <h3>you have no messages</h3>
 <% else %>
 
-<% #if conversation.messages.last.unread == true %>
+<% if conversation.messages.last.unread == true && conversation.messages.last.person != @current_person %>
 <div id="unread" class="message-box row">
-<% #else %>
-<!--<div class="message-box row">-->
-<% #end %>
+<% else %>
+<div class="message-box row">
+<% end %>
   <div class="span4">
     <a href="#">
       <img class="profile-pic" src="/assets/pic.png" alt=""></a>
@@ -95,7 +95,7 @@
     
   </div>
 </div><!-- /messages-box-->
-<% end %>
+<%end%>
 <%end%>
 
 

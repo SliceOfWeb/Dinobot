@@ -12,4 +12,14 @@ class CommentsController < ApplicationController
       		render text: "Something worng happen while Commenting"
       end
 	end
+
+  def destroy
+
+    comment_d = Comment.find params[:id]
+    
+    comment_d.destroy
+
+    redirect_to "/home"
+  end
+
 end

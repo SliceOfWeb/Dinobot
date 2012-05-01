@@ -8,8 +8,6 @@ class ConversationsController < ApplicationController
 	def new
 		@conversation = Conversation.new
 		@message = Message.new
-		#@friends_list = User.all.collect{ |f| [f.username.capitalize]  } 
-		params[:receiver] ="Islam"
 	end
 
 	def create
@@ -22,7 +20,7 @@ class ConversationsController < ApplicationController
 		else
 			@conversation = Conversation.create({ sender_id: @current_user.id, receiver_id: receiver.id, subject: params[:subject]})	
 
-			@message = Message.create({conversation_id: @conversation.id, content: params[:content], person_id: @current_user.id})
+			@message = Message.create({conversation_id: @conversation.id, content: params[:content], person_id: @current_user.id, unread: true})
 			redirect_to conversations_path
 		end
 
@@ -31,6 +29,12 @@ class ConversationsController < ApplicationController
 	def show
 		@conversation = Conversation.find params[:id]
 		@messages = @conversation.messages
+
+		last_message = @messages.last
+		if last_message.person != @current_person
+			last_message.update_attribute :unread, false
+		end
+		
 	end
 
 	def edit

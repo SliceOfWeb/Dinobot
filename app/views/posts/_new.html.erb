@@ -50,19 +50,19 @@
 <% @posts.each do |post| %>
         <hr class="separator">
         <div class="post-box">
-          <a href="#">
+          <a href="/posts/<%= post.id %>" data-method="delete">
             <i class="icon-remove"></i>
           </a>
 
           <div class="row content-header">
             <div class="span4">
-              <a href="#">
+              <a href="#" >
                 <%= image_tag "pic.png", :class => 'profile-pic' %>
               </a>
             </div> <!-- span2 -->
             <div class="span8">
               <h4>
-                <a href="<%= profile_path(post.person.user.username) %>"><%="#{post.person.user.profile.first_name} #{post.person.user.profile.last_name}"%></a>
+                <a href="<%= profile_path(post.person.user.username) %>"><%="#{post.person.user.profile.first_name.capitalize} #{post.person.user.profile.last_name.capitalize}"%></a>
               </h4>
               <div class=" post-title">
                 <%=post.content%>     

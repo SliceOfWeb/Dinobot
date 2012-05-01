@@ -12,4 +12,14 @@ class PostsController < ApplicationController
       		render text: "Something worng happen while posting"
       end
 	end
+
+	def destroy
+		post_d = Post.find params[:id]
+		post_d.comments.each do |c|
+			c.destroy
+		end
+		post_d.destroy
+
+		redirect_to "/home"
+	end
 end

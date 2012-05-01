@@ -1,0 +1,168 @@
+
+    <style>
+    
+      .form-horizontal .form-actions{
+        padding-left: 0px;
+        margin-left: -50px;
+        width: 540px;
+      }
+      .form-horizontal .btn:first-child{
+        margin-left: 200px;
+      }
+      .control-group .btn{
+        margin-left: 7px;
+      }
+      .field-label:last-child{
+        margin-right: 38px;
+      }
+        
+      
+    </style><!-- Le fav and touch icons -->
+  
+
+      <ul id="tab" class="nav nav-tabs">
+        <li class="active">
+          <a href="/profiles/<%= @current_user.username %>/account_setting">
+            <i class="icon-user"></i>
+            Account
+          </a>
+        </li>
+        <li >
+          <a href="/profiles/<%= @current_user.username %>/privacy_setting" >
+            <i class="icon-eye-open"></i>
+            Privacy
+          </a>
+        </li>
+      </ul>
+<div id="myTabContent" class="tab-content">
+<div class="tab-pane fade active in" id="account">
+
+<div class="span8">
+
+  <%= form_tag "/profiles/#{@current_user.username}/save", method: "put", class: "form-horizontal" do %>
+    <h2>General Info</h2>
+    <fieldset>
+      <div class="control-group">
+
+        <h4  class="field-label">User Name&nbsp;&nbsp;&nbsp;&nbsp;</h4>
+
+        <%= text_field_tag :username, "#{@current_user.username}"  %>
+      </div>
+      <div class="control-group">
+
+        <h4 class="field-label">E-mail Adress&nbsp;&nbsp;&nbsp;&nbsp;</h4>
+
+        <input class="input-xlarge disabled" id="disabledInput" type="text" placeholder="user@email.com" disabled=""></div>
+      <div class="control-group">
+
+        <h4 class="field-label">Password&nbsp;&nbsp;&nbsp;&nbsp;</h4>
+
+        <input class="input-xlarge disabled" id="disabledInput" type="text" placeholder="**************" disabled=""></div>
+    </fieldset>
+
+    <h2>Contact Details</h2>
+    <fieldset>
+      <div class="control-group">
+
+        <h4>First Name</h4>
+
+      <%= text_field_tag :first_name, "#{@current_user.profile.first_name}"  %>
+       </div>
+      <div class="control-group">
+
+        <h4>Last Name</h4>
+
+        <%= text_field_tag :last_name, "#{@current_user.profile.last_name}"  %></div>
+      <div class="control-group">
+
+        <h4>Adress</h4>
+
+        <input class="input-xlarge disabled" id="disabledInput" type="text" placeholder="town, city" disabled=""></div>
+      <div class="control-group">
+
+        <h4>country</h4>
+
+        <select>
+          <option value="saudi">Saudi</option>
+          <option value="usa">Usa</option>
+          <option value="egypt" selected>Egypt</option>
+        </select>
+
+      </div>
+    </fieldset>
+
+    <h2>Notification</h2>
+    <fieldset>
+      <div class="control-group">
+
+        <h4>Photos&nbsp;&nbsp;&nbsp;&nbsp;</h4>
+
+        <input type="checkbox"></div>
+      <div class="control-group">
+
+        <h4>Videos&nbsp;&nbsp;&nbsp;&nbsp;</h4>
+
+        <input type="checkbox"></div>
+      <div class="control-group">
+
+        <h4>Comments&nbsp;&nbsp;&nbsp;&nbsp;</h4>
+
+        <input type="checkbox"></div>
+      <div class="control-group">
+
+        <h4>Posts on wall&nbsp;&nbsp;&nbsp;&nbsp;</h4>
+
+        <input type="checkbox"></div>
+      <div class="control-group">
+
+        <h4>friend request&nbsp;&nbsp;&nbsp;&nbsp;</h4>
+
+        <input type="checkbox"></div>
+      <div class="control-group">
+
+        <h4>Event invitation&nbsp;&nbsp;&nbsp;&nbsp;</h4>
+
+        <input type="checkbox"></div>
+
+    </fieldset>
+
+    <h2>Account Services</h2>
+    <fieldset>
+      <div class="control-group">
+
+        <h4>Facebook&nbsp;&nbsp;&nbsp;&nbsp;</h4>
+
+        <a class="btn" href="#">
+          <i class="icon-pencil"></i>
+          Edit
+        </a>
+
+      </div>
+      <div class="control-group">
+
+        <h4>Twitter&nbsp;&nbsp;&nbsp;&nbsp;</h4>
+
+        <a class="btn" href="#">
+          <i class="icon-pencil"></i>
+          Edit
+        </a>
+
+      </div>
+
+    </fieldset>
+
+    <div class="form-actions">
+      <%= submit_tag "Save changes", class:"btn btn-primary"  %>
+      <%= link_to "Cancel","/#{@current_user.username}", class:"btn" %>
+      
+    </div>
+  <% end %>
+</div>
+
+</div>
+
+
+</div>
+
+
+
