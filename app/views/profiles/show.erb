@@ -1,12 +1,15 @@
 
-<h1>Personal Info</h1>
+<h1 class="ProfileName"><%=@profile.first_name%> <%=@profile.last_name%> </h1> 
+<div class= 'ProfileFollowButton'>
+  <% unless @profile == @current_user.profile%>
+    <%= render(:partial => 'people/person', :locals => {:p => @profile.user.person})%>
+  <%end%>
+</div>
+<h3 style="clear:both;">Personal Info</h3>
 <p id="flash" ><%= flash[:notice] %></p>
 <div class="row well personal-info">
-  <h4>Full Name:</h4>
-  <%= @profile.first_name %>
-
-  <h4>Last Name:</h4>
-  <%= @profile.last_name %>
+  <h4>Known As:</h4>
+  <%= @profile.user.username %>
 
   <h4>Location:</h4>
   <%=  @profile.location %>
@@ -14,26 +17,23 @@
   <h4>Birthdate:</h4>
   <%= @profile.birthdate %>
 
-  <h4>EMail:</h4>
-  <%= @current_user.email%>
+  <h4>Email:</h4>
+  <%= @profile.user.email%>
 
-  <h4>Gender:</h4>
+  <h4>Sex:</h4>
   <%= @profile.gender %>
 
   <h4>Education:</h4>
   <%= @profile.education %>
 </div>
 
-<hr class="separator">
 
-<h1>Bio</h1>
+<h3>Bio</h3>
 <div class="row well bio">
   <p> <%= @profile.bio %> </p>
 </div>
 
-<hr class="separator">
-
-<h1>Tags</h1>
+<h3>Tags</h3>
 <div class="row well tags">
   <% unless @profile.tags == [] %>
     <% @profile.tags.each do |tag| %>
@@ -44,5 +44,4 @@
   <% end %>
 </div>
 
-<hr class="separator"></div>
 

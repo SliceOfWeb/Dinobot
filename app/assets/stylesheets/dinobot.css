@@ -934,18 +934,18 @@ People Search list
     float:none;
 }
 
-.person .dropdown-menu, .friend-box .dropdown-menu{
+.person .dropdown-menu, .friend-box .dropdown-menu, .ProfileFollowButton .dropdown-menu{
     text-align:left; 
 }
 
-.person .icon-list , .person .icon-check,.friend-box .icon-list , .friend-box .icon-check{
+.person .icon-list , .person .icon-check, .friend-box .icon-list , .friend-box .icon-check , .ProfileFollowButton .icon-list , .ProfileFollowButton .icon-check{
     float:left;
     margin-right:2px;
     margin-top:2px;
 }
 
 .selected-aspect{
-    color:#08C;
+    color:#08C !important;
     float:left;
 }
 
@@ -980,4 +980,18 @@ People Search list
 }
 /*
 People Search list
+*/
+
+/*
+Profile Page
+*/
+.ProfileName{
+    float:left; 
+}
+.ProfileFollowButton{
+    float:right; 
+    margin-top:5px; 
+}
+/*
+Profile Page
 */

@@ -26,7 +26,9 @@ class AspectsController < ApplicationController
 		unless @aspect == @current_user.aspects[0]
 		 	@aspect.people << @p
 		end
-		@current_user.aspects[0].people << @p
+		unless @current_user.aspects[0].people.find_by_id(@p.id) 
+			@current_user.aspects[0].people << @p
+		end
 		redirect_to :back
 	end
 
