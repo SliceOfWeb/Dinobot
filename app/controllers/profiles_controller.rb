@@ -4,7 +4,13 @@ class ProfilesController < ApplicationController
 	def show
 		@profile = Profile.find_by_user_id User.find_by_username params[:username]	
 		if @profile
-			render "show"
+			#render "show"
+
+			respond_to do |format|
+				format.html
+				format.json { render :json => @profile, :status => 200 }
+			end
+
 		else
 			render text: "this page dose not exist"
 		end

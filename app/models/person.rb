@@ -2,7 +2,11 @@ class Person < ActiveRecord::Base
 	belongs_to :user
 	has_many :posts
 	has_many :messages
-	has_many :conversations 
+
+	has_many :conversation_statuses
+	has_many :conversations, :through => :conversation_statuses
+	
+
 	has_many :invitations
 	has_many :mentions
 	has_many :group_memberships

@@ -28,9 +28,9 @@
             <% when 60..3600  %>
               <%= "#{pluralize(date/60, 'Minute')} ago"%>
             <% when  3600..86400  %>
-                <%= "#{pluralize(date/3600, 'Hour')} ago"%>
+              <%= "#{pluralize(date/3600, 'Hour')} ago"%>
             <% when  86400..172800  %>
-                <%= "Yesterday"%>
+              <%= "Yesterday"%>
             <%else%>
               <%=message.created_at.strftime("%B %e, %Y at %l:%M %p")%>
         <% end%>
@@ -48,6 +48,7 @@
       <%= text_area_tag :content, "" %>
       <%= submit_tag "Reply", class: "btn btn-primary" %>
       <%= hidden_field_tag :conversation_id, @messages[0].conversation_id %>
+      
       <a href="/conversations/" class="btn">Back</a>
     <%end%>
   </div>
