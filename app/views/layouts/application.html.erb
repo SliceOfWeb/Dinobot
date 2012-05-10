@@ -34,7 +34,7 @@
 									<% if params[:controller] != 'profiles' || params[:action] != 'new'%>
 										<%= image_tag @current_profile.photo.url, :class =>"pull-right" %>
 									<%else%>
-										<%= image_tag 'pic.png', :class =>"pull-right" %>
+										<%= image_tag "pic.png", :class =>"pull-right" %>
 									<%end%>
 
 								</a>
@@ -82,7 +82,14 @@
 							<div class="top-profile-box">
 								<div class="row-fluid">
 									<div class="span4">
+
+										<% if params[:username]%>
+										<% profile_pic = Profile.find_by_user_id(User.find_by_username(params[:username])).photo.url %>
+										<%= image_tag profile_pic %>
+										<%else%>
 										<%= image_tag @current_profile.photo.url %>
+										<%end%>
+
 									</div>
 									<div class="span8">
 										<a href="">
