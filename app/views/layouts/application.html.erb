@@ -30,8 +30,13 @@
 					<div class="nav-collapse">
 						<div class="user pull-right">
 							<div class="btn-group">
-								<a class="btn" href="#">
-									<%= image_tag "pic.png", :class =>"pull-right" %>
+								<a class="img_h btn" href="#">
+									<% if params[:controller] != 'profiles' || params[:action] != 'new'%>
+										<%= image_tag @current_profile.photo.url, :class =>"pull-right" %>
+									<%else%>
+										<%= image_tag 'pic.png', :class =>"pull-right" %>
+									<%end%>
+
 								</a>
 								<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
 									<span class="caret"></span>
@@ -74,10 +79,10 @@
 				<div class="span4 sides">
 					<% if params[:controller] != 'profiles' || params[:action] != 'new'%>
 						<div class="profile-box">
-							<div class="top-profile-box" >
+							<div class="top-profile-box">
 								<div class="row-fluid">
 									<div class="span4">
-										<%= image_tag "pic.png" %>
+										<%= image_tag @current_profile.photo.url %>
 									</div>
 									<div class="span8">
 										<a href="">

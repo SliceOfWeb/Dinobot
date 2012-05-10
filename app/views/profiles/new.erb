@@ -1,4 +1,4 @@
-  <%= form_tag profiles_path do%>
+  <%= form_for @profile, :html => {:multipart => true} do |f| %>
 		   	
         <!-- error messages -->
         <% @profile.errors.full_messages.each do |msg| %>
@@ -11,30 +11,33 @@
 		    <h1>Personal Info</h1>
           <div class="row well personal-info">
             <h4>First Name:</h4>
-            <%= text_field_tag :first_name %>
+            <%= f.text_field :first_name %>
             <h4>Last Name:</h4>
-              <%= text_field_tag :last_name %>
+              <%= f.text_field :last_name %>
             
             <h4>Location:</h4>
-            <%= text_field_tag :location%>
+            <%= f.text_field :location%>
             <h4>Birthdate:</h4>
-            <%= text_field_tag :birthdate%>
+            <%= f.text_field :birthdate%>
             <h4>Gender:</h4>
      
-              <%= label_tag :gender_male, "Male" %>
-              <%= radio_button_tag :gender, "male" %>
-              <%= label_tag :gender_female, "Female"%>
-              <%= radio_button_tag :gender, "female" %>
+              <%= f.label :gender_male, "Male" %>
+              <%= f.radio_button :gender, "male" %>
+              <%= f.label :gender_female, "Female"%>
+              <%= f.radio_button :gender, "female" %>
          
             <h4>Education:</h4>
-            <%= text_field_tag :education%>
+            <%= f.text_field :education%>
+
+            <h4>Photo</h4>
+            <%= f.file_field :photo %>
           </div>
 
           <hr class="separator">
 
           <h1>Bio</h1>
           <div class="row well bio">
-			   <%= text_area_tag :bio, :class => "text-area" %>
+			   <%= f.text_area :bio, :class => "text-area" %>
           </div>
           <hr class="separator">
 
@@ -47,7 +50,7 @@
           <hr class="separator">
 
 		      <div class="form-actions">
-           <%= submit_tag "Save changes", :class => "btn btn-primary" %>
+           <%= f.submit "Save changes", :class => "btn btn-primary" %>
             <a href="home" class="btn">Cancel</a>
           </div>
           

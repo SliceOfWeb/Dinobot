@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120503104037) do
+ActiveRecord::Schema.define(:version => 20120509233815) do
 
   create_table "action_items", :force => true do |t|
     t.integer  "action_id"
@@ -94,10 +94,15 @@ ActiveRecord::Schema.define(:version => 20120503104037) do
   end
 
   create_table "conversations", :force => true do |t|
-    t.string   "subject",    :default => "no subject", :null => false
-    t.datetime "created_at",                           :null => false
-    t.datetime "updated_at",                           :null => false
+    t.integer  "receiver_id",                           :null => false
+    t.integer  "sender_id",                             :null => false
+    t.string   "subject",     :default => "no subject", :null => false
+    t.datetime "created_at",                            :null => false
+    t.datetime "updated_at",                            :null => false
   end
+
+  add_index "conversations", ["receiver_id"], :name => "index_conversations_on_receiver_id"
+  add_index "conversations", ["sender_id"], :name => "index_conversations_on_sender_id"
 
   create_table "group_admins", :force => true do |t|
     t.integer  "group_id"
@@ -197,18 +202,22 @@ ActiveRecord::Schema.define(:version => 20120503104037) do
   add_index "posts", ["person_id"], :name => "index_posts_on_person_id"
 
   create_table "profiles", :force => true do |t|
-    t.string   "first_name",                     :null => false
-    t.string   "last_name",                      :null => false
+    t.string   "first_name",                           :null => false
+    t.string   "last_name",                            :null => false
     t.text     "bio"
     t.date     "birthdate"
     t.string   "location"
     t.string   "gender"
     t.string   "education"
     t.string   "avatar"
-    t.boolean  "allow_search", :default => true
+    t.boolean  "allow_search",       :default => true
     t.integer  "user_id"
-    t.datetime "created_at",                     :null => false
-    t.datetime "updated_at",                     :null => false
+    t.datetime "created_at",                           :null => false
+    t.datetime "updated_at",                           :null => false
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
   end
 
   add_index "profiles", ["user_id"], :name => "index_profiles_on_user_id"
