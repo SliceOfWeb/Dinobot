@@ -119,6 +119,11 @@ class ProfilesController < ApplicationController
 	end
 
 	def save
-		render text: params.to_json
+		#render text: params.to_json
+		if params[:setting] == "account"
+			render text: "acc"
+		else	
+			render text: "pri"
+		end
 	end
 end
