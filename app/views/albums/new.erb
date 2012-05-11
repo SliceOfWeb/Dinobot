@@ -1,0 +1,16 @@
+<h1>Add new Album</h1>
+<%= form_for @album do |f| %>
+  <p>
+    <%= f.label :title, 'Album Titile:' %>     
+    <%= f.text_field :title , :class =>"input-xlarge"%>
+  </p>
+  <p>
+    <%= f.label :location, 'Location' %>     
+    <%= f.text_field :location , :class =>"input-xlarge"%>
+  </p>
+  <p>
+    <%= f.label 'Description:' %>
+    <%= f.text_area :description , :class =>"input-xlarge", :style => "height:100px"%>
+  <p>
+    <%= f.submit :class => "btn btn-primary"  %>
+  <% end %>

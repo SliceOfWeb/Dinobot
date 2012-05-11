@@ -1024,3 +1024,43 @@ Profile Page
 /*
 Profile Page
 */
+
+
+/*
+Album Page
+*/
+#album-header{
+    float:left;
+}
+#add-album{
+    float:right;
+    margin:10px;
+    margin-right:0px;
+}
+.albums{
+    padding:10px;
+    clear:both;
+    margin-top: 40px;
+
+}
+
+
+.album-details{
+    margin-top: 5px;
+    width:220px;
+    height:40px;
+}
+
+.album-details a:hover{
+    text-decoration:none;
+}
+.albums .span6{
+    
+    margin: 5px;
+    margin-right:15px;
+    width: 220px;
+    text-align:center !important;
+}
+/*
+Album Page
+*/

@@ -1,0 +1,46 @@
+
+<h1 id="album-header">Albums</h1>
+
+  <a href="<%=new_album_path%>" class="btn pull-left" id="add-album">
+      <i class="icon-plus"></i>
+      Add New Album
+  </a>
+<div class="well albums row">
+  
+  <% @albums.each do |album| %>
+  <div class="span6 album ">
+    <a href="<%=album_path(album.id)%>" class="thumbnail">
+          <img src="http://placehold.it/260x180">
+    </a>
+    <div class="album-details"> 
+      <a href="<%=album_path(album.id)%>"><h4><%=album.title%></h4></a>
+        at <a href=""><%=album.location%></a>
+    </div>
+  </div>
+  <% end %>
+
+</div>
+
+<div id="album-action"  class="well post-actions">
+  <ul class="nav nav-pills">
+    <li>
+      <a href="#">
+        <i class="icon-ok"></i>
+        Like <sup class="post-counts">32</sup>
+      </a>
+    </li>
+    <li class="active">
+      <a href="#">
+        <i class="icon-comment"></i>
+        Comment <sup class="post-counts">5</sup>
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <i class="icon-share"></i>
+        Share
+        <sup class="post-counts">10</sup>
+      </a>
+    </li>
+  </ul>
+</div>

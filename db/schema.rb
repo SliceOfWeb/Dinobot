@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120509233815) do
+ActiveRecord::Schema.define(:version => 20120510213303) do
 
   create_table "action_items", :force => true do |t|
     t.integer  "action_id"
@@ -34,6 +34,18 @@ ActiveRecord::Schema.define(:version => 20120509233815) do
   end
 
   add_index "actions", ["target_id"], :name => "index_actions_on_target_id"
+
+  create_table "albums", :force => true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.text     "location"
+    t.integer  "person_id"
+    t.string   "cover_url"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "albums", ["person_id"], :name => "index_albums_on_person_id"
 
   create_table "aspect_memberships", :force => true do |t|
     t.integer  "aspect_id"
@@ -128,6 +140,20 @@ ActiveRecord::Schema.define(:version => 20120509233815) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "images", :force => true do |t|
+    t.string   "caption"
+    t.text     "location"
+    t.integer  "album_id"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+  end
+
+  add_index "images", ["album_id"], :name => "index_images_on_album_id"
 
   create_table "invitations", :force => true do |t|
     t.string   "email"

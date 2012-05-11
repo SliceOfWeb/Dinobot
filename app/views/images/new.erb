@@ -1,0 +1,19 @@
+<h1>Add new Image</h1>
+<%= form_for @image do |f| %>
+  <p>
+    <%= f.label :image, 'Browse your Image:' %>     
+    <%= f.file_field :image %>
+  </p>
+  <p>
+    <%= f.label :caption, 'Caption:' %>     
+    <%= f.text_field :caption , :class =>"input-xlarge"%>
+  </p>
+  <p>
+    <%= f.hidden_field :album_id, :value => params[:album_id] %>
+  </p>
+  <p>
+    <%= f.label :location, 'Location' %>     
+    <%= f.text_field :location , :class =>"input-xlarge"%>
+  </p>
+    <%= f.submit :class => "btn btn-primary"  %>
+  <% end %>
