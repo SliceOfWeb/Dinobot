@@ -27,10 +27,16 @@
 user profile
 */
 
-.user img{
-    margin-top: 4px;
-    margin-right: 4px;
-    height: 30px;
+.img_h {
+    height:28px;
+    padding: 3px;
+    width:30px;
+}
+.img_h img{
+    width: 27px !important;
+    height: 27px !important;
+
+   
 }
 .user .btn-group{
     margin-right: 45px;
@@ -55,7 +61,6 @@ user profile
             
       .btn-group img{
         float:left;
-        height:24px;
         margin-top: 1px;
         -moz-border-radius: 3px;
         -webkit-border-radius: 3px;

@@ -25,9 +25,8 @@ class ProfilesController < ApplicationController
 	end
 
 	def create
-		@profile = Profile.create(:first_name => params[:first_name], :last_name => params[:last_name], :location => params[:location], :birthdate => params[:birthdate], :bio => params[:bio], :gender =>params[:gender], :education => params[:education])
+		@profile = Profile.create(params[:profile])
 		@profile.user = @current_user
-
 		# colleting tag
 		tags = params[:tags].split(' ')
 
@@ -68,10 +67,12 @@ class ProfilesController < ApplicationController
 	
 	def update
 		@profile = Profile.find_by_user_id @current_user.id
-		@profile.update_attributes(:first_name => params[:first_name], :last_name => params[:last_name], :location => params[:location], :birthdate => params[:birthdate], :bio => params[:bio], :gender =>params[:gender], :education => params[:education])
+		@profile.update_attributes(params[:profile])
+
+		@current_user.update_attributes(:email =>params[:email])
+
 		tags = params[:tags].split(' ')
 		
-
 		# add new tags
 		tags.each do |tag|
 			unless Tag.find_by_text tag
