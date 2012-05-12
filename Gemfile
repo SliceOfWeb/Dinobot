@@ -30,7 +30,7 @@ gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
 # gem 'jbuilder'
 
 # Use unicorn as the app server
-  gem 'unicorn'
+gem 'unicorn'
 
 # Deploy with Capistrano
 # gem 'capistrano'
