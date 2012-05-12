@@ -5,6 +5,7 @@
         <i class="icon-remove"></i>
       </a>
       <div class="row content-header">
+        <a name=<%=comment.id%>></a>
         <div class="span4">
           <a href="#">
             <%= image_tag comment.person.user.profile.photo.url, :class => 'profile-pic' %>
@@ -15,7 +16,7 @@
           <h4>
             <a href="<%= profile_path(comment.person.user.username) %>"><%="#{comment.person.user.profile.first_name.capitalize} #{comment.person.user.profile.last_name.capitalize}"%></a>
           </h4>
-          <div class=" comment-title">
+          <div class="comment-title">
             <%=comment.content%>     
           </div> <!-- comment-title -->
 
@@ -25,14 +26,16 @@
             </div> <!-- /comment-actions -->
 
             <div class="span4 pull-right ">
+               <a href ="/posts/show/<%=commentary.id%>/#<%=comment.id%>" style ="text-decoration:none;">
               <p> <%= render({:partial => 'home/date', :locals => {:dater => comment}})%> 
               </p>
+            </a>
             </div> <!-- span4 Date-->
           </div><!--row header-bottom-->
         </div> <!-- span8 --> 
       </div> <!-- content-header --> 
     <%end%>  
-    <%= form_tag({:controller => 'comments', :action => 'create', :commentary_id => commentary.id, :commentary_type => commentary.class.name}) do  %>
+    <%= form_tag({:controller => 'comments', :action => 'create', :commentary_id => commentary.id, :commentary_type => commentary.class.name, :person_id => commentary.person_id}) do  %>
       <%= text_area_tag( :content , "" , {:class => "comment-text-area"} ) %>
       <%= submit_tag("Comment" , :class => "btn btn-primary pull-right") %>
     <% end %>

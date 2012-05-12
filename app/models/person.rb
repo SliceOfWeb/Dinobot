@@ -10,14 +10,13 @@ class Person < ActiveRecord::Base
 	has_many :groups, :through => :group_memberships
 	has_many :group_admins
 	has_many :groups, :through => :group_admins
-	has_many :notification_items
-	has_many :notifications, :through => :notification_items
 	has_many :action_items
 	has_many :actions, :through => :action_items
 	has_many :comments
 	has_many :aspect_memberships
 	has_many :aspects, :through => :aspect_memberships
 	has_many :albums
+	has_many :notifications
 
 	#validates :profile_link, :format => { :with => /\A[a-zA-Z]+\z/ }
     
