@@ -1,65 +1,44 @@
-<style type="text/css">
-.album-thumb{
-        padding: 8px 0px 0px 8px;
-        margin-left:0px;
-        background-color: rgba(0, 0, 0, 0.012);
-      }
-      .span2 {
-        width: 154px;
-      }
+<h2 id="album-header"><%=@album.title%></h2>
 
-      .pagination{
-        margin-left:140px;
-      }
-      #album-action{
-        background-color: rgba(0, 0, 0, 0.012);
-        margin: 0px 0px 20px 0px;
-        padding: 6px 0px 0px 0px;
-      } 
-      #album-action ul{
-        margin-bottom: 5px;
-      }
-</style>
-          <h2 id="album-header"><%=@album.title%></h2>
+<%=link_to({:controller => 'images', :action => 'new', :album_id => @album.id}, :class => "btn pull-left", :id => "add-album") do %>
+<i class="icon-plus"></i> Add New Image
+<%end%>
+<p class = "Album-description" > <%=@album.description%><p>
 
-          <%=link_to({:controller => 'images', :action => 'new', :album_id => @album.id}, :class => "btn pull-left", :id => "add-album") do %>
-          <i class="icon-plus"></i> Add New Image
-         <%end%>
+<div class="well album-thumb">
+  <ul class="thumbnails">
+    <% @album.images.each do |image| %>
+    <li class="span2">
+      <a href="<%=image_path(image.id)%>" class="thumbnail">
+        <img src= <%= image.image.url(:thumb)%> alt=""></a>
+    </li>
+   <%end%>
+  </ul>
+  
+</div>
 
-          <div class="well album-thumb" style="clear:both;">
-            <ul class="thumbnails">
-              <% @album.images.each do |image| %>
-              <li class="span2">
-                <a href="#" class="thumbnail">
-                  <img src= <%= image.image.url%> alt=""></a>
-              </li>
-             <%end%>
-            </ul>
-            
-          </div>
+<div id="album-action"  class="well post-actions">
+  <ul class="nav nav-pills">
+    <li>
+      <a href="#">
+        <i class="icon-ok"></i>
+        Like <sup class="post-counts">32</sup>
+      </a>
+    </li>
+    <li class="active">
+      <a href="#">
+        <i class="icon-comment"></i>
+        Comment <sup class="post-counts">5</sup>
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <i class="icon-share"></i>
+        Share
+        <sup class="post-counts">10</sup>
+      </a>
+    </li>
+  </ul>
+</div>
 
-          <div id="album-action"  class="well post-actions">
-            <ul class="nav nav-pills">
-              <li>
-                <a href="#">
-                  <i class="icon-ok"></i>
-                  Like <sup class="post-counts">32</sup>
-                </a>
-              </li>
-              <li class="active">
-                <a href="#">
-                  <i class="icon-comment"></i>
-                  Comment <sup class="post-counts">5</sup>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <i class="icon-share"></i>
-                  Share
-                  <sup class="post-counts">10</sup>
-                </a>
-              </li>
-            </ul>
-          </div>
-         
-          </div>
+</div>

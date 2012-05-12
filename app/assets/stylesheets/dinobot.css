@@ -1061,6 +1061,38 @@ Album Page
     width: 220px;
     text-align:center !important;
 }
+
+.album-thumb{
+    padding: 8px 0px 0px 8px;
+    margin-left:0px;
+    background-color: rgba(0, 0, 0, 0.012);
+    clear:both;
+}
+.album-thumb .span2 {
+    width: 154px;
+}
+      
+#album-action{
+    background-color: rgba(0, 0, 0, 0.012);
+    margin: 0px 0px 20px 0px;
+    padding: 6px 0px 0px 0px;
+} 
+#album-action ul{
+    margin-bottom: 5px;
+}
+.Album-description{
+    clear:both;
+    color:gray;
+    font-size:12px;
+    margin-left:5px;
+    font-family:ubuntu;
+}
+.image-preview{
+    text-align: center;
+}
+.image-preview a{
+    max-width:490px;
+}
 /*
 Album Page
 */
