@@ -3,9 +3,9 @@
   Created <%= render({:partial => 'home/date', :locals => {:dater => @album}})%> 
 </p>
 <p class= "asetting" >
-<a href="/images/new" class = "btn pull-left">
-	<i class="icon-plus"></i> Add New Image
-</a>
+<%=link_to({:controller => 'images', :action => 'new', :album_id => @album.id}, :class => "btn pull-left") do %>
+  <i class="icon-plus"></i> Add New Image
+<%end%>
 <a href="" >Delete</a>
 <a href="" >Edit</a> 
 
