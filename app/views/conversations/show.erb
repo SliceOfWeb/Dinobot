@@ -14,26 +14,14 @@
   <div class="message-box row">
     <div class="span4">
       <a href="/<%= @name  %>">
-        <img class="profile-pic" src="/assets/pic.png" alt=""></a>
+        <img class="profile-pic" src="<%=message.person.user.profile.photo.url%>" alt=""></a>
     </div>
     <div class="span8">
       <p>
         <a href="/<%= @name  %>"><%= @name %></a>
       </p>
       <p>       
-        <% date = (Time.now - message.created_at).to_i %>
-          <%case date%>
-            <% when 0..60  %>
-              <%= "#{date+3} Seconds ago"%>
-            <% when 60..3600  %>
-              <%= "#{pluralize(date/60, 'Minute')} ago"%>
-            <% when  3600..86400  %>
-              <%= "#{pluralize(date/3600, 'Hour')} ago"%>
-            <% when  86400..172800  %>
-              <%= "Yesterday"%>
-            <%else%>
-              <%=message.created_at.strftime("%B %e, %Y at %l:%M %p")%>
-        <% end%>
+        Sent <%= render({:partial => 'home/date', :locals => {:dater => message}})%>
       </p>
       <p>
        <%= message.content %>

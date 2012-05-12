@@ -36,7 +36,7 @@
   <%@current_user.aspects[0].people.each do |aspect_member| %>
       <div class="friend-box span4">
         <div class="span4">
-          <%= image_tag "pic.png" %>
+          <%= image_tag aspect_member.user.profile.photo.url %>
         </div>
         <div class="span8">
             <h4 style="font-size:9px;"><a href="<%= profile_path(aspect_member.user.username) %>"><%="#{aspect_member.user.profile.first_name} #{aspect_member.user.profile.last_name}"%></a>
