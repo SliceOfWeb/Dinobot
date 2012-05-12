@@ -1,0 +1,26 @@
+
+<h1 id="album-header">Albums</h1>
+
+  <a href="<%=new_album_path%>" class="btn pull-left" id="add-album">
+      <i class="icon-plus"></i>
+      Add New Album
+  </a>
+<div class="well albums row">
+  
+  <% @albums.each do |album| %>
+  <div class="span6 album ">
+    <a href="<%=album_path(album.id)%>" class="thumbnail">
+      <% if album.images[0]%>
+          <img src=<%=album.images[0].image.url(:album_cover)%>>
+      <%else%>
+          <img src="http://placehold.it/260x180">
+      <%end%>
+    </a>
+    <div class="album-details"> 
+      <a href="<%=album_path(album.id)%>"><h4><%=album.title%></h4></a>
+        at <a href=""><%=album.location%></a>
+    </div>
+  </div>
+  <% end %>
+
+</div>

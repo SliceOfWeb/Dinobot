@@ -1,0 +1,13 @@
+<% date = (Time.now - dater.created_at).to_i %>
+  <%case date%>
+    <% when 0..60  %>
+      <%= "#{date+3} Seconds ago"%>
+    <% when 60..3600  %>
+      <%= "#{pluralize(date/60, 'Minute')} ago"%>
+    <% when  3600..86400  %>
+        <%= "#{pluralize(date/3600, 'Hour')} ago"%>
+    <% when  86400..172800  %>
+        <%= "Yesterday"%>
+    <%else%>
+      <%=dater.created_at.strftime("%B %e, %Y at %l:%M %p")%>
+<% end%>

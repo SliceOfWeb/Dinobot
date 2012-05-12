@@ -65,29 +65,15 @@
 
       <div class="span4">
         <a href="#">
-          <img class="profile-pic" src="/assets/pic.png" alt=""></a>
+          <img class="profile-pic" src="<%=conversation.messages.first.person.user.profile.photo.url%>" alt=""></a>
       </div>
       <div class="span8">
         <p >
           <a href="<%= conversation.id %>"><%= conversation.subject %></a>
         </p>
         <p>
-          <a href="#">by <%= @name = User.find_by_id(conversation.messages.first.person_id).username %></a>
-            
-            <% date = (Time.now - conversation.created_at).to_i %>
-            <%case date%>
-              <% when 0..60  %>
-                <%= "#{date+3} Seconds ago"%>
-              <% when 60..3600  %>
-                <%= "#{pluralize(date/60, 'Minute')} ago"%>
-              <% when  3600..86400  %>
-                  <%= "#{pluralize(date/3600, 'Hour')} ago"%>
-              <% when  86400..172800  %>
-                  <%= "Yesterday"%>
-              <%else%>
-                <%=conversation.created_at.strftime("%B %e, %Y at %l:%M %p")%>
-           <% end%>
-           
+          <a href="#">by <%= @name = User.find_by_id(conversation.messages.first.person_id).username %></a>,   
+            Sent <%= render({:partial => 'home/date', :locals => {:dater => conversation}})%>  
         </p>
         <p>
           

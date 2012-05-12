@@ -8,8 +8,8 @@ class PostsController < ApplicationController
 		@post.post_type= "status"
 		@post.person_id = @current_user.person.id
     	if @post.save
-    		Action.create(:target_type => 'post', :target_id => @post.id, :upvote_count => 0)
-      		redirect_to home_path
+    		Action.create(:target_type => 'Post', :target_id => @post.id, :upvote_count => 0)
+      		redirect_to :back
     	else
       		render text: "Something worng happen while posting"
       end
@@ -22,6 +22,6 @@ class PostsController < ApplicationController
 		end
 		post_d.destroy
 
-		redirect_to "/home"
+		redirect_to :back
 	end
 end

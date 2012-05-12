@@ -7,7 +7,7 @@ Dinobot::Application.routes.draw do
   get "login" => "sessions#new", :as => "login"
   get "signup" => "users#new", :as => "signup"
   
-  resources :users, :sessions, :posts, :comments, :actions, :people, :aspects, :conversations, :messages
+  resources :users, :sessions, :posts, :comments, :actions, :people, :aspects, :conversations, :messages, :albums, :images
 
   match ':controller/:action/:id/:person_id'
   
