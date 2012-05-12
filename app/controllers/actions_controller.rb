@@ -6,6 +6,6 @@ class ActionsController < ApplicationController
 		@action = Action.find(params[:id])
 		@action.upvote_count = @action.upvote_count + 1
 		@action.save
-		redirect_to home_path
+		redirect_to :back
 	end
 end

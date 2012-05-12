@@ -3,11 +3,11 @@ class CommentsController < ApplicationController
 
 
 	def create
-			@comment = Comment.new({:content => params[:content] ,:post_id => params[:post_id]})
+			@comment = Comment.new({:content => params[:content] ,:commentary_id => params[:commentary_id], :commentary_type => params[:commentary_type] })
 			@comment.person_id = User.find(session[:user_id]).person.id
     	if @comment.save
       		Action.create(:target_type => 'comment', :target_id => @comment.id, :upvote_count => 0)
-      		redirect_to home_path
+      		redirect_to :back
     	else
       		render text: "Something worng happen while Commenting"
       end
@@ -19,7 +19,7 @@ class CommentsController < ApplicationController
     
     comment_d.destroy
 
-    redirect_to "/home"
+    redirect_to :back
   end
 
 end

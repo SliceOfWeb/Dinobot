@@ -1,0 +1,36 @@
+
+<%if target.class.name == "Comment"%>
+  <ul class="nav nav-pills pull-left">
+    <li>
+      <a href= "<%=upvote_path(target.action.id)%>">
+        <i class="icon-ok"></i>
+        Like
+        <sup class="comment-counts"><%=target.action.upvote_count%></sup>
+      </a>
+    </li>
+  </ul>
+<%else%>
+  <ul class="nav nav-pills pull-right">
+    <li >
+      <a href= "<%=upvote_path(target.action.id)%>">
+        <i class="icon-ok"></i>
+        Like
+        <sup class="post-counts"><%=target.action.upvote_count%></sup>
+      </a>
+    </li>
+    <li class="active">
+      <a href="#">
+        <i class="icon-comment"></i>
+        Comment
+        <sup class="post-counts"><%=target.comments.count%></sup>
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <i class="icon-share"></i>
+        Share
+        <sup class="post-counts">10</sup>
+      </a>
+    </li>
+  </ul>
+<%end%>

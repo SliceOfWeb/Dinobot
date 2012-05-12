@@ -12,8 +12,13 @@ class AlbumsController < ApplicationController
 	def create
 		@album= Album.create params[:album]
 		@album.person = @current_person
-		@album.save
-		redirect_to albums_path
+		if @album.save
+      		Action.create(:target_type => 'Album', :target_id => @album.id, :upvote_count => 0)
+      		redirect_to albums_path
+    	else
+      		render text: "Something worng happen while Creating New Album"
+      	end
+		
 	end
 
 	def show

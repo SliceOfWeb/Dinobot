@@ -2,7 +2,7 @@ class Post < ActiveRecord::Base
 	has_one :action, :as => :target
 	belongs_to :person
 	belongs_to :group
-	has_many :comments
+	has_many :comments, :as => :commentary
 	has_many :aspect_visibilities
 	has_many :aspects, :through => :aspect_visibilities
 	has_many :mentions

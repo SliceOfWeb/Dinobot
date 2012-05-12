@@ -1,9 +1,17 @@
 <h2 id="album-header"><%=@album.title%></h2>
+<p class='aupload-time'> 
+  Created <%= render({:partial => 'home/date', :locals => {:dater => @album}})%> 
+</p>
+<p class= "asetting" >
+<a href="/images/new" class = "btn pull-left">
+	<i class="icon-plus"></i> Add New Image
+</a>
+<a href="" >Delete</a>
+<a href="" >Edit</a> 
 
-<%=link_to({:controller => 'images', :action => 'new', :album_id => @album.id}, :class => "btn pull-left", :id => "add-album") do %>
-<i class="icon-plus"></i> Add New Image
-<%end%>
-<p class = "Album-description" > <%=@album.description%><p>
+
+</p>
+
 
 <div class="well album-thumb">
   <ul class="thumbnails">
@@ -18,27 +26,8 @@
 </div>
 
 <div id="album-action"  class="well post-actions">
-  <ul class="nav nav-pills">
-    <li>
-      <a href="#">
-        <i class="icon-ok"></i>
-        Like <sup class="post-counts">32</sup>
-      </a>
-    </li>
-    <li class="active">
-      <a href="#">
-        <i class="icon-comment"></i>
-        Comment <sup class="post-counts">5</sup>
-      </a>
-    </li>
-    <li>
-      <a href="#">
-        <i class="icon-share"></i>
-        Share
-        <sup class="post-counts">10</sup>
-      </a>
-    </li>
-  </ul>
+  <%= render({:partial => new_action_path, :locals => {:target => @album}})%> 
 </div>
-
+<div class ="album-comments">
+<%= render({:partial => new_comment_path, :locals => {:commentary => @album}})%>
 </div>

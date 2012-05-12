@@ -25,8 +25,8 @@ ActiveRecord::Schema.define(:version => 20120510213303) do
   add_index "action_items", ["action_id", "person_id"], :name => "index_action_items_on_action_id_and_person_id"
 
   create_table "actions", :force => true do |t|
-    t.string   "target_type",    :null => false
     t.integer  "target_id"
+    t.string   "target_type"
     t.integer  "upvote_count"
     t.integer  "downvote_count"
     t.datetime "created_at",     :null => false
@@ -76,15 +76,16 @@ ActiveRecord::Schema.define(:version => 20120510213303) do
   add_index "aspects", ["user_id"], :name => "index_aspects_on_user_id"
 
   create_table "comments", :force => true do |t|
-    t.text     "content",    :null => false
-    t.integer  "post_id"
+    t.text     "content",         :null => false
+    t.integer  "commentary_id"
+    t.string   "commentary_type"
     t.integer  "person_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
+  add_index "comments", ["commentary_id"], :name => "index_comments_on_commentary_id"
   add_index "comments", ["person_id"], :name => "index_comments_on_person_id"
-  add_index "comments", ["post_id"], :name => "index_comments_on_post_id"
 
   create_table "contacts", :force => true do |t|
     t.boolean  "receive",    :default => false
@@ -106,15 +107,10 @@ ActiveRecord::Schema.define(:version => 20120510213303) do
   end
 
   create_table "conversations", :force => true do |t|
-    t.integer  "receiver_id",                           :null => false
-    t.integer  "sender_id",                             :null => false
-    t.string   "subject",     :default => "no subject", :null => false
-    t.datetime "created_at",                            :null => false
-    t.datetime "updated_at",                            :null => false
+    t.string   "subject",    :default => "no subject", :null => false
+    t.datetime "created_at",                           :null => false
+    t.datetime "updated_at",                           :null => false
   end
-
-  add_index "conversations", ["receiver_id"], :name => "index_conversations_on_receiver_id"
-  add_index "conversations", ["sender_id"], :name => "index_conversations_on_sender_id"
 
   create_table "group_admins", :force => true do |t|
     t.integer  "group_id"

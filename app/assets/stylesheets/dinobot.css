@@ -1032,11 +1032,6 @@ Album Page
 #album-header{
     float:left;
 }
-#add-album{
-    float:right;
-    margin:10px;
-    margin-right:0px;
-}
 .albums{
     padding:10px;
     clear:both;
@@ -1051,6 +1046,11 @@ Album Page
     height:40px;
 }
 
+#add-album{
+    float:right;
+    margin:10px;
+    margin-right:0px;
+}
 .album-details a:hover{
     text-decoration:none;
 }
@@ -1076,9 +1076,28 @@ Album Page
     background-color: rgba(0, 0, 0, 0.012);
     margin: 0px 0px 20px 0px;
     padding: 6px 0px 0px 0px;
+    float:left;
+    width:520px;
+    text-align:left;
+    margin-top:-15px;
 } 
 #album-action ul{
     margin-bottom: 5px;
+    float:left;
+
+}
+.album-comments{
+    clear:both;
+}
+.album-comments .content-footer .comments{
+   margin-left:30px;
+}
+.album-comments .content-footer .comments textarea{
+   margin:0px;
+   max-width:500px;
+   width:430px;
+   margin-bottom:10px;
+
 }
 .Album-description{
     clear:both;
@@ -1092,6 +1111,56 @@ Album Page
 }
 .image-preview a{
     max-width:490px;
+}
+.caption{
+    padding: 5px;
+    float:left;
+    width:510px;
+    margin-top:-15px;
+}
+.caption img{
+    width:40px;
+    height: 40px;
+    border-radius:5px;
+    float:left;
+}
+.caption p{
+    float:left;
+    margin-left:5px;
+}
+.caption a{
+    margin-left:5px;
+}
+.caption p > a{
+    margin-left:3px;
+}
+.caption .span4,.caption .span8{
+    margin: 0px;
+}
+.caption .span4{
+    width: 50px;
+}
+.caption .span8{
+    width: 450px;
+}
+.upload-time, .aupload-time{
+    clear:both;
+    color:gray;
+    margin-left:5px;
+    float:left;
+    font-size:11px;
+}
+.psetting, .asetting {
+    float:right;
+    margin-right:5px;
+    width:300px;
+}
+.psetting a, .asetting a{
+    margin-left:8px;
+    float:right;
+}
+.asetting a:nth-child(2), .asetting a:nth-child(3), .aupload-time{
+    margin-top:4px;
 }
 /*
 Album Page

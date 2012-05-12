@@ -1,6 +1,6 @@
 <div class="content-footer"> 
   <div class="comments">
-    <% post.comments.each do |comment| %>
+    <% commentary.comments.each do |comment| %>
       <a href="/comments/<%= comment.id %>" data-method="delete">
         <i class="icon-remove"></i>
       </a>
@@ -21,38 +21,18 @@
 
           <div class="row header-bottom">
             <div class="span8 comment-actions pull-left ">
-              <ul class="nav nav-pills pull-left">
-                <li >
-                  <a href= "<%=upvote_path(comment.action.id)%>">
-                        <i class="icon-ok"></i>
-                        Like
-                        <sup class="comment-counts"><%=comment.action.upvote_count%></sup>
-                      </a>
-                </li>
-              </ul>
+              <%= render({:partial => new_action_path, :locals => {:target => comment}})%>
             </div> <!-- /comment-actions -->
 
             <div class="span4 pull-right ">
-              <p> <% date = (Time.now - comment.created_at).to_i %>
-              <%case date%>
-              <% when 0..60  %>
-              <%= "#{date+3} Seconds ago"%>
-              <% when 60..3600  %>
-              <%= "#{pluralize(date/60, 'Minute')} ago"%>
-              <% when  3600..86400  %>
-              <%= "#{pluralize(date/3600, 'Hour')} ago"%>
-              <% when  86400..172800  %>
-              <%= "Yesterday"%>
-              <%else%>
-              <%=comment.created_at.strftime("%B %e, %Y at %l:%M %p")%>
-              <% end%>
+              <p> <%= render({:partial => 'home/date', :locals => {:dater => comment}})%> 
               </p>
             </div> <!-- span4 Date-->
           </div><!--row header-bottom-->
         </div> <!-- span8 --> 
       </div> <!-- content-header --> 
     <%end%>  
-    <%= form_tag({:controller => 'comments', :action => 'create', :post_id => post.id}) do  %>
+    <%= form_tag({:controller => 'comments', :action => 'create', :commentary_id => commentary.id, :commentary_type => commentary.class.name}) do  %>
       <%= text_area_tag( :content , "" , {:class => "comment-text-area"} ) %>
       <%= submit_tag("Comment" , :class => "btn btn-primary pull-right") %>
     <% end %>
