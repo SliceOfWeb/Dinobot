@@ -17,7 +17,7 @@
   <ul class="thumbnails">
     <% @album.images.each do |image| %>
     <li class="span2">
-      <a href="<%=image_path(image.id)%>" class="thumbnail">
+      <a href="<%=profile_album_image_path(@album.person.user.username,@album, image)%>" class="thumbnail">
         <img src= <%= image.image.url(:thumb)%> alt=""></a>
     </li>
    <%end%>
@@ -26,7 +26,7 @@
 </div>
 
 <div id="album-action"  class="well post-actions">
-  <%= render({:partial => new_action_path, :locals => {:target => @album}})%> 
+  <%= render({:partial => 'actions/new', :locals => {:target => @album}})%> 
 </div>
 <div class ="album-comments">
 <%= render({:partial => new_comment_path, :locals => {:commentary => @album}})%>

@@ -1,5 +1,7 @@
 class Notification < ActiveRecord::Base
-	has_many :notification_items
-	has_many :people, :through => :notification_items
-	validates :target_type, :inclusion => { :in => %w(friendship message comment action group) }
+	belongs_to :person
+	belongs_to :notifier , :class_name => 'Person'
+	validates :target_type, :inclusion => { :in => %w(Follower Message Comment Action) }
+	
+
 end

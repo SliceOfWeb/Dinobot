@@ -398,6 +398,12 @@ info List
     background-color: rgba(0, 0, 0, 0.1);
     background-color: transparent;
 }
+.post-actions ul{
+    width:360px;
+}
+.post-actions ul li{
+    float:right;
+}
 .post-actions .nav-pills .active > a, .post-actions .nav-pills .active > a:hover{
     color: #344;
 }

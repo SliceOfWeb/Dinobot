@@ -60,7 +60,7 @@
 						</div> <!-- user pull-right -->
 						<ul class="nav pull-right">
 							<li>
-								<a href="#"> <i class="icon-white icon-user"></i></a>				
+								<a href="/notifications/index"> <i class="icon-white icon-user"></i></a>				
 							</li>
 							<li>
 								<a href="#"><i class="icon-white icon-envelope"></i> <%= @conver_counter %></a>	
@@ -129,96 +129,146 @@
 										<i class="icon-user icon-white"></i>
 										<a href="#">
 											<h5>Friends</h5>
-											<h5><%=@current_user.aspects[0].people.count%></h5>
+											<h5>
+												<%unless params[:username]%>
+												<%=@current_user.aspects[0].people.count%>
+												<%else%>
+												<%=User.find_by_username(params[:username]).aspects[0].people.count%>
+												<%end%>
+											</h5>
 										</a>
 									</div>
 									<div class="span4" id="part3">
 										<i class="icon-share icon-white"></i>
 										<a href="#">
 											<h5>Sharing</h5>
-											<h5>12</h5>
+											<h5>
+												<%unless params[:username]%>
+												<%=@current_person.posts.count%>
+												<%else%>
+												<%=User.find_by_username(params[:username]).person.posts.count%>
+												<%end%>
+											</h5>
 										</a>
 									</div>
 								</div> <!--row-fluid-->
 							</div> <!--bottom-profile-box-->
 						</div> <!--profile-box-->
-
-						<div class="tabbable tabs-left">
-							<ul class="nav nav-tabs" id="left-nav">
-								<li >
-									<a href="<%= home_path%>" data-toggle="tab">
-										<span>
-											<i class="icon-home"></i>
-											Home&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-										</span>
-									</a>
-								</li>
-								<li>
-									<a href="<%= profile_path(@current_user.username)%>" data-toggle="tab" >
-										<span>
-											<i class="icon-user"></i>
-											Profile&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-										</span>
-									</a>
-								</li>
-								<li >
-									<a href="/conversations/" data-toggle="tab">
-										<span>
-											<i class="icon-envelope"></i>
-											Messages
-										</span>
-									</a>
-								</li>
-								<li >
-									<a href="/albums/album_preview.html" data-toggle="tab">
-										<span>
-											<i class="icon-th-list"></i>
-											Groups
-										</span>
-									</a>
-								</li>
-								<li >
-									<a href="<%= aspects_path%>" data-toggle="tab">
-										<span>
-											<i class="icon-user"></i>
-											Friends&nbsp;&nbsp;&nbsp;&nbsp;
-										</span>
-									</a>
-								</li>
-								<li >
-									<a href="<%=albums_path%>" data-toggle="tab">
-										<span>
-											<i class="icon-picture"></i>
-											Photos&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-										</span>
-									</a>
-								</li>
-								<li >
-									<a href="videos_preview.html" data-toggle="tab">
-										<span>
-											<i class="icon-film"></i>
-											Videos&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-										</span>
-									</a>
-								</li>
-								<li >
-									<a href="/profiles/<%= @current_user.username %>/account_setting" data-toggle="tab">
-										<span>
-											<i class="icon-cog"></i>
-											Settings&nbsp;&nbsp;&nbsp;
-										</span>
-									</a>
-								</li>
-								<li >
-									<a href="help.html" data-toggle="tab">
-										<span>
-											<i class="icon-flag"></i>
-											Help&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-										</span>
-									</a>
-								</li>
-							</ul>
-						</div> <!--tabbable tabs-left-->
+						<% unless params[:username] %>
+							<div class="tabbable tabs-left">
+								<ul class="nav nav-tabs" id="left-nav">
+									<li >
+										<a href="<%= home_path%>" data-toggle="tab">
+											<span>
+												<i class="icon-home"></i>
+												Home&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+											</span>
+										</a>
+									</li>
+									<li>
+										<a href="<%= profile_path(@current_user.username)%>" data-toggle="tab" >
+											<span>
+												<i class="icon-user"></i>
+												Profile&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+											</span>
+										</a>
+									</li>
+									<li >
+										<a href="/conversations/" data-toggle="tab">
+											<span>
+												<i class="icon-envelope"></i>
+												Messages
+											</span>
+										</a>
+									</li>
+									<li >
+										<a href="<%= aspects_path%>" data-toggle="tab">
+											<span>
+												<i class="icon-user"></i>
+												Friends&nbsp;&nbsp;&nbsp;&nbsp;
+											</span>
+										</a>
+									</li>
+									<li >
+										<a href="<%=profile_albums_path(@current_profile.user.username)%>" data-toggle="tab">
+											<span>
+												<i class="icon-picture"></i>
+												Photos&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+											</span>
+										</a>
+									</li>
+									<li >
+										<a href="videos_preview.html" data-toggle="tab">
+											<span>
+												<i class="icon-film"></i>
+												Videos&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+											</span>
+										</a>
+									</li>
+									<li >
+										<a href="/profiles/<%= @current_user.username %>/account_setting" data-toggle="tab">
+											<span>
+												<i class="icon-cog"></i>
+												Settings&nbsp;&nbsp;&nbsp;
+											</span>
+										</a>
+									</li>
+								</ul>
+							</div> <!--tabbable tabs-left-->
+						<% else %>
+							<div class="tabbable tabs-left">
+								<ul class="nav nav-tabs" id="left-nav">
+									<li >
+										<a href="" data-toggle="tab">
+											<span>
+												<i class="icon-home"></i>
+												Stream&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+											</span>
+										</a>
+									</li>
+									<li>
+										<a href="" data-toggle="tab" >
+											<span>
+												<i class="icon-user"></i>
+												Info&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+											</span>
+										</a>
+									</li>
+									<li >
+										<a href="" data-toggle="tab">
+											<span>
+												<i class="icon-user"></i>
+												Friends&nbsp;&nbsp;&nbsp;&nbsp;
+											</span>
+										</a>
+									</li>
+									<li >
+										<a href="<%=profile_albums_path(params[:username])%>" data-toggle="tab">
+											<span>
+												<i class="icon-picture"></i>
+												Photos&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+											</span>
+										</a>
+									</li>
+									<li >
+										<a href="" data-toggle="tab">
+											<span>
+												<i class="icon-film"></i>
+												Videos&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+											</span>
+										</a>
+									</li>
+									<li >
+										<a href="" data-toggle="tab">
+											<span>
+												<i class="icon-cog"></i>
+												Settings&nbsp;&nbsp;&nbsp;
+											</span>
+										</a>
+									</li>
+								</ul>
+							</div> <!--tabbable tabs-left-->
+						<%end%>
 
 						<div class="well footer">
 							<div class="copyright">

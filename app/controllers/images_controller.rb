@@ -3,6 +3,7 @@ class ImagesController < ApplicationController
 
 	def new
 		@image = Image.new
+		@album = Album.find params[:album_id]
 	end
 
 	def create
@@ -12,8 +13,9 @@ class ImagesController < ApplicationController
 			@album.cover_url = @image.image.url
 		end
 		if @image.save
-      		Action.create(:target_type => 'Image', :target_id => @image.id, :upvote_count => 0)
-      		redirect_to album_path(@image.album_id)
+      		Action.create(:target_type => 'Image', :target_id => @image.id)
+      		redirect_to profile_album_path(@image.album.person.user.username,@image.album)
+
     	else
       		render text: "Something worng happen while Uploading"
       	end
