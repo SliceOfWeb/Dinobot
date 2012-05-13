@@ -98,6 +98,7 @@ textarea {
 body {
   margin: 0;
   font-family: "ubuntu", Helvetica, Arial, sans-serif;
+  font-family: 'DoppioOne', sans-serif;
   font-size: 13px;
   line-height: 18px;
   color: #333333;
@@ -2441,6 +2442,8 @@ border-bottom: 2px solid #999;
 @font-face {font-family:"Dekers_light";src:url("Dekers_light.eot?") format("eot"),url("Dekers_light.woff") format("woff"),url("Dekers_light.ttf") format("truetype"),url("Dekers_light.svg#Dekers_light") format("svg");font-weight:normal;font-style:normal;}
 
  @font-face {font-family:"Arista";src:url("Arista.eot?") format("eot"),url("Arista.woff") format("woff"),url("Arista.ttf") format("truetype"),url("Arista.svg#Arista") format("svg");font-weight:normal;font-style:normal;}
+
+ @font-face {font-family:"DoppioOne";src:url("DoppioOne.eot?") format("DoppioOne"),url("DoppioOne.woff") format("woff"),url("Arista.ttf") format("truetype"),url("Arista.svg#Arista") format("svg");font-weight:normal;font-style:normal;}
 .navbar .brand {
   
   font-family:'Arista';
