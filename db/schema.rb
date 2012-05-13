@@ -13,27 +13,23 @@
 
 ActiveRecord::Schema.define(:version => 20120510213303) do
 
-  create_table "action_items", :force => true do |t|
+  create_table "actions", :force => true do |t|
+    t.integer  "target_id"
+    t.string   "target_type"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "actions", ["target_id"], :name => "index_actions_on_target_id"
+
+  create_table "actors", :force => true do |t|
     t.integer  "action_id"
     t.integer  "person_id"
-    t.string   "opinion"
-    t.string   "vote"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
-  add_index "action_items", ["action_id", "person_id"], :name => "index_action_items_on_action_id_and_person_id"
-
-  create_table "actions", :force => true do |t|
-    t.integer  "target_id"
-    t.string   "target_type"
-    t.integer  "upvote_count"
-    t.integer  "downvote_count"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
-  end
-
-  add_index "actions", ["target_id"], :name => "index_actions_on_target_id"
+  add_index "actors", ["action_id", "person_id"], :name => "index_actors_on_action_id_and_person_id"
 
   create_table "albums", :force => true do |t|
     t.string   "title"

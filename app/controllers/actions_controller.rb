@@ -2,9 +2,21 @@ class ActionsController < ApplicationController
 	before_filter :authenticate_user
 
 
-	def update
+	def like
 		@action = Action.find(params[:id])
-		@action.upvote_count = @action.upvote_count + 1
+		@action.people << @current_person
+		if @action.save && params[:target_person_id] != @current_person.id.to_s
+		 Notification.create(:target_type => 'Action',
+          :target_url => "", 
+          :person_id => params[:target_person_id],
+          :notifier_id => @current_person.id)
+		end
+		redirect_to :back
+	end
+
+	def unlike
+		@action = Action.find(params[:id])
+		@action.people.delete(@current_person) 
 		@action.save
 		redirect_to :back
 	end

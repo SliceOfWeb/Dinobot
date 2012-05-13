@@ -10,8 +10,8 @@ class Person < ActiveRecord::Base
 	has_many :groups, :through => :group_memberships
 	has_many :group_admins
 	has_many :groups, :through => :group_admins
-	has_many :action_items
-	has_many :actions, :through => :action_items
+	has_many :actors
+	has_many :actions, :through => :actors
 	has_many :comments
 	has_many :aspect_memberships
 	has_many :aspects, :through => :aspect_memberships

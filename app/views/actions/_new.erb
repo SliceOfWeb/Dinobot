@@ -2,20 +2,28 @@
 <%if target.class.name == "Comment"%>
   <ul class="nav nav-pills pull-left">
     <li>
-      <a href= "<%=upvote_path(target.action.id)%>">
-        <i class="icon-ok"></i>
-        Like
-        <sup class="comment-counts"><%=target.action.upvote_count%></sup>
-      </a>
+      <%if target.action.people.include?(@current_person)%>
+        <%=link_to({:controller => 'actions', :action => 'unlike', :id=>target.action.id, :target_person_id => target.person_id}) do %>
+          <i class="icon-ok"></i>
+          UnLike
+          <sup class="post-counts"><%=target.action.people.count%></sup>
+        <%end%>
+      <%else%>
+        <%=link_to({:controller => 'actions', :action => 'like', :id=>target.action.id, :target_person_id => target.person_id}) do %>
+          <i class="icon-ok"></i>
+          Like
+          <sup class="post-counts"><%=target.action.people.count%></sup>
+        <%end%>
+      <%end%>
     </li>
   </ul>
 <%else%>
   <ul class="nav nav-pills pull-right">
-    <li >
-      <a href= "<%=upvote_path(target.action.id)%>">
-        <i class="icon-ok"></i>
-        Like
-        <sup class="post-counts"><%=target.action.upvote_count%></sup>
+    <li>
+      <a href="#">
+        <i class="icon-share"></i>
+        Share
+        <sup class="post-counts">10</sup>
       </a>
     </li>
     <li class="active">
@@ -26,11 +34,19 @@
       </a>
     </li>
     <li>
-      <a href="#">
-        <i class="icon-share"></i>
-        Share
-        <sup class="post-counts">10</sup>
-      </a>
+      <%if target.action.people.include?(@current_person)%>
+        <%=link_to({:controller => 'actions', :action => 'unlike', :id=>target.action.id, :target_person_id => target.person_id}) do %>
+          <i class="icon-ok"></i>
+          UnLike
+          <sup class="post-counts"><%=target.action.people.count%></sup>
+        <%end%>
+      <%else%>
+        <%=link_to({:controller => 'actions', :action => 'like', :id=>target.action.id, :target_person_id => target.person_id}) do %>
+          <i class="icon-ok"></i>
+          Like
+          <sup class="post-counts"><%=target.action.people.count%></sup>
+        <%end%>
+      <%end%>
     </li>
   </ul>
 <%end%>

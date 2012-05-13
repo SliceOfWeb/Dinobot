@@ -26,7 +26,7 @@
 </div>
 
 <div id="album-action"  class="well post-actions">
-  <%= render({:partial => new_action_path, :locals => {:target => @album}})%> 
+  <%= render({:partial => 'actions/new', :locals => {:target => @album}})%> 
 </div>
 <div class ="album-comments">
 <%= render({:partial => new_comment_path, :locals => {:commentary => @album}})%>

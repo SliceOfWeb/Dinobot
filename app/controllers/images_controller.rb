@@ -12,7 +12,7 @@ class ImagesController < ApplicationController
 			@album.cover_url = @image.image.url
 		end
 		if @image.save
-      		Action.create(:target_type => 'Image', :target_id => @image.id, :upvote_count => 0)
+      		Action.create(:target_type => 'Image', :target_id => @image.id)
       		redirect_to album_path(@image.album_id)
     	else
       		render text: "Something worng happen while Uploading"
