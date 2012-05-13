@@ -57,8 +57,9 @@
       </li>
       <%@current_user.aspects.each do |aspect| %>
       <%next if aspect.name == 'MyAspects'%>
+        <li class="divider"></li>
         <li>
-          <a href="#"> <i class="icon-list"></i> <%=aspect.name%></a>
+          <a href="<%=aspect.name%>"> <i class="icon-list"></i> <%=aspect.name%></a>
         </li>
       <%end%>  
     </ul>

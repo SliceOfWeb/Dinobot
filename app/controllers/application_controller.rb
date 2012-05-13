@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
       @current_user = User.find session[:user_id]
       @current_profile = @current_user.profile 
       @current_person = @current_user.person
-
+      @conver_counter = messages_notification
       
 
   		return true
@@ -41,6 +41,23 @@ class ApplicationController < ActionController::Base
         @posts << post
       end
       @posts.reverse!
+  end
+
+  def messages_notification
+    
+    conversation_counter = 0
+
+    Conversation.all.each do |conversation|
+      if conversation.people.find_by_user_id(@current_user) && conversation.conversation_statuses.find_by_person_id(@current_person).visibility
+        conv_status = conversation.conversation_statuses.find_by_person_id @current_person.id
+        if conv_status.unread       
+          conversation_counter += 1
+        end
+      end
+    end
+    
+    conversation_counter
+    
   end
 
 end

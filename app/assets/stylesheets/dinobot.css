@@ -1165,3 +1165,9 @@ Album Page
 /*
 Album Page
 */
+
+/* message notification counter*/
+.navbar .nav > li > a{
+    color: #fff;
+    font-weight: bolder;
+}

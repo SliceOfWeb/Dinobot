@@ -9,6 +9,7 @@ class ConversationsController < ApplicationController
 			end
 		end
 
+
 	end
 
 	def new

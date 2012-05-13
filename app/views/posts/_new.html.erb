@@ -26,20 +26,15 @@
         <li>
           <a href="#">Public</a>
         </li>
-        <li class="divider"></li>
-        <li>
-          <a href="#">Friends</a>
-        </li>
-        <li>
-          <a href="#">Family</a>
-        </li>
-        <li>
-          <a href="#">Co-Workers</a>
-        </li>
-        <li class="divider"></li>
-        <li>
-          <a href="#">Specific People</a>
-        </li>
+        
+        <%@current_user.aspects.each do |aspect| %>
+        <%next if aspect.name == 'MyAspects'%>
+          <li class="divider"></li>
+          <li>
+            <a href="<%=aspect.name%>"> <i class="icon-list"></i> <%=aspect.name%></a>
+          </li>
+
+        <%end%> 
       </ul>
       </div> <!-- btn-group pull-left -->
     </div> <!-- settings-area -->

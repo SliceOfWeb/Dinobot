@@ -122,7 +122,22 @@ class ProfilesController < ApplicationController
 	def save
 		#render text: params.to_json
 		if params[:setting] == "account"
-			render text: "acc"
+			
+			unless @current_user.username == params[:username] || @current_user.email == params[:email]
+				@current_user.update_attributes({ username: params[:username], email: params[:email] })
+			end
+
+			unless params[:old_password] == "password" && params[:new_password].length >= 6
+				old_pass = BCrypt::Engine.hash_secret params[:old_password], @current_user.salt
+				if old_pass == @current_user.hashed_password
+					@current_user.salt = BCrypt::Engine.generate_salt
+      				@current_user.hashed_password = BCrypt::Engine.hash_secret(params[:new_password], @current_user.salt)
+      				@current_user.save!
+				end
+			end
+			
+			redirect_to :back
+
 		else	
 			render text: "pri"
 		end
