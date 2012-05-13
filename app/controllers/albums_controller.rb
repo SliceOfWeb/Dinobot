@@ -14,7 +14,7 @@ class AlbumsController < ApplicationController
 		@album.person = @current_person
 		if @album.save
       		Action.create(:target_type => 'Album', :target_id => @album.id)
-      		redirect_to albums_path
+      		redirect_to :back
     	else
       		render text: "Something worng happen while Creating New Album"
       	end

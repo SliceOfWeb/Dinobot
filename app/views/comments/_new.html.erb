@@ -26,7 +26,7 @@
             </div> <!-- /comment-actions -->
 
             <div class="span4 pull-right ">
-               <a href ="/posts/show/<%=commentary.id%>/#<%=comment.id%>" style ="text-decoration:none;">
+               <a href ="<%=comment_path(comment.id)%>" style ="text-decoration:none;">
               <p> <%= render({:partial => 'home/date', :locals => {:dater => comment}})%> 
               </p>
             </a>

@@ -129,14 +129,26 @@
 										<i class="icon-user icon-white"></i>
 										<a href="#">
 											<h5>Friends</h5>
-											<h5><%=@current_user.aspects[0].people.count%></h5>
+											<h5>
+												<%unless params[:username]%>
+												<%=@current_user.aspects[0].people.count%>
+												<%else%>
+												<%=User.find_by_username(params[:username]).aspects[0].people.count%>
+												<%end%>
+											</h5>
 										</a>
 									</div>
 									<div class="span4" id="part3">
 										<i class="icon-share icon-white"></i>
 										<a href="#">
 											<h5>Sharing</h5>
-											<h5>12</h5>
+											<h5>
+												<%unless params[:username]%>
+												<%=@current_person.posts.count%>
+												<%else%>
+												<%=User.find_by_username(params[:username]).person.posts.count%>
+												<%end%>
+											</h5>
 										</a>
 									</div>
 								</div> <!--row-fluid-->
