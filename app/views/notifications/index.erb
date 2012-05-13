@@ -1,0 +1,20 @@
+<h1> Notifications </h1>
+<% @notifications.each do |notification| %>
+	<%@notifier = Person.find(notification.notifier_id).user.profile%>
+	<% if notification.target_type == "Comment"%>
+		<%@commentary = Comment.find(notification.target_id).commentary_type%>
+		<h4>
+		<i class="icon-black icon-search"></i><%=@notifier.first_name%> <%=@notifier.last_name%> commented on your <%=@commentary%>
+		</h4>
+	<%elsif notification.target_type == "Action" %>
+		<%@target = Action.find(notification.target_id).target_type%>
+		<h4>
+		<i class="icon-black icon-search"></i><%=@notifier.first_name%> <%=@notifier.last_name%> like your <%=@target%>
+		</h4>
+	<%elsif notification.target_type == "Follower" %>
+		<h4>
+		<i class="icon-black icon-search"></i><%=@notifier.first_name%> <%=@notifier.last_name%> is Now Following you!
+		</h4>
+	<%end%>
+
+<%end%>

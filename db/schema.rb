@@ -190,6 +190,7 @@ ActiveRecord::Schema.define(:version => 20120510213303) do
   create_table "notifications", :force => true do |t|
     t.string   "target_type"
     t.string   "target_url"
+    t.integer  "target_id"
     t.boolean  "read"
     t.integer  "person_id"
     t.integer  "notifier_id"
@@ -197,7 +198,6 @@ ActiveRecord::Schema.define(:version => 20120510213303) do
     t.datetime "updated_at",  :null => false
   end
 
-  add_index "notifications", ["notifier_id"], :name => "index_notifications_on_notifier_id"
   add_index "notifications", ["person_id"], :name => "index_notifications_on_person_id"
 
   create_table "people", :force => true do |t|

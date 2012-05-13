@@ -34,11 +34,18 @@
           </div><!--row header-bottom-->
         </div> <!-- span8 --> 
       </div> <!-- content-header --> 
-    <%end%>  
-    <%= form_tag({:controller => 'comments', :action => 'create', :commentary_id => commentary.id, :commentary_type => commentary.class.name, :person_id => commentary.person_id}) do  %>
-      <%= text_area_tag( :content , "" , {:class => "comment-text-area"} ) %>
-      <%= submit_tag("Comment" , :class => "btn btn-primary pull-right") %>
-    <% end %>
+    <%end%>
+    <%unless commentary.class.name == "Image"%>  
+      <%= form_tag({:controller => 'comments', :action => 'create', :commentary_id => commentary.id, :commentary_type => commentary.class.name, :person_id => commentary.person_id}) do  %>
+        <%= text_area_tag( :content , "" , {:class => "comment-text-area"} ) %>
+        <%= submit_tag("Comment" , :class => "btn btn-primary pull-right") %>
+      <% end %>
+    <%else%>
+      <%= form_tag({:controller => 'comments', :action => 'create', :commentary_id => commentary.id, :commentary_type => commentary.class.name, :person_id => commentary.album.person_id}) do  %>
+        <%= text_area_tag( :content , "" , {:class => "comment-text-area"} ) %>
+        <%= submit_tag("Comment" , :class => "btn btn-primary pull-right") %>
+      <% end %>
+    <%end%>
   </div>  <!-- /comments -->
 </div> <!-- /content-footer -->
 

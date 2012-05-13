@@ -9,6 +9,7 @@ class CommentsController < ApplicationController
       	Action.create(:target_type => 'comment', :target_id => @comment.id)
       	if params[:person_id] != @comment.person_id.to_s
           Notification.create(:target_type => 'Comment',
+          :target_id => @comment.id,
           :target_url => "/comments/show/#{@comment.id}", 
           :person_id => params[:person_id],
           :notifier_id => @comment.person_id)

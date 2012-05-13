@@ -27,7 +27,11 @@ class AspectsController < ApplicationController
 		 	@aspect.people << @p
 		end
 		unless @current_user.aspects[0].people.find_by_id(@p.id) 
-			@current_user.aspects[0].people << @p
+			@current_user.aspects[0].people << @p		
+         	Notification.create(:target_type => 'Follower',
+          	:target_url => @current_person.profile_link, 
+          	:person_id => @p.id,
+          	:notifier_id => @current_person.id)
 		end
 		redirect_to :back
 	end

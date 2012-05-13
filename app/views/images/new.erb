@@ -1,5 +1,5 @@
 <h1>Add new Image</h1>
-<%= form_for @image do |f| %>
+<%= form_for [@current_profile, @album, @image] do |f| %>
   <p>
     <%= f.label :image, 'Browse your Image:' %>     
     <%= f.file_field :image %>

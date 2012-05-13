@@ -7,9 +7,10 @@ class ActionsController < ApplicationController
 		@action.people << @current_person
 		if @action.save && params[:target_person_id] != @current_person.id.to_s
 		 Notification.create(:target_type => 'Action',
-          :target_url => "/#{@action.target_type}s/show/#{@action.target_id}", 
-          :person_id => params[:target_person_id],
-          :notifier_id => @current_person.id)
+		 	:target_id => @action.id,
+          	:target_url => "/#{@action.target_type}s/show/#{@action.target_id}", 
+          	:person_id => params[:target_person_id],
+          	:notifier_id => @current_person.id)
 		end
 		redirect_to :back
 	end

@@ -7,7 +7,13 @@ Dinobot::Application.routes.draw do
   get "login" => "sessions#new", :as => "login"
   get "signup" => "users#new", :as => "signup"
   
-  resources :users, :sessions, :posts, :comments, :people, :aspects, :conversations, :messages, :albums, :images
+  resources :users, :sessions, :posts, :comments, :people, :aspects, :conversations, :messages
+  
+  resources :profiles do
+    resources :albums do
+      resources :images 
+    end
+  end
 
   match ':controller/:action/:id/:person_id'
   
@@ -20,7 +26,6 @@ Dinobot::Application.routes.draw do
   end
 
   match ':username' => "profiles#show", :as => 'profile'
-  
   match ':controller(/:action(/:id))(.:format)'
   
 
