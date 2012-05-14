@@ -13,13 +13,13 @@
   }
 </style>
 
-<h1>Conversation</h1>
+<h1><%=@current_profile.first_name%>'s Messages</h1>
 
 <div class="messages-list">
   <div class="messages-setting">
 
     <a href="<%= new_conversation_path %>" class="btn pull-left">
-      <i class="icon-plus"></i> New Conversation
+      <i class="icon-plus"></i> New Message
     </a>
     
 
@@ -72,7 +72,7 @@
           <a href="<%= conversation.id %>"><%= conversation.subject %></a>
         </p>
         <p>
-          <a href="#">by <%= @name = User.find_by_id(conversation.messages.first.person_id).username %></a>,   
+          <a href="#">by <%= @name = User.find_by_id(conversation.messages.first.person_id).profile.first_name %></a>,   
             Sent <%= render({:partial => 'home/date', :locals => {:dater => conversation}})%>  
         </p>
         <p>

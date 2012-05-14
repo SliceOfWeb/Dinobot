@@ -218,13 +218,14 @@
 								</ul>
 							</div> <!--tabbable tabs-left-->
 						<% else %>
+						<%@name = User.find_by_username(params[:username]).profile.first_name%>
 							<div class="tabbable tabs-left">
 								<ul class="nav nav-tabs" id="left-nav">
 									<li >
 										<a href="" data-toggle="tab">
 											<span>
 												<i class="icon-home"></i>
-												Stream&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+												<%=@name%>'s Stream&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 											</span>
 										</a>
 									</li>
@@ -232,7 +233,7 @@
 										<a href="" data-toggle="tab" >
 											<span>
 												<i class="icon-user"></i>
-												Info&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+												<%=@name%>'s Info&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 											</span>
 										</a>
 									</li>
@@ -240,7 +241,7 @@
 										<a href="" data-toggle="tab">
 											<span>
 												<i class="icon-user"></i>
-												Friends&nbsp;&nbsp;&nbsp;&nbsp;
+												<%=@name%>'s Friends&nbsp;&nbsp;&nbsp;&nbsp;
 											</span>
 										</a>
 									</li>
@@ -248,7 +249,7 @@
 										<a href="<%=profile_albums_path(params[:username])%>" data-toggle="tab">
 											<span>
 												<i class="icon-picture"></i>
-												Photos&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+												<%=@name%>'s Photos&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 											</span>
 										</a>
 									</li>
@@ -256,15 +257,7 @@
 										<a href="" data-toggle="tab">
 											<span>
 												<i class="icon-film"></i>
-												Videos&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-											</span>
-										</a>
-									</li>
-									<li >
-										<a href="" data-toggle="tab">
-											<span>
-												<i class="icon-cog"></i>
-												Settings&nbsp;&nbsp;&nbsp;
+												<%=@name%>'s Videos&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 											</span>
 										</a>
 									</li>
