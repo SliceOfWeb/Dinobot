@@ -3,13 +3,13 @@
     height: 55px;
   }
 </style>
-<h1>Messages</h1>
+<h1><%=@current_profile.first_name%>'s Messages</h1>
 
 <div class="messages-list">
   <h2><%= @conversation.subject %></h2>
 
   <% @messages.each do |message| %>
-  <% @name = User.find_by_id(message.person_id).username %>
+  <% @name = User.find_by_id(message.person_id).profile.first_name + " " + User.find_by_id(message.person_id).profile.last_name %>
   
   <div class="message-box row">
     <div class="span4">
