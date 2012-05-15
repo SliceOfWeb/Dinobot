@@ -71,3 +71,16 @@
    label{
     display:inline;
    }
+
+
+   .control-group input[type=checkbox]{
+      float: left;
+      margin-right: 10px;
+   }
+
+   .notif-group{
+    background: #EEE;
+    width: 218px;
+    height: 26px;
+    padding: 7px 0px 0px 6px;
+   }

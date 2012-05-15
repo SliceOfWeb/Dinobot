@@ -4,7 +4,8 @@ class PostsController < ApplicationController
 	def create
 		@post = Post.new(params[:post])
 		@post.post_type= "status"
-		@post.person_id = @current_user.person.id
+		@post.person_id = @current_person
+		@post.aspects << Aspect.find_by_name("#{params[:aspect_name]}")
     	if @post.save
     		Action.create(:target_type => 'Post', :target_id => @post.id)
       		redirect_to :back
@@ -12,6 +13,7 @@ class PostsController < ApplicationController
       		render text: "Something worng happen while posting"
       end
 	end
+
 
 	def show
 		@post= Post.find params[:id]

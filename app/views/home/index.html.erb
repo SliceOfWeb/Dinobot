@@ -20,9 +20,7 @@
       </div> <!-- settings pull-right -->
       <div class="btn-group pull-left">
       
-      <a class="btn btn-small  btn-success dropdown-toggle" data-toggle="dropdown" href="#">
-        Public
-        <span class="caret"></span>
+      <a class="btn btn-small btn-success dropdown-toggle" id="aspect" data-toggle="dropdown" href="#">Public <span class="caret"></span>
       </a>
 
       <ul class="dropdown-menu ">
@@ -34,7 +32,8 @@
         <%next if aspect.name == 'MyAspects'%>
           <li class="divider"></li>
           <li>
-            <a href="<%=aspect.name%>"> <i class="icon-list"></i> <%=aspect.name%></a>
+            <a href="#"> <i class="icon-list"></i> <%= aspect.name %></a>
+            <%= hidden_field_tag :aspect_name, aspect.id %>
           </li>
 
         <%end%> 

@@ -98,7 +98,7 @@ textarea {
 body {
   margin: 0;
   font-family: "ubuntu", Helvetica, Arial, sans-serif;
-  font-family: 'DoppioOne', sans-serif;
+  font-family: 'DoppioOne', sans-serif !important;
   font-size: 13px;
   line-height: 18px;
   color: #333333;

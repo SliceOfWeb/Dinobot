@@ -1177,3 +1177,15 @@ Album Page
     color: #fff;
     font-weight: bolder;
 }
+
+.profile-box a:hover{
+    text-decoration: none;
+}
+
+.profile-box a:hover h5{
+    color: #CCC;
+}
+
+input[type="submit"].btn{
+    font-weight: bold;
+}
