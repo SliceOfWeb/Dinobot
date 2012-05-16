@@ -34,11 +34,27 @@ class ApplicationController < ActionController::Base
   def get_posts
     @post = Post.new
       @posts = []
+
+=begin 
       @current_user.aspects[0].people.each do |person|
         person.posts.each do |post|
           @posts << post
         end
       end
+
+=end
+      @current_user.aspects[0].people.each do |person|
+        person.user.aspects.each do |aspect| 
+
+          #if aspect.name != "MyAspects"
+            if aspect.people.include? Person.find(@current_person.id)
+              aspect.posts.each { |post| @posts << post }
+            end
+          #end
+          
+        end
+      end  
+
       @current_user.person.posts.each do |post|
         @posts << post
       end
