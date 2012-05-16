@@ -21,11 +21,13 @@ class PostsController < ApplicationController
 
 	def destroy
 		post_d = Post.find params[:id]
+		
 		post_d.comments.each do |c|
 			c.destroy
 		end
 		post_d.destroy
 
 		redirect_to :back
+		
 	end
 end
