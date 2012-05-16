@@ -3,18 +3,31 @@
 	<%@notifier = Person.find(notification.notifier_id).user.profile%>
 	<% if notification.target_type == "Comment"%>
 		<%@commentary = Comment.find(notification.target_id).commentary_type%>
-		<h4>
-		<i class="icon-black icon-search"></i><%=@notifier.first_name%> <%=@notifier.last_name%> commented on your <%=@commentary%>
-		</h4>
+		<a href="<%=notification_path(notification.id)%>" class="<%=notification.read.to_s%>notifi">
+			<i class="icon-comment"></i>
+			<img src="<%=@notifier.photo%>">
+			<p>
+				<%=@notifier.first_name%> <%=@notifier.last_name%> commented on your <%=@commentary%>
+			</p>
+		</a>
 	<%elsif notification.target_type == "Action" %>
 		<%@target = Action.find(notification.target_id).target_type%>
-		<h4>
-		<i class="icon-black icon-search"></i><%=@notifier.first_name%> <%=@notifier.last_name%> like your <%=@target%>
-		</h4>
+		<a href="<%=notification_path(notification.id)%>"  class="<%=notification.read.to_s%>notifi">
+			<i class="icon-thumbs-up"></i>
+			<img src="<%=@notifier.photo%>">
+			<p>
+				<%=@notifier.first_name%> <%=@notifier.last_name%> like your <%=@target%>
+			</p>
+		</a>
 	<%elsif notification.target_type == "Follower" %>
-		<h4>
-		<i class="icon-black icon-search"></i><%=@notifier.first_name%> <%=@notifier.last_name%> is Now Following you!
-		</h4>
+		<a href="<%=notification_path(notification.id)%>" class="<%=notification.read.to_s%>notifi">
+			<i class="icon-user"></i>
+			<img src="<%=@notifier.photo%>">
+			<p>
+				<%=@notifier.first_name%> <%=@notifier.last_name%> is Now Following you!
+			</p>
+		</a>
 	<%end%>
 
 <%end%>
+ 

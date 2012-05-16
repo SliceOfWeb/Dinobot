@@ -4,7 +4,7 @@ class CreateNotifications < ActiveRecord::Migration
 		  t.string :target_type
 		  t.string :target_url
       t.integer :target_id
-	   	t.boolean :read
+	   	t.boolean :read, default: false
 	   	t.integer :person_id
       t.integer :notifier_id
     	t.timestamps

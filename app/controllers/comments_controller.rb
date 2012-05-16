@@ -29,8 +29,13 @@ class CommentsController < ApplicationController
   def show
     @comment = Comment.find params[:id]
     if @comment.commentary_type == "Post"
-      @post= @comment.commentary
-      redirect_to "/posts/show/#{@post.id}/##{@comment.id}"
+      redirect_to post_path(@comment.commentary)
+      elsif @comment.commentary_type == "Album"
+      redirect_to profile_album_path(@comment.commentary.person.user.username, @comment.commentary)
+    elsif @comment.commentary_type == "Image"
+      redirect_to profile_album_image_path(@comment.commentary.album.person.user.username,@comment.commentary.album, @comment.commentary)
+    else
+      render text: "Something worng happen!!"
     end 
   end
 

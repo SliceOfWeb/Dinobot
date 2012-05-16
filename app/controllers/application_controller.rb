@@ -13,7 +13,9 @@ class ApplicationController < ActionController::Base
       @current_profile = @current_user.profile 
       @current_person = @current_user.person
       @conver_counter = messages_notification
-      
+      if @current_user.person
+        @notifications_counter= notifications
+      end
 
   		return true
   	end
@@ -40,13 +42,11 @@ class ApplicationController < ActionController::Base
       @current_user.person.posts.each do |post|
         @posts << post
       end
-      @posts.reverse!
+      @posts.sort! { |p|  p.created_at.to_i }
   end
 
-  def messages_notification
-    
+  def messages_notification  
     conversation_counter = 0
-
     Conversation.all.each do |conversation|
       if conversation.people.find_by_user_id(@current_user) && conversation.conversation_statuses.find_by_person_id(@current_person).visibility
         conv_status = conversation.conversation_statuses.find_by_person_id @current_person.id
@@ -54,10 +54,18 @@ class ApplicationController < ActionController::Base
           conversation_counter += 1
         end
       end
+    end 
+    conversation_counter   
+  end
+
+  def notifications  
+    counter = 0
+    @current_person.notifications.all.each do |notification|
+      if notification.read == false
+        counter+=1
+      end
     end
-    
-    conversation_counter
-    
+   counter   
   end
 
 end

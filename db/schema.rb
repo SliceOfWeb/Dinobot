@@ -191,11 +191,11 @@ ActiveRecord::Schema.define(:version => 20120510213303) do
     t.string   "target_type"
     t.string   "target_url"
     t.integer  "target_id"
-    t.boolean  "read"
+    t.boolean  "read",        :default => false
     t.integer  "person_id"
     t.integer  "notifier_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
   end
 
   add_index "notifications", ["person_id"], :name => "index_notifications_on_person_id"

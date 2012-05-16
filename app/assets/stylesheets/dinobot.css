@@ -1189,3 +1189,49 @@ Album Page
 input[type="submit"].btn{
     font-weight: bold;
 }
+
+.truenotifi, .falsenotifi{
+    margin-top:5px;
+    background:white;
+    width:500px;
+    padding:5px;
+    box-shadow: 0px 0px 2px 1px #ddd;
+    
+}
+
+.falsenotifi{
+    background:rgba(0, 0, 0, 0.06);
+    box-shadow: 0px 0px 2px 1px #ddd;
+    font-weight:bold;
+}
+
+a.falsenotifi:hover, a.truenotifi:hover{
+    box-shadow: 0px 0px 2px 1px #006dcc;
+    text-decoration:none;
+    background-color:#08C;
+    color:white;
+}
+
+
+.falsenotifi, .falsenotifi i, .falsenotifi img, .falsenotifi p,
+.truenotifi, .truenotifi i, .truenotifi img, .truenotifi p{
+    float:left; 
+}
+
+.falsenotifi p, .truenotifi p{
+  font-size:15px;
+  width: 400px;
+  margin-top:7px;
+
+}
+
+.falsenotifi img, .truenotifi img{
+    width:35px;
+    height:35px;
+    margin: 0px 5px;
+    border-radius: 2px;
+}
+
+.falsenotifi i, .truenotifi i{
+    margin-top:12px;
+}
