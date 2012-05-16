@@ -28,7 +28,7 @@ user profile
 */
 
 .img_h {
-    height:28px;
+    height:27px;
     padding: 3px;
     width:30px;
 }
@@ -1188,4 +1188,32 @@ Album Page
 
 input[type="submit"].btn{
     font-weight: bold;
+}
+
+
+/* new style */
+
+
+.navbar-fixed-top{
+    /*position: initial;*/
+    /*margin-top: -60px;*/
+}
+
+.user{
+    /*position: fixed;*/
+    /*right: 0;*/
+    margin-right: -102px;
+}
+
+.user-scrolled{
+   /*margin-right: -60px;*/
+   /*width: 108px;*/
+}
+
+.img_h{
+    width: 108px;
+}
+
+.img_h-scrolled{
+    
 }

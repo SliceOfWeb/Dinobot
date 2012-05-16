@@ -20,28 +20,20 @@
       </div> <!-- settings pull-right -->
       <div class="btn-group pull-left">
       
-      <a class="btn btn-small btn-success dropdown-toggle" id="aspect" data-toggle="dropdown" href="#">Public <span class="caret"></span>
-      </a>
-
+      <a class="btn btn-small btn-success dropdown-toggle" id="aspect" data-toggle="dropdown" href="#">Public</a>
+      <%= hidden_field_tag "aspect_name", "MyAspects" %>
       <ul class="dropdown-menu ">
-        <li>
-          <a href="#">Public</a>
-        </li>
-        
         <%@current_user.aspects.each do |aspect| %>
         <%next if aspect.name == 'MyAspects'%>
           <li class="divider"></li>
-          <li>
-            <a href="#"> <i class="icon-list"></i> <%= aspect.name %></a>
-            <%= hidden_field_tag :aspect_name, aspect.id %>
-          </li>
-
+          <li class="aspect-op"><a href="#"> <i class="icon-list"></i> <%= aspect.name %></a></li>
+          <li class="divider"></li>
         <%end%> 
       </ul>
 
       </div> <!-- btn-group pull-left -->
     </div> <!-- settings-area -->
-    <i class="icon-share icon-white"></i><%= f.submit "Share",:class => "btn btn-primary pull-right"%>
+    <%= f.submit "Share" ,:class => "btn btn-primary pull-right"%>
   <%end%>        
 </div>  <!-- /share-box -->
 <hr class="separator">
@@ -50,3 +42,13 @@
 	<hr class="separator">
 <% end %> 
  
+<script type="text/javascript">
+  $(function () {
+    $(".aspect-op").click(function () {
+      var aspect_name = $(this).text().split(" ").join("");
+      $("#aspect").text(aspect_name);
+      $("#aspect_name").attr("value",aspect_name);
+    });
+  });
+
+</script>

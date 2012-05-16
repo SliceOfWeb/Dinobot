@@ -4,7 +4,7 @@ class PostsController < ApplicationController
 	def create
 		@post = Post.new(params[:post])
 		@post.post_type= "status"
-		@post.person_id = @current_person
+		@post.person_id = @current_person.id
 		@post.aspects << Aspect.find_by_name("#{params[:aspect_name]}")
     	if @post.save
     		Action.create(:target_type => 'Post', :target_id => @post.id)

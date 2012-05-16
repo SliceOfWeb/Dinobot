@@ -9,7 +9,20 @@
 <%end%>
 <%= javascript_include_tag "application" %>
 <%= csrf_meta_tags %>
-
+<script type="text/javascript">
+	$(function () {
+		$(window).scroll(function(){
+		 if(window.scrollY > 79){
+		 	navbar =$(".navbar-inner")[0]
+		 	$(navbar).css("background-image","none");
+		 	$(navbar).css("background-color","rgba(0, 68, 204, .4)");
+		 }
+		 if(window.scrollY < 47){
+		 	$(navbar).css("background-image","-webkit-linear-gradient(top, #08C, #04C)");
+		 }
+		})
+	})
+</script>
 </head>
 
 	<body>
@@ -38,20 +51,18 @@
 									<%else%>
 										<%= image_tag "pic.png", :class =>"pull-right" %>
 									<%end%>
-
+									<h4><%= "#{@current_user.username}" %></h4>
 								</a>
+
 								<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
 									<span class="caret"></span>
 								</a>
 								<ul class="dropdown-menu pull-right">
 									<li>
-										<a href="profiles/show">Profile</a>
+										<a href="<%= "#{@current_user.username}"%>">Profile</a>
 									</li>
 									<li>
 										<a href="/profiles/<%= @current_user.username %>/account_setting">Setting</a>
-									</li>
-									<li>
-										<a href="#">Help</a>
 									</li>
 									<li class="divider"></li>
 									<li>
@@ -65,7 +76,7 @@
 								<a href="/notifications/index"> <i class="icon-white icon-user"></i></a>				
 							</li>
 							<li>
-								<a href="#"><i class="icon-white icon-envelope"></i> <%= @conver_counter %></a>	
+								<a href="/conversations/"><i class="icon-white icon-envelope"></i> <%= @conver_counter %></a>	
 							</li>
 							<li>
 								<a href="#"><i class="icon-white icon-flag"></i></a>
@@ -129,7 +140,7 @@
 									</div>
 									<div class="span4" id="part2">
 										<i class="icon-user icon-white"></i>
-										<a href="#">
+										<a href="/aspects/">
 											<h5>Friends</h5>
 											<h5>
 												<%unless params[:username]%>
@@ -221,14 +232,6 @@
 						<%@name = User.find_by_username(params[:username]).profile.first_name%>
 							<div class="tabbable tabs-left">
 								<ul class="nav nav-tabs" id="left-nav">
-									<li >
-										<a href="" data-toggle="tab">
-											<span>
-												<i class="icon-home"></i>
-												<%=@name%>'s Stream&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-											</span>
-										</a>
-									</li>
 									<li>
 										<a href="" data-toggle="tab" >
 											<span>
@@ -237,6 +240,16 @@
 											</span>
 										</a>
 									</li>
+
+									<li >
+										<a href="" data-toggle="tab">
+											<span>
+												<i class="icon-home"></i>
+												<%=@name%>'s Stream&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+											</span>
+										</a>
+									</li>
+									
 									<li >
 										<a href="" data-toggle="tab">
 											<span>
