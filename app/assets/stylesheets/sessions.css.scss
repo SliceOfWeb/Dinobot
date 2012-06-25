@@ -6,24 +6,9 @@ body {
   padding-top: 60px;
   font-family:"ubuntu";
   // zoom: 96%;
-  background-image:url("/assets/patternBg.png");
+  background-color: #FAFAFA;
 
 }
-
-.signform{
-  width: 274px;
-  margin: auto;
-  padding: 9px;
-  border: 1px solid #CCC;
-  box-shadow: 0px 0px 4px 1px #eee;
-  background-color: rgba(255, 255, 255, .2);
-}
-
-.signform label{
-	color:#fff;
-	font-size:15px;
-}
-
 
 
 input, textarea, select, .uneditable-input{
@@ -35,7 +20,7 @@ input, textarea, select, .uneditable-input{
       float: right;
       margin-top: 31px;
       margin-right: 5px;
-      color:white;
+      color:#606060;
       display: block;
       font-size: 17px;
       
@@ -48,14 +33,11 @@ input, textarea, select, .uneditable-input{
     padding: 4px 38px 12px;
     margin-left: -45px;
     line-height: 1;
-    
-text-shadow: 4px 3px 0px rgba(204, 204, 204,.3);
-    color: #fff;
+    text-shadow: 4px 3px 0px rgba(204, 204, 204,.3);
+    color: #08C;
     font-size: 100px;
     margin-top: -2px;
     margin-left: -37px;
-   
-    color: #fff;  
   }
      .navbar .brand:hover {
       text-decoration: none;
@@ -71,8 +53,6 @@ text-shadow: 4px 3px 0px rgba(204, 204, 204,.3);
     padding: 10px;
     }
 
-     
-
     #container-main{
       background-repeat:repeat-y;
       background-position:center; 
@@ -80,11 +60,13 @@ text-shadow: 4px 3px 0px rgba(204, 204, 204,.3);
       margin:auto;
     }
     #container-main h1,h2{
-      color:white; 
+      color:#08C; 
     }
 
     #container-main h3{
-      color:#999;
+      color:#606060;
+      text-shadow:none;
+      margin-bottom:10px
     }
 
     #container-main h1{
@@ -95,9 +77,9 @@ text-shadow: 4px 3px 0px rgba(204, 204, 204,.3);
       margin-right: 62px;
       line-height: 53px;
     }
+
    .span7{     
     margin-top:70px;
-    background-color: rgba(0, 0, 0, .3);
     -moz-border-radius: 18px;
     -webkit-border-radius: 18px;
     border-radius: 18px;
@@ -105,25 +87,28 @@ text-shadow: 4px 3px 0px rgba(204, 204, 204,.3);
     width: 490px;;
     height:500px;
     padding-top:14px;
+    color:#08C;
+    background-color:rgba(255, 255, 255, .9);
   }
-  .span5{
-      
+
+  .span5{   
     margin-top:70px;
-    background-color: rgba(0, 0, 0, .3);
     -moz-border-radius: 18px;
     -webkit-border-radius: 18px;
     border-radius: 18px;
     padding-left:0px;
     height:500px;
-    padding-top:14px;
-
+    padding-top:14px; 
+    background-color:rgba(255, 255, 255, .9);
     }
   .span7 button{
       margin-top: 20px;
       margin-bottom: 30px;
   
     }
-
+    .info{
+     color:#606060 !important;
+    }
       #fix{
         margin-left: 0px;
       }
@@ -135,9 +120,9 @@ footer style
 */
 
 .navbar-inner {
-  background-color: rgba(0,0,0,0.7);
   height: 101px;
   background-image:none;
+  border-bottom:none;
 }
 
 .footer-home{
@@ -174,7 +159,7 @@ footer style
 .footer-links-home li:after{
   content:"•";
   padding:0 5px;
-  color:#BBB;
+   color:#606060;
 }
 
 .footer-links-home li:last-child:after{
@@ -183,13 +168,13 @@ footer style
 }
 
 .footer-links-home  a{
-  color: #BBB;
+   color:#606060;
   
 }
 .footer-links-home a:hover{
   
   text-decoration: none;
-  color:grey;
+  color:#08C;
 }
 
 
@@ -202,12 +187,11 @@ footer style
 
 .copyright-home p{
   font-family:ubuntu;
-  color:#BBB;
+   color:#606060;
   margin-top:5px;
 }
 
   #footer-contrainer{
-        background-color: rgba(0, 0, 0, .3);
         -moz-border-radius: 18px;
         -webkit-border-radius: 18px;
         border-radius: 18px;

@@ -22,7 +22,7 @@ class SessionsController < ApplicationController
 			redirect_to home_path
 
 		else
-			flash[:notice] = "Invalid email or password"
+			flash[:notice] = "Invalid Email or Password"
 			render "new"
 		end
 	end
