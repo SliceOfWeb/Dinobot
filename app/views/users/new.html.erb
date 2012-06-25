@@ -1,40 +1,142 @@
-<%= stylesheet_link_tag    "bootstrap", "sessions", :media => "all" %>
-<%= javascript_include_tag "sessions" %>
-<%= csrf_meta_tags %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Dinobot - Signup</title>
 
+     <%= stylesheet_link_tag    "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+      <%= csrf_meta_tags %>
+    <style type="text/css" media="screen">
+       body {
+      }
 
-<div class="signform">
-  <h1 color='white'>Sign Up</h1>
-  <br/>
-  <%= form_for @user do |f| %>
-  <% if @user.errors.any? %>
-  <div>
-    <h2>Form is invalid</h2>
-    <ul>
-      <% for message in @user.errors.full_messages %>
-    <li>
-      <%= message %></li>
-      <% end %></ul>
-  </div>
+      .signform{
+        width:400px;
+        height:370px;
+        <%if flash[:notice]%>
+        height:470px;
+        <%end%> 
+        margin: auto;
+        position:absolute;
+        top:25%;
+        left:25%;
+        right:25%;
+        bottom:25%;
+        padding:0px;
+        border-radius: 10px;
+        border: 1px solid gray;
+        background-color: rgba(255, 255, 255, .9);
+      }
+      .signform ul{
+        margin-left:70px;
+        color:red;
+      }
+      .loginheader{
+         border-radius:10px 10px 0px 0px;
+         background-color:white;
+          padding:10px;
+           margin:0px;
+           height:30px;
+           margin-bottom: 20px;
+      }
+      .signform h3, a{
+        margin:0px;
+        margin-top: 0px;
+        margin-right:5px;
+        color:rgb(0, 136, 204);
+        text-shadow:none;
+       
+      }
+      .signform a{
+        margin-top: 4px;
+      }
+
+      .signform .input-xlarge{
+        height:20px;
+        margin-left:60px;
+       margin-bottom: 10px;
+
+        
+      }
+
+      .signform label{
+        color:#333;
+        margin-left:60px;
+        
+      }
+
+      .loginbot{
+       height:40px;
+       border-radius:0px 0px 10px 10px;
+       padding-right: 60px;
+       padding-top: 10px;
+      }
+      
+      .invalid_notice{
+        height:25px;
+        width: 200px;
+        margin:auto;
+        margin-top:20px;
+        margin-bottom:10px;
+      }
+      .invalid_notice p{
+        text-align:center;
+        margin-top:3px;
+      }
+      .invalid_notice{
+        background-color: #FFCCCC;
+        border:1px solid red;
+      }
+    </style>
+  </head>
+  <body>
+    
+    <div class="signform">
+      <div class= "loginheader">
+        <h3 class="pull-left">Signup to Dinobot</h3>
+
+        <a href="/" class="pull-right">Home</a>
+        <a href="/login" class="pull-right">Login </a>
+
+      </div>
+      
+     <%if flash[:notice]%> 
+      <div class="invalid_notice">
+       <p><%=flash[:notice]%></p>
+      </div>
+      <%end%>
+      <%= form_for @user do |f| %>
+        
+      
+        <%= f.label 'Username' %>
+       </br>
+        <%= f.text_field :username , :class =>"input-xlarge"%>
+      
+        <%= f.label 'Email' %>
+        <br />        
+        <%= f.email_field :email , :class =>"input-xlarge" %>
+  
+        <%= f.label 'Password' %>
+        <br />        
+        <%= f.password_field :password , :class =>"input-xlarge" %>
+ 
+        <%= f.label 'Password Confirmation'%>
+        <br />        
+        <%= f.password_field :password_confirmation, :class =>"input-xlarge" %>
+
+        <% if @user.errors.any? %>
+          <ul>
+            <% for message in @user.errors.full_messages %>
+            <li><%= message %></li>
+            <% end %>
+          </ul>
+        <% end %>
+        <div class="loginbot" style="clear:both;">
+          <%= f.submit "GO", :class => "btn btn-primary btn-large pull-right"  %>
+        </div><!-- / -->
+      
   <% end %>
-
-  <p>
-    <%= f.label 'Username' %>
-    <br />        
-    <%= f.text_field :username , :class =>"input-xlarge"%></p>
-  <p>
-    <%= f.label 'Email' %>
-  <br />        
-    <%= f.email_field :email , :class =>"input-xlarge" %></p>
-  <p>
-    <%= f.label 'Password' %>
-    <br />        
-    <%= f.password_field :password , :class =>"input-xlarge" %></p>
-  <p>
-    <%= f.label 'Password Confirmation'%>
-    <br />        
-    <%= f.password_field :password_confirmation, :class =>"input-xlarge" %></p>
-    <%= f.submit :class => "btn"  %>
-    <a class="btn btn-primary" href="/"> Cancel </a>
-    <% end %>
-</div>
+  </div>
+  </body>
+</html>

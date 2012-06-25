@@ -245,8 +245,9 @@ info List
 
 .middle h1,h2,h3 {
     margin-top: 5px;
-    color: #0044cc;  
-    text-shadow: 1px 1px 1px #000;
+    color: #08C;  
+    text-shadow: 0.5px 0px 1px #000;
+    
 }
 .separator{
     width:551px;

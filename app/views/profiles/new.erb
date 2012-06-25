@@ -1,57 +1,158 @@
-  <%= form_for @profile, :html => {:multipart => true} do |f| %>
-		   	
-        <!-- error messages -->
-        <% @profile.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-        <% @current_user.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
+
+    <style type="text/css" media="screen">
+
+       body {
+      }
+       .middle{
+         margin-left:200px;
+         border:none;
+        }
+      .signform{
+        margin-top:1220px;
+        width:600px;
+        margin: auto;
+        position: absolute;
+        top:110px;
+        padding:0px;
+        border-radius: 10px;
+        border: 1px solid gray;
+        background-color: rgba(255, 255, 255, .9);
+        display:none;
+      }
+    
+      .signform ul{
+        margin-left:70px;
+        color:red;
+      }
+      .loginheader{
+         border-radius:10px 10px 0px 0px;
+         background-color:white;
+          padding:10px;
+           margin:0px;
+           height:30px;
+           margin-bottom: 20px;
+      }
+      .signform h2, button{
+        margin:0px;
+        margin-top: 0px;
+        margin-right:5px;
+        color:rgb(0, 136, 204);
+        text-shadow:none;
+       
+      }
+      .signform button{
+        margin-top: 4px;
+      }
+
+      .signform .input-xlarge{
+        height:20px;
+        margin-left:170px;
+       margin-bottom: 10px;
+
         
-		    <h1>Personal Info</h1>
-          <div class="row well personal-info">
-            <h4>First Name:</h4>
-            <%= f.text_field :first_name %>
-            <h4>Last Name:</h4>
-              <%= f.text_field :last_name %>
-            
-            <h4>Location:</h4>
-            <%= f.text_field :location%>
-            <h4>Birthdate:</h4>
-            <%= f.text_field :birthdate%>
-            <h4>Gender:</h4>
-     
-              <%= f.label :gender_male, "Male" %>
-              <%= f.radio_button :gender, "male" %>
-              <%= f.label :gender_female, "Female"%>
-              <%= f.radio_button :gender, "female" %>
-         
-            <h4>Education:</h4>
-            <%= f.text_field :education%>
+      }
 
-            <h4>Photo</h4>
-            <%= f.file_field :photo %>
-          </div>
+      .signform h4{
+        color:#333;
+        margin:0px;
+        margin-left:170px;
+        
+      }
+      p{
+        margin-left:170px;
+      }
+      .loginbot{
+       height:40px;
+       border-radius:0px 0px 10px 10px;
+       padding-right: 60px;
+       padding-top: 10px;
+        padding-bottom: 20px;
+      }
+      .tet{
+        width:270px;
+        margin-left:170px;
+        margin-bottom: 10px;
+        height:120px;
+      }
+        .active{
+        display:block;
+      }
+    </style> 
+    <script type="text/javascript">
+      $(document).ready(function(){
+  $('.next').on('click', function(){
+    $('.active').fadeOut().removeClass('active').next().fadeIn().addClass('active');
+  });
+  $('.back').on('click', function(){
+    $('.active').fadeOut().removeClass('active').prev().fadeIn().addClass('active');
+  });
+});
+    </script>
+    <h1>Create Your Profile</h1>
+      <%= form_for @profile, :html => {:multipart => true} do |f| %>
+        
+      <div class="signform active">
+        <div class= "loginheader">
+          <h2 class="pull-left">Step 1 - Personal Info</h2>
+          <button class="pull-right">Clear</button>
+        </div>
+        
+        <h4>First Name</h4>
+        <%= f.text_field :first_name, :class =>"input-xlarge" %>
+        </br>
+        <h4>Last Name</h4>
+        <%= f.text_field :last_name, :class =>"input-xlarge" %>
+        </br>
+        <h4>Location</h4>
+        <%= f.text_field :location, :class =>"input-xlarge"%>
+        </br>
+        <h4>Birthdate</h4>
+        <%= f.text_field :birthdate, :class =>"input-xlarge"%>
+        </br>
+        <h4>Education</h4>
+        <%= f.text_field :education, :class =>"input-xlarge"%>
+        </br>
+        <h4>Gender</h4>
+        <%= f.radio_button :gender, "male", :style =>"margin-left:170px;" %> 
+        <%= f.label :gender_male, "Male", :style =>"margin-left:0px;" %> 
+        </br> 
+        <%= f.radio_button :gender, "female", :style =>"margin-left:170px;"  %>
+        <%= f.label :gender_female, "Female", :style =>"margin-left:0px;"%>
+        
+        
+        <div class="loginbot" style="clear:both;">
+          <button type="button" class="btn btn-primary pull-right next">Next</button>
+        </div>
+      </div>
+      <div class="signform ">
+        <div class= "loginheader">
+          <h2 class="pull-left">Step 2 - Avatar</h2>
+          <button class="pull-right">Clear</button>
+        </div>
+        <h4>Upload your photo</h4>
+        <%= f.file_field :photo, :class =>"input-xlarge" %>
+        <div class="loginbot" style="clear:both;">
+          <button type="button" class="btn btn-primary pull-right next">Next</button>
+          <button type="button" class="btn btn-primary pull-right back">Back</button>
+        </div>
+      </div>         
+      <div class="signform ">
+        <div class= "loginheader">
+          <h2 class="pull-left">Step 3 - Other Information</h2>
+          <button type="button" class="pull-right">Clear</button>
+        </div>
+        <h4>Bio</h4>
+        <p>Write about yourself!</p>
+        <%= f.text_area :bio, :class =>"tet"%>
 
-          <hr class="separator">
+        <h4>Tags</h4>
+        <p>Separate tags with Spaces</p>
+        <%= text_area_tag :tags,"", :class =>"tet"%> 
+        </br>
+        <div class="loginbot" style="clear:both;">
+          <%= f.submit "Submit", :class => "btn btn-success pull-right" %>
+          <button type="button" class="btn btn-primary pull-right back" style ="margin-top:1px;">Back</button>
+        </div>
+      </div>
+  <% end %>
 
-          <h1>Bio</h1>
-          <div class="row well bio">
-			   <%= f.text_area :bio, :class => "text-area" %>
-          </div>
-          <hr class="separator">
-
-          <h1>Tags</h1>
-          <p>Separate tags with '/'</p>
-          <div class="row well tags">
-            <%= text_area_tag :tags,:class => "text-area" %>
-          </div>
-
-          <hr class="separator">
-
-		      <div class="form-actions">
-           <%= f.submit "Save changes", :class => "btn btn-primary" %>
-            <a href="home" class="btn">Cancel</a>
-          </div>
-          
-		  <% end %>
