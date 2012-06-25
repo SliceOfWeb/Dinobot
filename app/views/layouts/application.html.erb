@@ -15,10 +15,11 @@
 		 if(window.scrollY > 79){
 		 	navbar =$(".navbar-inner")[0]
 		 	$(navbar).css("background-image","none");
-		 	$(navbar).css("background-color","rgba(0, 68, 204, .4)");
+		 	//$(navbar).css("background-color","rgba(0, 68, 204, .4)");
+		 	$(navbar).css("background-image","-webkit-linear-gradient(top,rgba(0, 0, 0, .01),rgba(0, 0, 0, .1))");
 		 }
 		 if(window.scrollY < 47){
-		 	$(navbar).css("background-image","-webkit-linear-gradient(top, #08C, #04C)");
+		 	$(navbar).css("background-image","-webkit-gradient( linear, left bottom, left top, color-stop(0.7, #858585), color-stop(0.2, #737373) )");
 		 }
 		})
 	})
@@ -34,7 +35,7 @@
 						<span class="i-bar"></span>
 						<span class="i-bar"></span>
 					</a>
-					<img id="logo" src="/assets/blue_robot_sh.png">
+					<!-- <img id="logo" src="/assets/blue_robot_sh.png"> -->
 					<a class="brand" href="/home">Dinobot</a>
 					<!-- <form class="navbar-search pull-left" action="">
 					<input type="text" class="search-query span2" placeholder="Search"></form> -->
@@ -233,7 +234,7 @@
 							<div class="tabbable tabs-left">
 								<ul class="nav nav-tabs" id="left-nav">
 									<li>
-										<a href="" data-toggle="tab" >
+										<a href="#" >
 											<span>
 												<i class="icon-user"></i>
 												<%=@name%>'s Info&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -242,7 +243,7 @@
 									</li>
 
 									<li >
-										<a href="" data-toggle="tab">
+										<a href="/home">
 											<span>
 												<i class="icon-home"></i>
 												<%=@name%>'s Stream&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -251,7 +252,7 @@
 									</li>
 									
 									<li >
-										<a href="" data-toggle="tab">
+										<a href="aspects" data-toggle="tab">
 											<span>
 												<i class="icon-user"></i>
 												<%=@name%>'s Friends&nbsp;&nbsp;&nbsp;&nbsp;

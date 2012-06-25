@@ -620,14 +620,16 @@ div.tags{
     text-shadow: 0px 0px 0px #ccc;
 }
 .bottom-profile-box #part1, #part2{
-    background: -webkit-linear-gradient(top, #0088cc, #0044cc);
+    /*background: -webkit-linear-gradient(top, #0088cc, #0044cc);*/
+    background-image: -webkit-gradient(linear, 0% 100%, 0% 0%, color-stop(0.7, #858585), color-stop(0.2, #737373));
     margin-right:5px;
     border-radius: 6px;
 }
 .bottom-profile-box #part3, .top-profile-box{ 
-    background: -webkit-linear-gradient(top, #0088cc, #0044cc);
+    /*background: -webkit-linear-gradient(top, #0088cc, #0044cc);
     background: -moz-linear-gradient(top, #0088cc, #0044cc);
-    background: linear-gradient(top, #0088cc, #0044cc);
+    background: linear-gradient(top, #0088cc, #0044cc);*/
+    background-image: -webkit-gradient(linear, 0% 100%, 0% 0%, color-stop(0.7, #858585), color-stop(0.2, #737373));
     border-radius: 6px;
 }
 /* profile box*/
