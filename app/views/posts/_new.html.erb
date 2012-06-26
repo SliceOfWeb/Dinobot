@@ -18,6 +18,15 @@
       <div class=" post-title">
         <%= post.content %>     
       </div> <!-- post-title -->
+      <%if post.post_type == "photo"%>
+       <div class="well album-thumb image-preview post-title" style="padding-right:8px;padding-bottom:4px">
+        <%=link_to({:controller => 'posts', :action => 'show',:id =>post.id, :photo_url => post.photo_url, :person_id => post.person.id}) do %>
+          <img src=<%=post.photo_url%> style="width:425px;hieght;290px" >
+        <%end%>
+          
+
+      </div> <!-- post-title -->
+      <%end%>
 
      
       <div class="row header-bottom">

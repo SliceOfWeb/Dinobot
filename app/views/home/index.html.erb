@@ -1,6 +1,6 @@
 <h1>Timline</h1>
 <div class="share-box">
-  <%= form_for @post do |f| %>
+  <%= form_for @post, :html => {:multipart => true} do |f| %>
     <%= f.text_area(:content, :class => "share-text-area") %>  
     <div class="settings-area">
       <div class="settings pull-right">
@@ -22,7 +22,7 @@
       
       <a class="btn btn-small btn-success dropdown-toggle" id="aspect" data-toggle="dropdown" href="#">Public</a>
       <%= hidden_field_tag "aspect_name", "MyAspects" %>
-      <ul class="dropdown-menu ">
+      <ul class="dropdown-menu">
         <%@current_user.aspects.each do |aspect| %>
         <%next if aspect.name == 'MyAspects'%>
           <li class="divider"></li>
@@ -30,7 +30,7 @@
           <li class="divider"></li>
         <%end%> 
       </ul>
-
+      <%= file_field_tag :uploaded_photo, :class =>"pull-left", :style => "margin-left:5px;" %>
       </div> <!-- btn-group pull-left -->
     </div> <!-- settings-area -->
     <%= f.submit "Share" ,:class => "btn btn-primary pull-right"%>
