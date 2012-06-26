@@ -1,0 +1,20 @@
+<h1 id="album-header"><%=@person.user.profile.first_name%>'s Videos</h1>
+
+  <a href="<%=new_profile_video_path%>" class="btn pull-left" id="add-album">
+      <i class="icon-plus"></i>
+      Add New Video
+  </a>
+<div class="well albums row">
+  
+  <% @videos.each do |video| %>
+  <div class="span6 video ">
+    <a href="<%=profile_video_path(video.person.user.username,video)%>" class="thumbnail">  
+          <img src="http://placehold.it/260x180">
+    </a>
+    <div class="video-details"> 
+      <a href=""><h4><%=video.title%></h4></a>
+    </div>
+  </div>
+  <% end %>
+
+</div>

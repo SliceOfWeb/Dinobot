@@ -22,6 +22,8 @@ class PostsController < ApplicationController
 			embeds = @post.content.split('=')
 			embeds = embeds[1].split('&')
 			@post.video_url = "http://www.youtube.com/embed/#{embeds[0]}"
+			@video = Video.create :person_id => @current_person, :title =>"Stream Post", :link => @post.video_url
+			Action.create(:target_type => 'video', :target_id => @video.id)
 		else
 			@post.post_type= "status"  #In Case User just write a status
 		end

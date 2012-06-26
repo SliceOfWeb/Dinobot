@@ -1,0 +1,16 @@
+<h1>Add new Video</h1>
+<%= form_for [@current_profile, @video] do |f| %>
+  <p>
+    <%= f.label :title, 'Video Title:' %>     
+    <%= f.text_field :title , :class =>"input-xlarge"%>
+  </p>
+  <p>
+    <%= label_tag :link, 'Video Link' %>     
+    <%= text_field_tag :link ,"", :class =>"input-xlarge"%>
+  </p>
+  <p>
+    <%= f.label 'Caption:' %>
+    <%= f.text_area :description , :class =>"input-xlarge", :style => "height:100px"%>
+  <p>
+    <%= f.submit :class => "btn btn-primary"  %>
+  <% end %>

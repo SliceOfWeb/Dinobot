@@ -1,5 +1,11 @@
 Dinobot::Application.routes.draw do
 
+  get "videos/index"
+
+  get "videos/show"
+
+  get "videos/new"
+
   root :to => 'sessions#index', :as => "welcome"
 
   get "home" => "home#index", :as => "home"
@@ -13,6 +19,7 @@ Dinobot::Application.routes.draw do
     resources :albums do
       resources :images 
     end
+    resources :videos
   end
 
   match ':controller/:action/:id/:person_id'
