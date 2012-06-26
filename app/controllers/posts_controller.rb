@@ -3,6 +3,7 @@ class PostsController < ApplicationController
 	
 	def create
 		@post = Post.new(params[:post])
+		parts = @post.content.split('.')
 		if params[:uploaded_photo] 	#In Case User Upload a Photo
 			@image = Image.new :caption => @post.content, :album_id => @current_person.albums[0], :location => 'Home' 
 			@image.image = params[:uploaded_photo]
@@ -16,8 +17,13 @@ class PostsController < ApplicationController
     		else
       			render text: "Something worng happen while Uploading"
       		end
-		else #In Case User just write a status
-			@post.post_type= "status"
+		elsif parts[0] == "http://www" || parts[0] == "www" || parts[0] == "youtube" #In Case User copy video address
+			@post.post_type= "video"
+			embeds = @post.content.split('=')
+			embeds = embeds[1].split('&')
+			@post.video_url = "http://www.youtube.com/embed/#{embeds[0]}"
+		else
+			@post.post_type= "status"  #In Case User just write a status
 		end
 		@post.person_id = @current_person.id
 		# @post.aspects << @current_user.aspects.find_by_name("#{params[:aspect_name]}")

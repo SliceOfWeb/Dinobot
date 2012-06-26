@@ -23,9 +23,11 @@
         <%=link_to({:controller => 'posts', :action => 'show',:id =>post.id, :photo_url => post.photo_url, :person_id => post.person.id}) do %>
           <img src=<%=post.photo_url%> style="width:425px;hieght;290px" >
         <%end%>
-          
-
       </div> <!-- post-title -->
+      <%elsif post.post_type == "video"%>
+        <div class="well album-thumb image-preview post-title" style="padding-right:8px;padding-bottom:4px">
+          <iframe width="410" height="290" src="<%=post.video_url%>" frameborder="0" allowfullscreen></iframe>
+      </div> 
       <%end%>
 
      
