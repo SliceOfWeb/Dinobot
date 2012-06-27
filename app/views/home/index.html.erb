@@ -1,16 +1,19 @@
+<style type="text/css">
+</style>
+
 <h1>Timline</h1>
 <div class="share-box">
   <%= form_for @post, :html => {:multipart => true} do |f| %>
     <%= f.text_area(:content, :class => "share-text-area") %>  
     <div class="settings-area">
       <div class="settings pull-right">
-        <a href="#">
-          <i class="icon-play"></i>
+        <a id="play" href="#">
+          <i  class="icon-play"></i>
         </a>
-        <a href="#">
+        <a id="cam" href="#" >
           <i class="icon-camera"></i>
         </a>
-        <a href="#">
+       <a href="#">
           <i class="icon-map-marker"></i>
         </a>
         <a href="#">
@@ -30,7 +33,8 @@
           <li class="divider"></li>
         <%end%> 
       </ul>
-      <%= file_field_tag :uploaded_photo, :class =>"pull-left", :style => "margin-left:5px;" %>
+      <%= file_field_tag :uploaded_photo, :class =>"pull-left upload", :style => "position:absolute;left:55px;display:none;" %>
+      <%= f.text_field :video_url,:class => "pull-left youtube", :style => "height:15px;width:360px;position:absolute;top:2px;left:55px;display:none;"%>
       </div> <!-- btn-group pull-left -->
     </div> <!-- settings-area -->
     <%= f.submit "Share" ,:class => "btn btn-primary pull-right"%>
@@ -49,6 +53,15 @@
       $("#aspect").text(aspect_name);
       $("#aspect_name").attr("value",aspect_name);
     });
+    $("#cam").on('click',function(){
+      $(".youtube").fadeOut();
+      $(".upload").fadeIn();
+    });
+    $("#play").on('click',function(){
+      $(".upload").fadeOut();
+      $(".youtube").fadeIn();
+    });
   });
+    
 
 </script>
