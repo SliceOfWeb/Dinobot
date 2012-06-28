@@ -38,32 +38,13 @@
     <%unless commentary.class.name == "Image"%>  
       <%= form_tag({:controller => 'comments', :action => 'create', :commentary_id => commentary.id, :commentary_type => commentary.class.name, :person_id => commentary.person_id}) do  %>
         <%= text_area_tag( :content , "" , {:class => "comment-text-area"} ) %>
-        <%= submit_tag("Comment" , :class => "btn btn-primary pull-right") %>
+        <%= submit_tag("Comment" , :class => "comm btn btn-primary pull-right") %>
       <% end %>
     <%else%>
       <%= form_tag({:controller => 'comments', :action => 'create', :commentary_id => commentary.id, :commentary_type => commentary.class.name, :person_id => commentary.album.person_id}) do  %>
         <%= text_area_tag( :content , "" , {:class => "comment-text-area"} ) %>
-        <%= submit_tag("Comment" , :class => "btn btn-primary pull-right") %>
+        <%= submit_tag("Comment" , :class => "comm btn btn-primary pull-right") %>
       <% end %>
     <%end%>
   </div>  <!-- /comments -->
 </div> <!-- /content-footer -->
-
-     <script type="text/javascript">
-    //     $(document).ready(function() {
-    //      $('.text-area').focus(function(){
-    //       $(this).animate({
-    //         height: "55px",
-    //         borderWidth: "0px"
-    //         }, 700 );
-    //       });
-    //     });
-    //     $(document).ready(function() {
-    //       $('#click').click(function(){
-    //         $('#textarea').animate({
-    //           height: "18px",
-    //           borderWidth: "0px"
-    //         }, 700 );
-    //       });
-    //     });
-    //   </script>

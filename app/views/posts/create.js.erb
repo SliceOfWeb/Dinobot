@@ -1,2 +1,6 @@
 $('<%= escape_javascript(render(:file => "posts/ajax_post.html.erb"))%>')
-.fadeIn().insertBefore($('.pos').children('div.post-box').first());
+.fadeIn('slow').insertBefore($('.pos').children('div.post-box').first());
+$('.share-text-area').attr('value', '');
+$('.youtube').attr('value', '');
+$('.upload').attr('value', '');
+$('.pos').children('div.post-box').eq(1).css('clear','both');
