@@ -36,12 +36,12 @@
       </div> <!-- content-header --> 
     <%end%>
     <%unless commentary.class.name == "Image"%>  
-      <%= form_tag({:controller => 'comments', :action => 'create', :commentary_id => commentary.id, :commentary_type => commentary.class.name, :person_id => commentary.person_id}) do  %>
+      <%= form_tag({:controller => 'comments', :action => 'create', :commentary_id => commentary.id, :commentary_type => commentary.class.name, :person_id => commentary.person_id}, :remote => true) do  %>
         <%= text_area_tag( :content , "" , {:class => "comment-text-area"} ) %>
         <%= submit_tag("Comment" , :class => "comm btn btn-primary pull-right") %>
       <% end %>
     <%else%>
-      <%= form_tag({:controller => 'comments', :action => 'create', :commentary_id => commentary.id, :commentary_type => commentary.class.name, :person_id => commentary.album.person_id}) do  %>
+      <%= form_tag({:controller => 'comments', :action => 'create', :commentary_id => commentary.id, :commentary_type => commentary.class.name, :person_id => commentary.album.person_id}, :remote => true) do  %>
         <%= text_area_tag( :content , "" , {:class => "comment-text-area"} ) %>
         <%= submit_tag("Comment" , :class => "comm btn btn-primary pull-right") %>
       <% end %>

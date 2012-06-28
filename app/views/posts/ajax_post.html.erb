@@ -44,6 +44,8 @@
       </div><!-- row header-bottom -->
     </div> <!--span8-->
   </div> <!-- content-header -->
-  <%= render({:partial => new_comment_path, :locals => {:commentary => @post}})%> 
+  <div class="comts">
+    <%= render({:partial => new_comment_path, :locals => {:commentary => @post}})%>
+  </div> 
 </div> <!-- /post-box -->
 
