@@ -3,7 +3,7 @@
 
 <h1>Timline</h1>
 <div class="share-box">
-  <%= form_for @post, :html => {:multipart => true} do |f| %>
+  <%= form_for @post, :html => {:multipart => true}, :remote => true do |f| %>
     <%= f.text_area(:content, :class => "share-text-area") %>  
     <div class="settings-area">
       <div class="settings pull-right">
@@ -41,10 +41,12 @@
   <%end%>        
 </div>  <!-- /share-box -->
 <hr class="separator">
-<% @posts.each do |post| %>
-	<%=render(:partial => new_post_path, :locals => {:post => post})%>
-	<hr class="separator">
-<% end %> 
+<div class ="pos">  
+  <% @posts.each do |post| %>
+  	<%=render(:partial => new_post_path, :locals => {:post => post})%>
+  	<hr class="separator">
+  <% end %>
+</div>
  
 <script type="text/javascript">
   $(function () {
