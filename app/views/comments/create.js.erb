@@ -1,0 +1,8 @@
+<%if @comment.commentary.comments.length == 0%>
+	$('<%= escape_javascript(render(:file => "comments/ajax_comment.html.erb"))%>')
+	.fadeIn('slow').insertAfter($('div[name*="post<%=@comment.commentary.id%>"]').find('.comts').children('.onecomment').last());
+<%else%>
+$('div[name*="post<%=@comment.commentary.id%>"]').find('.comts').append($('<%= escape_javascript(render(:file => "comments/ajax_comment.html.erb"))%>').fadeIn());
+<%end%>
+
+$('.comment-text-area').attr('value', '');

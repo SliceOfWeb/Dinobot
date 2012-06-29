@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120510213303) do
+ActiveRecord::Schema.define(:version => 20120626120102) do
 
   create_table "actions", :force => true do |t|
     t.integer  "target_id"
@@ -269,5 +269,16 @@ ActiveRecord::Schema.define(:version => 20120510213303) do
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
   end
+
+  create_table "videos", :force => true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.string   "link"
+    t.integer  "person_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "videos", ["person_id"], :name => "index_videos_on_person_id"
 
 end

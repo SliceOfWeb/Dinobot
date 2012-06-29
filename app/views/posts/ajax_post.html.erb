@@ -1,0 +1,58 @@
+<div class="post-box" name="post<%=@post.id%>">
+  <% if @post.person == @current_person %>
+    <%=link_to post_path(@post), :confirm => 'Are you sure?', :method => :delete, :remote => true, :class => "delete_post" do %>
+    <i class="icon-remove"></i>
+   <%end%>
+  <% end %>
+  <div class="row content-header">
+    <div class="span4">
+      <a href="#" >
+        <%= image_tag @post.person.user.profile.photo.url, :class => 'profile-pic' %>
+      </a>
+    </div> <!-- span4 -->
+    <div class="span8">
+      <h4>
+        <a href="<%= profile_path(@post.person.user.username) %>"><%="#{@post.person.user.profile.first_name.capitalize} #{@post.person.user.profile.last_name.capitalize}"%>
+        </a>
+      </h4>
+      <div class=" post-title">
+        <%= @post.content %>     
+      </div> <!-- post-title -->
+      <%if @post.post_type == "photo"%>
+        <div class="well album-thumb image-preview post-title" style="padding-right:8px;padding-bottom:4px">
+          <%=link_to({:controller => 'posts', :action => 'show',:id =>@post.id, :photo_url => @post.photo_url, :person_id => @post.person.id}) do %>
+              <img src=<%=@post.photo_url%> style="width:425px;hieght;290px" >
+          <%end%>
+        </div> <!-- album-thumb -->
+      <%elsif @post.post_type == "video"%>
+        <div class="well album-thumb image-preview post-title" style="padding-right:8px;padding-bottom:4px">
+          <iframe width="410" height="290" src="<%=@post.video_url%>" frameborder="0" allowfullscreen>
+          </iframe>
+        </div> 
+      <%end%>
+      <div class="row header-bottom">
+        <div class="span4 pull-left ">
+          <a href ="<%= post_path(@post.id) %>" style ="text-decoration:none;">
+            <p> 
+              <%= render({:partial => 'home/date', :locals => {:dater => @post}})%> 
+            </p>
+          </a>
+        </div>
+        <div class="span8 post-actions pull-right ">
+         <%= render({:partial => 'actions/new', :locals => {:target => @post}})%> 
+        </div> <!-- /post-actions -->
+      </div><!-- row header-bottom -->
+    </div> <!--span8-->
+  </div> <!-- content-header -->
+  <div class="comts">
+    <%= render({:partial => new_comment_path, :locals => {:commentary => @post}})%>
+  </div> 
+</div> <!-- /post-box -->
+<script type="text/javascript">
+$(document).ready(function(){
+  $('.delete_post').on('ajax:success', function(){
+    $(this).closest('.post-box').fadeOut();
+  });
+});
+</script>
+

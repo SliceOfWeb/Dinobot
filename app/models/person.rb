@@ -17,6 +17,7 @@ class Person < ActiveRecord::Base
 	has_many :aspects, :through => :aspect_memberships
 	has_many :albums
 	has_many :notifications
+	has_many :videos
 
 	#validates :profile_link, :format => { :with => /\A[a-zA-Z]+\z/ }
     

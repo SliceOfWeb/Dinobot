@@ -1,3 +1,2 @@
-
-<h1><%=@post.person.user.profile.first_name%> <%=@post.person.user.profile.last_name%></h1>
+<h1><%=@post.person.user.profile.first_name%> <%=@post.person.user.profile.last_name%> Post</h1>
 <%=render(:partial => new_post_path, :locals => {:post => @post})%>

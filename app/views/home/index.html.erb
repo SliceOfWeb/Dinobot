@@ -1,16 +1,19 @@
+<style type="text/css">
+</style>
+
 <h1>Timline</h1>
 <div class="share-box">
-  <%= form_for @post do |f| %>
+  <%= form_for @post, :html => {:multipart => true}, :remote => true do |f| %>
     <%= f.text_area(:content, :class => "share-text-area") %>  
     <div class="settings-area">
       <div class="settings pull-right">
-        <a href="#">
-          <i class="icon-play"></i>
+        <a id="play" href="#">
+          <i  class="icon-play"></i>
         </a>
-        <a href="#">
+        <a id="cam" href="#" >
           <i class="icon-camera"></i>
         </a>
-        <a href="#">
+       <a href="#">
           <i class="icon-map-marker"></i>
         </a>
         <a href="#">
@@ -22,7 +25,7 @@
       
       <a class="btn btn-small btn-success dropdown-toggle" id="aspect" data-toggle="dropdown" href="#">Public</a>
       <%= hidden_field_tag "aspect_name", "MyAspects" %>
-      <ul class="dropdown-menu ">
+      <ul class="dropdown-menu">
         <%@current_user.aspects.each do |aspect| %>
         <%next if aspect.name == 'MyAspects'%>
           <li class="divider"></li>
@@ -30,17 +33,20 @@
           <li class="divider"></li>
         <%end%> 
       </ul>
-
+      <%= file_field_tag :uploaded_photo, :class =>"pull-left upload", :style => "position:absolute;left:55px;display:none;" %>
+      <%= f.text_field :video_url,:class => "pull-left youtube", :style => "height:15px;width:360px;position:absolute;top:2px;left:55px;display:none;"%>
       </div> <!-- btn-group pull-left -->
     </div> <!-- settings-area -->
     <%= f.submit "Share" ,:class => "btn btn-primary pull-right"%>
   <%end%>        
 </div>  <!-- /share-box -->
 <hr class="separator">
-<% @posts.each do |post| %>
-	<%=render(:partial => new_post_path, :locals => {:post => post})%>
-	<hr class="separator">
-<% end %> 
+<div class ="pos">  
+  <% @posts.each do |post| %>
+  	<%=render(:partial => new_post_path, :locals => {:post => post})%>
+  	<hr class="separator">
+  <% end %>
+</div>
  
 <script type="text/javascript">
   $(function () {
@@ -49,6 +55,13 @@
       $("#aspect").text(aspect_name);
       $("#aspect_name").attr("value",aspect_name);
     });
+    $("#cam").on('click',function(){
+      $(".youtube").fadeOut();
+      $(".upload").fadeIn();
+    });
+    $("#play").on('click',function(){
+      $(".upload").fadeOut();
+      $(".youtube").fadeIn();
+    });
   });
-
 </script>

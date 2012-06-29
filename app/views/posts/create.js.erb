@@ -1,0 +1,13 @@
+if($('div.post-box').length){
+	$('<%= escape_javascript(render(:file => "posts/ajax_post.html.erb"))%>')
+.fadeIn('slow').insertBefore($('.pos').children('div.post-box').first());
+}
+else
+{
+$('.pos')
+.append($('<%= escape_javascript(render(:file => "posts/ajax_post.html.erb"))%>').fadeIn('slow'));
+}
+$('.share-text-area').attr('value', '');
+$('.youtube').attr('value', '');
+$('.upload').attr('value', '');
+$('.pos').children('div.post-box').eq(1).css('clear','both');

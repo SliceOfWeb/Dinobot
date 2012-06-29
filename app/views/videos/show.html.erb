@@ -1,0 +1,35 @@
+<h2 id="album-header"><%=@video.title%></h2>
+
+<p class='upload-time'> 
+  Added <%= render({:partial => 'home/date', :locals => {:dater => @video}})%> 
+</p>
+<p class= "psetting" >
+<a href="" >Delete</a>
+
+</p>
+<div class="well album-thumb image-preview">
+
+      <iframe style ="width:493px;height:350px;"class="thumbnail" src="<%=@video.link%>" frameborder="0" allowfullscreen></iframe>
+
+</div>
+  <div class="well caption row">
+    <div class="span4">
+      <img src=<%=@video.person.user.profile.photo.url%> alt="" >
+    </div>
+    <div class="span8">
+      <h4>
+        <a href="">
+          <%=@video.person.user.profile.first_name%> <%=@video.person.user.profile.last_name%>
+        </a>
+      </h4> 
+      <p><%=@video.description%></p>
+      
+
+    </div>
+  </div>
+<div id="album-action"  class="well post-actions">
+  <%= render({:partial => 'actions/new', :locals => {:target => @video}})%> 
+</div>
+<div class ="album-comments" name="post<%=@video.id%>">
+<%= render({:partial => new_comment_path, :locals => {:commentary => @video}})%>
+</div>

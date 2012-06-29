@@ -32,6 +32,8 @@ class ApplicationController < ActionController::Base
   end
 
   def get_posts
+
+=begin
     @post = Post.new
     @posts = []
   
@@ -54,6 +56,11 @@ class ApplicationController < ActionController::Base
       @posts << post
     end
     @posts.sort! { |p|  p.created_at.to_i }
+=end
+
+    @post= Post.new
+    @posts = Post.all
+   
 
   end
 

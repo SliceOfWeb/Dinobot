@@ -41,10 +41,18 @@ class ProfilesController < ApplicationController
 		end
 
 		if @profile.save
-			Person.create :profile_link => "/#{@current_user.username}", :user_id => @current_user.id
+			@person= Person.create :profile_link => "/#{@current_user.username}", :user_id => @current_user.id
 			@mydefaultaspect= Aspect.new :name => "MyAspects"
 			@mydefaultaspect.user= @current_user
 			@mydefaultaspect.save
+
+			@album= Album.create :title => "Stream Posts"
+			@album.person = @person
+			if @album.save
+      			Action.create(:target_type => 'Album', :target_id => @album.id)
+      		end
+
+
 			redirect_to home_path	
 			
 		else
