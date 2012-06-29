@@ -1,6 +1,8 @@
-$('<%= escape_javascript(render(:file => "posts/ajax_post.html.erb"))%>')
-.fadeIn('slow').insertBefore($('.pos').children('div.post-box').first());
-$('.share-text-area').attr('value', '');
-$('.youtube').attr('value', '');
-$('.upload').attr('value', '');
-$('.pos').children('div.post-box').eq(1).css('clear','both');
+<%if @comment.commentary.comments.length == 0%>
+	$('<%= escape_javascript(render(:file => "comments/ajax_comment.html.erb"))%>')
+	.fadeIn('slow').insertAfter($('div[name*="post<%=@comment.commentary.id%>"]').find('.comts').children('.onecomment').last());
+<%else%>
+$('div[name*="post<%=@comment.commentary.id%>"]').find('.comts').append($('<%= escape_javascript(render(:file => "comments/ajax_comment.html.erb"))%>').fadeIn());
+<%end%>
+
+$('.comment-text-area').attr('value', '');

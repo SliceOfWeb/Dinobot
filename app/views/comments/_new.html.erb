@@ -1,40 +1,43 @@
 <div class="content-footer"> 
   <div class="comments">
-    <% commentary.comments.each do |comment| %>
-      <a href="/comments/<%= comment.id %>" data-method="delete">
-        <i class="icon-remove"></i>
-      </a>
-      <div class="row content-header">
-        <a name=<%=comment.id%>></a>
-        <div class="span4">
-          <a href="#">
-            <%= image_tag comment.person.user.profile.photo.url, :class => 'profile-pic' %>
-
+    <div class="comts">
+      <% commentary.comments.each do |comment| %>
+        <div class="onecomment">
+          <a href="/comments/<%= comment.id %>" data-method="delete">
+            <i class="icon-remove"></i>
           </a>
-        </div> <!-- span4 -->
-        <div class="span8">
-          <h4>
-            <a href="<%= profile_path(comment.person.user.username) %>"><%="#{comment.person.user.profile.first_name.capitalize} #{comment.person.user.profile.last_name.capitalize}"%></a>
-          </h4>
-          <div class="comment-title">
-            <%=comment.content%>     
-          </div> <!-- comment-title -->
-
-          <div class="row header-bottom">
-            <div class="span8 comment-actions pull-left ">
-              <%= render({:partial => 'actions/new', :locals => {:target => comment}})%>
-            </div> <!-- /comment-actions -->
-
-            <div class="span4 pull-right ">
-               <a href ="<%=comment_path(comment.id)%>" style ="text-decoration:none;">
-              <p> <%= render({:partial => 'home/date', :locals => {:dater => comment}})%> 
-              </p>
-            </a>
-            </div> <!-- span4 Date-->
-          </div><!--row header-bottom-->
-        </div> <!-- span8 --> 
-      </div> <!-- content-header --> 
-    <%end%>
+          <div class="row content-header">
+            <a name=<%=comment.id%>></a>
+            <div class="span4">
+              <a href="#">
+                <%= image_tag comment.person.user.profile.photo.url, :class => 'profile-pic' %>
+              </a>
+            </div> <!-- span4 -->
+            <div class="span8">
+              <h4>
+                <a href="<%= profile_path(comment.person.user.username) %>"><%="#{comment.person.user.profile.first_name.capitalize} #{comment.person.user.profile.last_name.capitalize}"%>
+                </a>
+              </h4>
+              <div class="comment-title">
+                <%=comment.content%>    
+              </div> <!-- comment-title -->
+              <div class="row header-bottom">
+                <div class="span8 comment-actions pull-left ">
+                  <%= render({:partial => 'actions/new', :locals => {:target => comment}})%>
+                </div> <!-- /comment-actions -->
+                <div class="span4 pull-right ">
+                  <a href ="<%=comment_path(comment.id)%>" style ="text-decoration:none;">
+                    <p> 
+                      <%= render({:partial => 'home/date', :locals => {:dater => comment}})%>
+                    </p>
+                  </a>
+                </div> <!-- span4 Date-->
+              </div><!--row header-bottom-->
+            </div> <!-- span8 --> 
+          </div> <!-- row content-header -->
+        </div> <!-- onecomment --> 
+      <%end%>
+    </div>
     <%unless commentary.class.name == "Image"%>  
       <%= form_tag({:controller => 'comments', :action => 'create', :commentary_id => commentary.id, :commentary_type => commentary.class.name, :person_id => commentary.person_id}, :remote => true) do  %>
         <%= text_area_tag( :content , "" , {:class => "comment-text-area"} ) %>

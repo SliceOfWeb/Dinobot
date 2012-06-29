@@ -35,6 +35,6 @@
 <div id="album-action"  class="well post-actions">
   <%= render({:partial => 'actions/new', :locals => {:target => @image}})%> 
 </div>
-<div class ="album-comments">
+<div class ="album-comments" name="post<%=@image.id%>">
 <%= render({:partial => new_comment_path, :locals => {:commentary => @image}})%>
 </div>

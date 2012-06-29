@@ -1,4 +1,4 @@
-<div class="post-box">
+<div class="post-box" name="post<%=post.id%>">
  <% if post.person == @current_person %>
   <a href="/posts/<%= post.id %>" data-method="delete">
     <i class="icon-remove"></i>
@@ -46,8 +46,6 @@
 
     </div> <!--span8-->
   </div> <!-- content-header -->
-  <div class="comts">
-    <%= render({:partial => new_comment_path, :locals => {:commentary => post}})%> 
-  </div>
+  <%= render({:partial => new_comment_path, :locals => {:commentary => post}})%> 
 </div> <!-- /post-box -->
 

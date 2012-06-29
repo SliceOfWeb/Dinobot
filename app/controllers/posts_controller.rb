@@ -48,7 +48,7 @@ class PostsController < ApplicationController
 	def show
 		@post= Post.find params[:id]
 		if [:photo_url]
-			p= Person.find params[:person_id]
+			p= @current_person
 			p.albums[0].images.each do |image|
 				if image.image.url == params[:photo_url]
 					target_photo = image

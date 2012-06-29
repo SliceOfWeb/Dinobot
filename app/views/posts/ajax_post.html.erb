@@ -1,4 +1,4 @@
-<div class="post-box">
+<div class="post-box" name="post<%=@post.id%>">
   <% if @post.person == @current_person %>
     <a href="/posts/<%= @post.id %>" data-method="delete">
       <i class="icon-remove"></i>

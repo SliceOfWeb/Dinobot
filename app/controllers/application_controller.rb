@@ -32,52 +32,9 @@ class ApplicationController < ActionController::Base
   end
 
   def get_posts
-    @post = Post.new
-      @posts = []
-
-=begin 
-      @current_user.aspects[0].people.each do |person|
-        person.posts.each do |post|
-          @posts << post
-        end
-      end
-
-=end
-=begin
-      @current_user.aspects[0].people.each do |person|
-        person.user.aspects.each do |aspect| 
-
-          #if aspect.name != "MyAspects"
-            if aspect.people.include? Person.find(@current_person.id)
-              aspect.posts.each { |post| @posts << post }
-            end
-          #end
-          
-        end
-      end  
-=end
-  
-    # add the public user posts
-    @current_user.aspects[0].people.each do |person|
-          person.aspects[0].posts.each { |post| @posts << post }
-    end  
-
-    # add private posts, if exsit
-    @current_user.aspects[0].people.each do |person|
-          #person.aspects[0].posts.each { |post| @posts << post }
-          person.aspects.each do |aspect|
-            if aspect.people.include? @current_person
-              aspect.posts.each { |post| @posts << post }
-            end
-          end
-    end  
-
-
-    @current_user.person.posts.each do |post|
-      @posts << post
-    end
-    @posts.sort! { |p|  p.created_at.to_i }
-
+    @post= Post.new
+    @posts = Post.all
+   
   end
 
   def messages_notification  
