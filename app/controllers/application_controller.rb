@@ -33,41 +33,18 @@ class ApplicationController < ActionController::Base
 
   def get_posts
     @post = Post.new
-      @posts = []
-
-=begin 
-      @current_user.aspects[0].people.each do |person|
-        person.posts.each do |post|
-          @posts << post
-        end
-      end
-
-=end
-=begin
-      @current_user.aspects[0].people.each do |person|
-        person.user.aspects.each do |aspect| 
-
-          #if aspect.name != "MyAspects"
-            if aspect.people.include? Person.find(@current_person.id)
-              aspect.posts.each { |post| @posts << post }
-            end
-          #end
-          
-        end
-      end  
-=end
+    @posts = []
   
     # add the public user posts
     @current_user.aspects[0].people.each do |person|
-          person.aspects[0].posts.each { |post| @posts << post }
+          person.user.aspects[0].posts.each { |post| @posts << post unless @posts.include? post}
     end  
 
     # add private posts, if exsit
     @current_user.aspects[0].people.each do |person|
-          #person.aspects[0].posts.each { |post| @posts << post }
-          person.aspects.each do |aspect|
+          person.user.aspects.each do |aspect|
             if aspect.people.include? @current_person
-              aspect.posts.each { |post| @posts << post }
+              aspect.posts.each { |post| @posts << post unless @posts.include? post }
             end
           end
     end  
