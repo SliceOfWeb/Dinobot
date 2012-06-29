@@ -66,7 +66,11 @@ class PostsController < ApplicationController
 		end
 		post_d.destroy
 
-		redirect_to :back	
+		respond_to do |format|  
+      		format.html { redirect_to :back }  
+     		format.js   { render :nothing => true }  
+   		end 
+			
 	end
 
 end

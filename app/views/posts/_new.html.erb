@@ -1,8 +1,8 @@
 <div class="post-box" name="post<%=post.id%>">
  <% if post.person == @current_person %>
-  <a href="/posts/<%= post.id %>" data-method="delete">
+   <%=link_to post_path(post), :confirm => 'Are you sure?', :method => :delete, :remote => true, :class => "delete_post"  do %>
     <i class="icon-remove"></i>
-  </a>
+   <%end%>
 <% end %>
   <div class="row content-header">
     <div class="span4">

@@ -3,9 +3,9 @@
     <div class="comts">
       <% commentary.comments.each do |comment| %>
         <div class="onecomment">
-          <a href="/comments/<%= comment.id %>" data-method="delete">
+          <%=link_to comment_path(comment), :confirm => 'Are you sure?', :method => :delete, :remote => true, :class => "delete_post"  do %>
             <i class="icon-remove"></i>
-          </a>
+          <%end%>
           <div class="row content-header">
             <a name=<%=comment.id%>></a>
             <div class="span4">

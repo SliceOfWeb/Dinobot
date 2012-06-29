@@ -1,7 +1,7 @@
 <div class="onecomment">
-  <a href="/comments/<%= @comment.id %>" data-method="delete">
-    <i class="icon-remove"></i>
-  </a>
+  <%=link_to comment_path(@comment), :confirm => 'Are you sure?', :method => :delete, :remote => true, :class => "delete_post"  do %>
+            <i class="icon-remove"></i>
+  <%end%>
   <div class="row content-header">
     <a name=<%=@comment.id%>></a>
     <div class="span4">
@@ -32,4 +32,11 @@
       </div><!--row header-bottom-->
     </div> <!-- span8 --> 
   </div> <!-- content-header -->
-</div> <!-- onecomment --> 
+</div> <!-- onecomment -->
+<script type="text/javascript">
+$(document).ready(function(){
+  $('.delete_post').on('ajax:success', function(){
+    $(this).closest('.onecomment').fadeOut();
+  });
+});
+</script> 
