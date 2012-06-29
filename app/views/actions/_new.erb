@@ -1,18 +1,18 @@
-
+<div name ="target<%=target.action.id%>">
 <%if target.class.name == "Comment"%>
   <ul class="nav nav-pills pull-left">
     <li>
       <%if target.action.people.include?(@current_person)%>
-        <%=link_to({:controller => 'actions', :action => 'unlike', :id=>target.action.id, :target_person_id => target.person_id}) do %>
+        <%=link_to({:controller => 'actions', :action => 'unlike', :id=>target.action.id, :target_person_id => target.person_id}, :remote => true) do %>
           <i class="icon-ok"></i>
           UnLike
-          <sup class="post-counts"><%=target.action.people.count%></sup>
+          <sup class="bo post-counts"><%=target.action.people.count%></sup>
         <%end%>
       <%else%>
-        <%=link_to({:controller => 'actions', :action => 'like', :id=>target.action.id, :target_person_id => target.person_id}) do %>
+        <%=link_to({:controller => 'actions', :action => 'like', :id=>target.action.id, :target_person_id => target.person_id}, :remote => true) do %>
           <i class="icon-ok"></i>
           Like
-          <sup class="post-counts"><%=target.action.people.count%></sup>
+          <sup class="bo post-counts"><%=target.action.people.count%></sup>
         <%end%>
       <%end%>
     </li>
@@ -36,35 +36,36 @@
     <%unless target.class.name == "Image"%>
       <li>
         <%if target.action.people.include?(@current_person)%>
-          <%=link_to({:controller => 'actions', :action => 'unlike', :id=>target.action.id, :target_person_id => target.person_id}) do %>
+          <%=link_to({:controller => 'actions', :action => 'unlike', :id=>target.action.id, :target_person_id => target.person_id}, :remote => true) do %>
             <i class="icon-ok"></i>
             UnLike
-            <sup class="post-counts"><%=target.action.people.count%></sup>
+            <sup class="bo post-counts"><%=target.action.people.count%></sup>
           <%end%>
         <%else%>
-          <%=link_to({:controller => 'actions', :action => 'like', :id=>target.action.id, :target_person_id => target.person_id}) do %>
+          <%=link_to({:controller => 'actions', :action => 'like', :id=>target.action.id, :target_person_id => target.person_id}, :remote => true) do %>
             <i class="icon-ok"></i>
             Like
-            <sup class="post-counts"><%=target.action.people.count%></sup>
+            <sup class="bo post-counts"><%=target.action.people.count%></sup>
           <%end%>
         <%end%>
       </li>
     <%else%>
       <li>
         <%if target.action.people.include?(@current_person)%>
-          <%=link_to({:controller => 'actions', :action => 'unlike', :id=>target.action.id, :target_person_id => target.album.person_id}) do %>
+          <%=link_to({:controller => 'actions', :action => 'unlike', :id=>target.action.id, :target_person_id => target.album.person_id}, :remote => true) do %>
             <i class="icon-ok"></i>
             UnLike
-            <sup class="post-counts"><%=target.action.people.count%></sup>
+            <sup class="bo post-counts"><%=target.action.people.count%></sup>
           <%end%>
         <%else%>
-          <%=link_to({:controller => 'actions', :action => 'like', :id=>target.action.id, :target_person_id => target.album.person_id}) do %>
+          <%=link_to({:controller => 'actions', :action => 'like', :id=>target.action.id, :target_person_id => target.album.person_id}, :remote => true) do %>
             <i class="icon-ok"></i>
             Like
-            <sup class="post-counts"><%=target.action.people.count%></sup>
+            <sup class="bo post-counts"><%=target.action.people.count%></sup>
           <%end%>
         <%end%>
       </li>
     <%end%>
   </ul>
 <%end%>
+</div>

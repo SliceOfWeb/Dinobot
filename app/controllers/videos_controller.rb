@@ -22,7 +22,7 @@ class VideosController < ApplicationController
 			embeds = embeds[1].split('&')
 			@video.link = "http://www.youtube.com/embed/#{embeds[0]}"
 		if @video.save
-      		Action.create(:target_type => 'video', :target_id => @video.id)
+      		Action.create(:target_type => 'Video', :target_id => @video.id)
       		redirect_to profile_video_path(@video.person.user.username,@video)
       	else
       		render text: "Something worng happen while Creating New Video"

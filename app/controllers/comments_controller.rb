@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
 			@comment.person_id = @current_person.id  	
       respond_to do |format|
         if @comment.save
-        	Action.create(:target_type => 'comment', :target_id => @comment.id)
+        	Action.create(:target_type => 'Comment', :target_id => @comment.id)
         	if params[:person_id] != @comment.person_id.to_s
             Notification.create(:target_type => 'Comment',
             :target_id => @comment.id,

@@ -1,0 +1,4 @@
+$('div[name*="target<%=@action.id%>"]').empty().append($('<%= escape_javascript(render(:file => "actions/ajax_action.html.erb"))%>'));
+
+
+
