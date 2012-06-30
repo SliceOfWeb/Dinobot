@@ -33,7 +33,7 @@ class ApplicationController < ActionController::Base
 
   def get_posts
 
-=begin
+
     @post = Post.new
     @posts = []
   
@@ -55,12 +55,12 @@ class ApplicationController < ActionController::Base
     @current_user.person.posts.each do |post|
       @posts << post
     end
-    @posts.sort! { |p|  p.created_at.to_i }
-=end
+    @posts.sort! { |p1,p2|  p2.created_at.to_i <=> p1.created_at.to_i}
 
+=begin
     @post= Post.new
     @posts = Post.all
-   
+=end   
 
   end
 

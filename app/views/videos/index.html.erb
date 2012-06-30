@@ -9,7 +9,7 @@
   <% @videos.each do |video| %>
   <div class="span6 video ">
     <a href="<%=profile_video_path(video.person.user.username,video)%>" class="thumbnail">  
-          <img src="http://placehold.it/260x180">
+          <img src="/pic_thum.gif">
     </a>
     <div class="video-details"> 
       <a href=""><h4><%=video.title%></h4></a>

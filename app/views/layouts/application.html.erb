@@ -44,12 +44,14 @@
 						<span class="i-bar"></span>
 					</a>
 					<a class="brand" href="/home">Dinobot</a>
-					<!-- <form class="navbar-search pull-left" action="">
-					<input type="text" class="search-query span2" placeholder="Search"></form> -->
-					<form class="navbar-search pull-left" action="">
-						<input type="text" class="search-query span2" placeholder="Search" style="margin: 0 auto;" data-provide="typeahead" data-items="4" data-source="[]">
-						<a href="<%=people_path%>"> <i class="icon-white icon-search"></i></a>
-					</form>
+
+					<%= form_tag "/people/search", :class => "navbar-search pull-left" , :method => :get do %>
+					  <p>
+					    <%= search_field_tag :user_q,nil, :class=> "search-query span2", :style => "margin: 0 auto;", "data-provide" =>"typeahead", :placeholder => "Search"%>
+					    <%= submit_tag 'Find', :name => nil, :class => 'btn', :style=>"border-radius: 13px;margin-top: 9px;" %>
+					  </p>
+					<% end %>
+
 					<div class="nav-collapse">
 						<div class="user pull-right">
 							<div class="btn-group">
@@ -59,7 +61,7 @@
 									<%else%>
 										<%= image_tag "pic.png", :class =>"pull-right" %>
 									<%end%>
-									<h4><%= "#{@current_user.username}" %></h4>
+									<b style="padding: 7px"><%= "#{@current_user.username.capitalize}" %></b>
 								</a>
 
 								<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
@@ -81,14 +83,12 @@
 						</div> <!-- user pull-right -->
 						<ul class="nav pull-right">
 							<li>
-								<a href="<%=notifications_path%>"> <i class="icon-white icon-user"></i><%=@notifications_counter%></a>				
+								<a href="<%=notifications_path%>"> <i class="icon-white icon-white icon-flag"></i><%=@notifications_counter%></a>				
 							</li>
 							<li>
 								<a href="/conversations/"><i class="icon-white icon-envelope"></i> <%= @conver_counter %></a>	
 							</li>
-							<li>
-								<a href="#"><i class="icon-white icon-flag"></i></a>
-							</li>
+
 						</ul>
 					</div> <!--/ nav-collapse -->				
 				</div> <!--/ container -->	
@@ -143,7 +143,15 @@
 										<i class="icon-heart icon-white"></i>
 										<a href="#">
 											<h5>Fans</h5>
-											<h5>124</h5>
+											<% fans_count=0 %>
+											<% Person.all.each do|p| %>
+												 <% p.user.aspects.each do |a| %>
+												 	<% unless a.name == "MyAspects" %>
+												 		<% if a.people.include? @current_person then fans_count += 1 end%>
+												 	<% end %>
+												 <% end %>
+											 <% end %>
+											<h5><%= fans_count %></h5>
 										</a>
 									</div>
 									<div class="span4" id="part2">
@@ -152,9 +160,9 @@
 											<h5>Friends</h5>
 											<h5>
 												<%unless params[:username]%>
-												<%=@current_user.aspects[0].people.count%>
+													<%=@current_user.aspects[0].people.count%>
 												<%else%>
-												<%=User.find_by_username(params[:username]).aspects[0].people.count%>
+													<%=User.find_by_username(params[:username]).aspects[0].people.count%>
 												<%end%>
 											</h5>
 										</a>
@@ -310,7 +318,7 @@
 				</div> <!--span4 right-sidebar sides-->
 			</div> <!--row-->
 		</div> <!--main container-->
-
+<link href='http://fonts.googleapis.com/css?family=Signika+Negative:300,400,600,700' rel='stylesheet' type='text/css'>
 <script src="bootstrap-transition.js"></script>
 <script src="bootstrap-alert.js"></script>
 <script src="bootstrap-modal.js"></script>

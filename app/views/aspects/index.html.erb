@@ -11,26 +11,7 @@
     </a>
     <button type="submit" class="btn pull-right">Search</button>
     <input type="text" class="input-medium search-query pull-right">
-    <div class="btn-group pull-right">
-      <a class="btn search-setting btn-small dropdown-toggle" data-toggle="dropdown" href="#">
-        <i class="icon-search"></i>
-        <span class="caret"></span>
-      </a>
-      <ul class="dropdown-menu ">
-        <li>
-          <a href="#">by Name</a>
-        </li>
-        <li>
-          <a href="#">by Location</a>
-        </li>
-        <li>
-          <a href="#">by Network</a>
-        </li>
-        <li>
-          <a href="#">by Interest</a>
-        </li>
-      </ul>
-    </div>
+    
     <!-- /btn-group--> </div>
   <!-- /friends-search-->
   <%@current_user.aspects[0].people.each do |aspect_member| %>
@@ -66,26 +47,4 @@
   </div>
   <!-- /btn-group-->
 
-  <div class="pagination pull-right">
-    <ul>
-      <li class="disabled">
-        <a href="#">«</a>
-      </li>
-      <li class="active">
-        <a href="#">1</a>
-      </li>
-      <li>
-        <a href="#">2</a>
-      </li>
-      <li>
-        <a href="#">3</a>
-      </li>
-      <li>
-        <a href="#">4</a>
-      </li>
-      <li>
-        <a href="#">»</a>
-      </li>
-    </ul>
-  </div>
 </div>

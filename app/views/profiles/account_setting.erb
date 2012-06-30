@@ -26,12 +26,7 @@
       Account
     </a>
   </li>
-  <li >
-    <a href="/profiles/<%= @current_user.username %>
-      /privacy_setting" > <i class="icon-eye-open"></i>
-      Privacy
-    </a>
-  </li>
+ 
 </ul>
 <div id="myTabContent" class="tab-content">
   <div class="tab-pane fade active in" id="account">
@@ -62,67 +57,8 @@
 
           </fieldset>
 
-        
-              <h2>Notification</h2>
-              <fieldset>
-                <div class="control-group notif-group">
-                  <input type="checkbox">
-                  <h4>Photos&nbsp;&nbsp;&nbsp;&nbsp;</h4>
-                </div>
+   
 
-                <div class="control-group notif-group">
-                  <input type="checkbox">
-                  <h4>Videos&nbsp;&nbsp;&nbsp;&nbsp;</h4>
-                </div>
-
-
-                <div class="control-group notif-group">
-                  <input type="checkbox">
-                  <h4>Comments&nbsp;&nbsp;&nbsp;&nbsp;</h4>
-                </div>
-
-                <div class="control-group notif-group">
-                  <input type="checkbox">
-                  <h4>Posts on wall&nbsp;&nbsp;&nbsp;&nbsp;</h4>
-                </div>
-
-                <div class="control-group notif-group">
-                  <input type="checkbox">
-                  <h4>friend request&nbsp;&nbsp;&nbsp;&nbsp;</h4>
-                </div>
-                  
-                <div class="control-group notif-group">
-                  <input type="checkbox">
-                  <h4>Event invitation&nbsp;&nbsp;&nbsp;&nbsp;</h4>
-
-                </div>
-
-              </fieldset>
-
-              <h2>Account Services</h2>
-              <fieldset>
-                <div class="control-group">
-
-                  <h4>Facebook&nbsp;&nbsp;&nbsp;&nbsp;</h4>
-
-                  <a class="btn" href="#">
-                    <i class="icon-pencil"></i>
-                    Edit
-                  </a>
-
-                </div>
-                <div class="control-group">
-
-                  <h4>Twitter&nbsp;&nbsp;&nbsp;&nbsp;</h4>
-
-                  <a class="btn" href="#">
-                    <i class="icon-pencil"></i>
-                    Edit
-                  </a>
-
-                </div>
-
-              </fieldset>
 
               <div class="form-actions">
                 <%= submit_tag "Save changes", class:"btn btn-primary"  %>

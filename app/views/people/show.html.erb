@@ -1,6 +1,6 @@
 <h1>Search Result</h1>
 <div class="people">
-	<% for p in @people%>
+	<% for p in @profiles%>
 	   	<div class="person row">
 	   		<div class="span4">
 	   			 <a href="#">
@@ -22,7 +22,7 @@
 	   		</div>
 
 	   		<div class="span5">
-	   			<%= render(:partial => 'people/person', :locals => {:p => p} )%>
+	   			<%= render(:partial => 'people/person', :locals => {:p => p.user.person} )%>
 	   		</div>
 		</div>
 	<%end%>

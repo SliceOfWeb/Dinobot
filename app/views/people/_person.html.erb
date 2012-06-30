@@ -11,12 +11,14 @@
 <%end%>
 
 <div class="btn-group pull-left">
+	<% unless p.user.profile == @current_profile %>
 	<a class= "<%=@classname%>" data-toggle="dropdown">
 		<%=@buttonname%>
 	</a>
+	<% end %>
 	<ul class="dropdown-menu ">
 		<li>
-			<a href="#"> <i class="icon-plus"></i> Add to New List </a>
+			<h4>&nbsp;&nbsp; Add to New List</h4>
 		</li>
 		<li class="divider"></li>
 		<%@current_user.aspects.each do |aspect| %>
@@ -41,8 +43,6 @@
 			</li>
 		<%end%>
 		<li class="divider"></li>
-		<li>
-			<a href="#"> <i class="icon-ban-circle"></i> Block </a>
-		</li>
+		
 	</ul>
 </div>

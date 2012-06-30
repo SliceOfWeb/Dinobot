@@ -32,7 +32,7 @@ class PostsController < ApplicationController
 			@post.post_type= "status"  #In Case User just write a status
 		end
 		@post.person_id = @current_person.id
-		# @post.aspects << @current_user.aspects.find_by_name("#{params[:aspect_name]}")
+		@post.aspects << @current_user.aspects.find_by_name("#{params[:aspect_name]}")
     	respond_to do |format|
 	    	if @post.save
 	    		Action.create(:target_type => 'Post', :target_id => @post.id)
